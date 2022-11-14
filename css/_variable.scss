@@ -1,19 +1,21 @@
 //字級
 $fz-s: 16px; //*1.5=24 *2=32 *3=48
+$fz-m: 20px;
+$fz-l: 24px;
 
 //字重
 // $fw-xs: 100;
 $fw-s: 300;
 $fw-m: 400;
 $fw-l: 500;
-// $fw-xl: 700;
+$fw-xl: 700;
 // $fw-xxl: 900;
 
 //網站色調
-// $c1st:
-// $c2nd:
-// $c3rd:
-// $c4th:
+$c1st: #ffe60f;
+$c2nd: #000;
+$c3rd: #535353;
+$c4th: #eeeeee;
 
 //動畫速度
 $trsFast: all 0.2s;
