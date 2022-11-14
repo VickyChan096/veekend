@@ -1,0 +1,10 @@
+@import "variable"; //字級、顏色、速度
+@import "reset"; //Reset、初始設定
+@import "mixin"; //Flex、@media
+@import "common";//此專案通用、toTop、按鈕
+
+h1{
+    padding-bottom: 2000px;
+    font-size: $fz-s * 3;
+    text-align: center;
+}

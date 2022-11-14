@@ -1,0 +1,57 @@
+#toTop {
+  z-index: 90;
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  font-size: $fz-s * 2;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+//Button樣式
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  border-radius: 20px;
+  background-color: blue;
+  transition: $trsSlow;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(120%);
+  }
+}
+
+// .btnPrimary {
+//   color:
+//   background-color:
+// }
+
+// .btnSecondary{
+//   color:
+//   background-color:
+// }
+
+// .btnTertiary{
+//   color:
+//   background-color:
+// }
+
+// body {
+//   color: #000;
+//   font-size:
+//   font-weight:
+// }
+
+// .container {
+//   margin: 0 auto;
+//   max-width: 1200px;
+// }
