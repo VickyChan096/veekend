@@ -1,0 +1,398 @@
+#toTop {
+  z-index: 90;
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  font-size: $fz-s * 2;
+  text-align: center;
+  color: $c2nd;
+  background-color: $c1st;
+  border-radius: 50%;
+}
+
+//Button樣式
+// .btn {
+//   display: inline-block;
+//   padding: 6px 12px;
+//   text-align: center;
+//   white-space: nowrap;
+//   user-select: none;
+//   border-radius: 20px;
+//   background-color: blue;
+//   transition: $trsSlow;
+//   cursor: pointer;
+
+//   &:hover {
+//     filter: brightness(120%);
+//   }
+// }
+
+// .btnPrimary {
+//   color:
+//   background-color:
+// }
+
+// .btnSecondary{
+//   color:
+//   background-color:
+// }
+
+// .btnTertiary{
+//   color:
+//   background-color:
+// }
+
+body {
+  color: #000;
+  font-size: $fz-s;
+  font-weight: $fw-s;
+  // background-color: $c2nd;
+}
+
+.wrap {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+// header 
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $c1st;
+  box-shadow: 0px 3px 6px #00000010;
+}
+
+.header {
+  @include disFlex($jc: space-between);
+  position: relative;
+  padding: 0 8px;
+
+  @include mobile {
+    flex-wrap: wrap;
+  }
+
+  &__content {
+    @include disFlex($jc: space-between);
+    margin: 8px 0;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    &__logo {
+      @include disFlex;
+
+      h1 {
+        width: 40px;
+        height: 40px;
+        background-image: url(../images/logo.svg);
+        background-size: cover;
+        text-indent: 101%;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      img {
+        width: 120px;
+      }
+    }
+
+    &__hamburger {
+      display: none;
+      border-radius: 4px;
+      background-color: $c2nd;
+
+      @include mobile {
+        display: block;
+      }
+
+      #hamburger {
+        display: none;
+      }
+
+      #hamburger:checked+label div span:nth-child(1) {
+        background-color: $c2nd;
+      }
+
+      #hamburger:checked+label div span:nth-child(2) {
+        transform: rotate(-45deg);
+      }
+
+      #hamburger:checked+label div span:nth-child(3) {
+        top: -9px;
+        transform: rotate(45deg);
+      }
+
+      div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 4px;
+        width: 40px;
+        height: 40px;
+      }
+
+      span {
+        position: relative;
+        top: 0;
+        display: block;
+        height: 1px;
+        background-color: #fff;
+        transition: $trsSlow;
+      }
+
+      span:nth-child(2),
+      span:nth-child(3) {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &__nav {
+    // js打開後開啟
+    display: flex;
+    // display: block;
+
+    @include mobile {
+      position: absolute;
+      top: 56px;
+      left: 0;
+      // js打開後開啟
+      display: none; // nav小網關閉
+      padding: 8px;
+      width: 100%;
+      background-color: $c4th;
+    }
+
+    &__search {
+      display: flex;
+
+      input {
+        padding: 8px;
+        height: 30px;
+        width: 30vw;
+        border-radius: 4px 0 0 4px;
+
+        @include mobile {
+          margin-bottom: 8px;
+          width: 100%;
+        }
+      }
+
+      button {
+        width: 30px;
+        height: 30px;
+        border-radius: 0 4px 4px 0;
+        background-size: 20px;
+        background-color: $c2nd;
+        background-image: url(../images/search.png);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
+    &__menu {
+      position: relative;
+      display: flex;
+
+      @include mobile {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+.menu {
+  @include disFlex;
+  position: relative;
+  margin-right: 10px;
+  font-weight: $fw-l;
+  cursor: pointer;
+
+  @include mobile {
+    justify-content: start;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+
+  // 第一個.menu (新北市)
+  &:first-child {
+    margin-left: 10px;
+
+    @include mobile {
+      margin-left: 20px;
+    }
+  }
+
+  // 最後一個.menu (登入)
+  &:last-child {
+    margin-right: 0;
+  }
+
+  h3 {
+    position: relative;
+    z-index: 1;
+
+    @include mobile {
+      width: 100%;
+
+      span {
+        position: absolute;
+        top: 12px;
+        left: -20px;
+        width: 12px;
+        height: 1px;
+        background-color: $c3rd;
+        transition: $trsSlow;
+      }
+
+      span.active {
+        transform: rotate(270deg);
+      }
+    }
+  }
+
+  // 白色底線
+  h3::after {
+    content: "";
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 0%;
+    border-bottom: 10px solid #fff;
+    transform: translateX(-50%);
+    transition: $trsFast;
+    z-index: -1;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  // 偽元素不是dom節點，用添加新類的方式呈現
+  .active::after {
+    left: calc(50% - -4px);
+    width: calc(110% + 8px);
+  }
+
+  &__district {
+    position: relative;
+    display: none;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    ul {
+      position: absolute;
+      top: 20px;
+      right: -11px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding-top: 8px;
+      width: 320px;
+      border: 1px solid $c4th;
+      background-color: #fff;
+
+      @include mobile {
+        position: relative;
+        top: 0;
+        right: 0;
+        padding: 8px;
+        width: 100%;
+      }
+
+      li {
+        padding: 0 4px;
+        margin-bottom: 8px;
+        font-weight: $fw-s;
+        border-left: 1px solid $c4th;
+        transition: $trsFast;
+
+        &:hover,
+        &.active {
+          background-color: $c1st;
+        }
+
+        @include mobile {
+          padding: 4px 8px;
+          margin: 4px;
+          font-size: $fz-m;
+          border: 1px solid $c4th;
+          border-radius: 4px;
+        }
+      }
+
+      // 5n+1的li沒有左分隔線
+      li:nth-child(5n+1) {
+        border: none;
+
+        @include mobile {
+          border: 1px solid $c4th;
+        }
+      }
+
+      li:last-child {
+        font-weight: $fw-l;
+      }
+    }
+  }
+
+  &__district.active {
+    display: block;
+  }
+
+  // 其他地區樣式
+  .lastDistrict {
+    li {
+      display: flex;
+
+      i {
+        display: block;
+        margin-right: 2px;
+        margin-top: 4px;
+        font-size: $fz-s * 0.6;
+      }
+    }
+
+    // 先將5n+1的li左分隔線加上
+    li:nth-child(5n+1) {
+      border-left: 1px solid $c4th;
+    }
+
+    // 再將3n+1的li左分隔線刪除
+    li:nth-child(3n+1) {
+      border: 0;
+
+      @include mobile {
+        border: 1px solid $c4th;
+      }
+    }
+  }
+
+  // .menu的icon
+  i {
+    margin-left: 1px;
+    font-size: $fz-s * 0.5;
+    color: darken($c1st, 10%);
+    transition: $trsFast;
+    z-index: 1;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &:hover i,
+  i.active {
+    color: $c2nd;
+  }
+}
