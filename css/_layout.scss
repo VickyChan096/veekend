@@ -57,7 +57,7 @@ body {
   max-width: 1200px;
 }
 
-// header 
+// header開始 ------->
 header {
   position: fixed;
   top: 0;
@@ -154,16 +154,14 @@ header {
   }
 
   &__nav {
-    // js打開後開啟
     display: flex;
-    // display: block;
+    transition: 5s linear;
 
     @include mobile {
       position: absolute;
       top: 56px;
       left: 0;
-      // js打開後開啟
-      display: none; // nav小網關閉
+      display: none;
       padding: 8px;
       width: 100%;
       background-color: $c4th;
@@ -325,7 +323,7 @@ header {
         @include mobile {
           padding: 4px 8px;
           margin: 4px;
-          font-size: $fz-m;
+          font-size: $fz-s * 1.2;
           border: 1px solid $c4th;
           border-radius: 4px;
         }
@@ -396,3 +394,4 @@ header {
     color: $c2nd;
   }
 }
+// header結束 <-------

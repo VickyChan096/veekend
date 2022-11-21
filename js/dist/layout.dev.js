@@ -2,7 +2,7 @@
 
 var _hamburger = document.getElementById('hamburger');
 
-var _nav = document.getElementById('nav'); // 漢堡選單toggle
+var _nav = document.getElementById('nav'); // 漢堡選單toggle TODO:加過場動畫
 
 
 _hamburger.addEventListener('click', function () {
@@ -46,7 +46,7 @@ $(function () {
   $('.menu').click(function (event) {
     // 小網箭頭轉向 與 同級元素關閉
     $(this).find('span').toggleClass('active');
-    $(this).siblings().find('span').removeClass('active'); // 小網地區開合 與 同級元素關閉
+    $(this).siblings().find('span').removeClass('active'); // 小網地區開合 與 同級元素關閉 TODO:加過場動畫
 
     $(this).find('.menu__district').toggleClass('active');
     $(this).siblings().find('.menu__district').removeClass('active'); // 大網h3底線(偽元素)開合 與 同級元素關閉

@@ -1,7 +1,7 @@
 const _hamburger = document.getElementById('hamburger');
 const _nav = document.getElementById('nav');
 
-// 漢堡選單toggle
+// 漢堡選單toggle TODO:加過場動畫
 _hamburger.addEventListener('click', function () {
   if (_nav.style.display === 'block') {
     _nav.style = 'display: none';
@@ -44,7 +44,7 @@ $(function () {
     $(this).find('span').toggleClass('active');
     $(this).siblings().find('span').removeClass('active');
 
-    // 小網地區開合 與 同級元素關閉
+    // 小網地區開合 與 同級元素關閉 TODO:加過場動畫
     $(this).find('.menu__district').toggleClass('active');
     $(this).siblings().find('.menu__district').removeClass('active');
 
