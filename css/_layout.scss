@@ -70,10 +70,11 @@ header {
 .header {
   @include disFlex($jc: space-between);
   position: relative;
-  padding: 0 8px;
+  padding: 0 30px;
 
   @include mobile {
     flex-wrap: wrap;
+    padding: 0 15px;
   }
 
   &__content {
@@ -174,7 +175,7 @@ header {
       input {
         padding: 8px;
         height: 30px;
-        width: 30vw;
+        width: 25vw;
         border-radius: 4px 0 0 4px;
 
         @include mobile {
@@ -300,13 +301,15 @@ header {
       width: 320px;
       border: 1px solid $c4th;
       background-color: #fff;
-
+      
       @include mobile {
         position: relative;
         top: 0;
         right: 0;
         padding: 8px;
         width: 100%;
+        max-height: 200px;
+        overflow-y: scroll;
       }
 
       li {
@@ -411,7 +414,7 @@ header {
     filter: grayscale(100%) contrast(1.5);
 
     @include mobile {
-      height: 100px;
+      height: 150px;
     }
   }
 
@@ -432,7 +435,7 @@ header {
       @include mobile {
         img {
           display: block;
-          width: 36px;
+          width: 40px;
           transition: $trsSlow;
         }
 

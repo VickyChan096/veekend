@@ -2,9 +2,193 @@
 @import "reset"; // Reset、初始設定
 @import "mixin"; // Flex、@media
 @import "layout"; // header、footer、toTop、button
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+.main {
+	padding-top: 56px;
+	width: 100%;
+	background-color: #fff;
+
+	&__content {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+section {
+	padding: 40px 0;
+
+	@include mobile {
+		padding: 16px 0;
+	}
+}
+
+.swiper {
+	max-width: 1200px;
+	max-height: 450px;
+	border-radius: 8px;
+
+	.swiperContent {
+		position: relative;
+
+		&__content {
+			position: absolute;
+			top: 280px;
+			right: 0px;
+			display: flex;
+			width: 500px;
+			height: 120px;
+			text-align: center;
+			z-index: 11;
+
+			@media screen and (max-width: 1200px) {
+				right: 30px;
+			}
+
+			@include mobile {
+				top: 0px;
+				left: 15px;
+				width: calc(100% - 30px);
+			}
+
+			@include min-mobile {
+				height: 80px;
+			}
+
+			&__left {
+				padding-top: 20px;
+				width: 25%;
+				color: #fff;
+				background-color: $c2nd;
+
+				@include mobile {
+					border-radius: 8px 0 0 0;
+				}
+
+				@include min-mobile {
+					padding-top: 12px;
+				}
+
+				h5 {
+					margin-top: -20px;
+					font-size: 60px;
+					font-weight: $fw-l;
+					font-family: 'Archivo Black', sans-serif;
+
+					@include min-mobile {
+						margin-top: -12px;
+						font-size: 30px;
+					}
+				}
+			}
+
+			&__right {
+				display: flex;
+				align-content: center;
+				justify-content: center;
+				flex-wrap: wrap;
+				padding: 0 20px;
+				width: 75%;
+				background-color: $c1st;
+
+				@include mobile {
+					justify-content: start;
+					text-align: left;
+					border-radius: 0 8px 0 0;
+				}
+
+				@include min-mobile {
+					padding: 0 10px;
+				}
+
+				p {
+					position: relative;
+					font-size: $fz-m;
+					font-weight: $fw-m;
+					z-index: 11;
+
+					@include min-mobile {
+						margin-bottom: 4px;
+						font-size: $fz-s * 0.6;
+					}
+				}
+
+				p::after {
+					content: "";
+					position: absolute;
+					top: 14px;
+					left: 50%;
+					width: 110%;
+					border-bottom: 10px solid #fff;
+					transform: translateX(-50%);
+					transition: $trsFast;
+					z-index: -1;
+
+					@include min-mobile {
+						top: 8px;
+						border-bottom: 8px solid #fff;
+					}
+				}
+
+				h4 {
+					font-size: $fz-l;
+					font-weight: $fw-l;
+					line-height: 1.2;
+
+					@include min-mobile {
+						font-size: $fz-s;
+					}
+				}
+			}
+		}
+
+		&__photo {
+			padding: 0 30px;
+
+			@include mobile {
+				padding: 0 15px;
+			}
+
+			img {
+				width: 100%;
+				max-height: 450px;
+				border-radius: 8px;
+				object-fit: cover;
+			}
+		}
+	}
+
+	.swiper-pagination {
+		padding-right: 100px;
+		text-align: right;
+
+		@include min-mobile {
+			padding-right: 40px;
+		}
+
+
+		.swiper-pagination-bullet {
+			margin-right: 8px;
+			width: 15px;
+			height: 15px;
+			background: $c1st;
+
+			@include min-mobile {
+				width: 10px;
+				height: 10px;
+			}
+		}
+	}
+}
 
 main {
-    width: 100%;
-    height: 1500px;
-    background-color: #fff;
+	width: 800px;
+	height: 1200px;
+	background-color: $c3rd;
+}
+
+aside {
+	width: 300px;
+	height: 1200px;
+	background-color: $c4th;
 }
