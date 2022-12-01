@@ -2,24 +2,24 @@
 @import "reset"; // Reset、初始設定
 @import "mixin"; // Flex、@media
 @import "layout"; // header、footer、toTop、button
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
-.main {
+main {
 	padding-top: 56px;
 	width: 100%;
 	background-color: #fff;
 
-	&__content {
+	.heroSection {
+		padding: 30px 0;
+
+		@include mobile {
+			padding: 16px 0;
+		}
+	}
+
+	.mainContent {
 		display: flex;
 		justify-content: space-between;
-	}
-}
-
-section {
-	padding: 40px 0;
-
-	@include mobile {
-		padding: 16px 0;
+		padding: 0 30px;
 	}
 }
 
@@ -76,7 +76,7 @@ section {
 					font-family: 'Archivo Black', sans-serif;
 
 					@include min-mobile {
-						margin-top: -12px;
+						margin-top: -9px;
 						font-size: 30px;
 					}
 				}
@@ -105,7 +105,6 @@ section {
 					position: relative;
 					font-size: $fz-m;
 					font-weight: $fw-m;
-					z-index: 11;
 
 					@include min-mobile {
 						margin-bottom: 4px;
@@ -116,7 +115,7 @@ section {
 				p::after {
 					content: "";
 					position: absolute;
-					top: 14px;
+					top: 16px;
 					left: 50%;
 					width: 110%;
 					border-bottom: 10px solid #fff;
@@ -125,12 +124,13 @@ section {
 					z-index: -1;
 
 					@include min-mobile {
-						top: 8px;
+						top: 6px;
 						border-bottom: 8px solid #fff;
 					}
 				}
 
 				h4 {
+					width: 100%;
 					font-size: $fz-l;
 					font-weight: $fw-l;
 					line-height: 1.2;
@@ -151,9 +151,10 @@ section {
 
 			img {
 				width: 100%;
-				max-height: 450px;
+				height: 450px;
 				border-radius: 8px;
 				object-fit: cover;
+				z-index: 1;
 			}
 		}
 	}
@@ -179,16 +180,4 @@ section {
 			}
 		}
 	}
-}
-
-main {
-	width: 800px;
-	height: 1200px;
-	background-color: $c3rd;
-}
-
-aside {
-	width: 300px;
-	height: 1200px;
-	background-color: $c4th;
 }

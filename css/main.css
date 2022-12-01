@@ -199,6 +199,7 @@ button {
 }
 
 body {
+  position: relative;
   color: #000;
   font-size: 16px;
   font-weight: 300;
@@ -526,6 +527,131 @@ header {
   color: #000;
 }
 
+.aside {
+  position: relative;
+  width: 200px;
+  transition: all 0.5s;
+}
+@media only screen and (max-width: 768px) {
+  .aside {
+    display: none;
+  }
+}
+.aside h5 {
+  margin-bottom: 10px;
+  padding: 8px 0;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: #000;
+  font-family: "Archivo Black", sans-serif;
+}
+.aside__photo {
+  position: relative;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 200px;
+}
+.aside__photo img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 185px;
+  height: 185px;
+  transition: all 0.5s;
+  filter: grayscale(100%) contrast(140%);
+}
+.aside__photo img:hover {
+  filter: grayscale(0%) contrast(120%);
+}
+.aside__photo span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 185px;
+  height: 185px;
+  background-color: #ffe60f;
+}
+.aside__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 200px;
+}
+.aside__info ul {
+  display: flex;
+  flex-direction: column;
+}
+.aside__info ul li {
+  margin-bottom: 8px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.aside__info ul li:hover {
+  transform: scale(1.2);
+}
+.aside__info ul li:last-child {
+  margin-bottom: 0;
+}
+.aside__info ul img {
+  width: 28px;
+}
+.aside__popular {
+  margin-bottom: 10px;
+  width: 200px;
+}
+.aside__popular ul li {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid #eeeeee;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.aside__popular ul li:first-child {
+  padding-top: 0;
+}
+.aside__popular ul li:last-child {
+  border-bottom: 0;
+}
+.aside__popular ul img {
+  margin-right: 8px;
+  width: 80px;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.5s;
+  filter: grayscale(100%) contrast(1.2);
+}
+.aside__popular ul li:hover img {
+  filter: grayscale(0%);
+}
+.aside__hushtag {
+  margin-bottom: 20px;
+  width: 200px;
+}
+.aside__hushtag a {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 2px 6px;
+  color: #000;
+  font-weight: 400;
+  border-radius: 4px;
+  background-color: #eeeeee;
+  transition: all 0.2s;
+}
+.aside__hushtag a:hover {
+  background-color: #ffe60f;
+}
+.aside__ad {
+  margin-bottom: 20px;
+  transition: all 0.2s;
+  filter: grayscale(100%);
+}
+.aside__ad:hover {
+  filter: grayscale(0%);
+}
+
 .footer {
   color: #fff;
 }
@@ -595,23 +721,23 @@ header {
   text-align: center;
 }
 
-.main {
+main {
   padding-top: 56px;
   width: 100%;
   background-color: #fff;
 }
-.main__content {
-  display: flex;
-  justify-content: space-between;
-}
-
-section {
-  padding: 40px 0;
+main .heroSection {
+  padding: 30px 0;
 }
 @media only screen and (max-width: 768px) {
-  section {
+  main .heroSection {
     padding: 16px 0;
   }
+}
+main .mainContent {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
 }
 
 .swiper {
@@ -673,7 +799,7 @@ section {
 }
 @media only screen and (max-width: 428px) {
   .swiper .swiperContent__content__left h5 {
-    margin-top: -12px;
+    margin-top: -9px;
     font-size: 30px;
   }
 }
@@ -702,7 +828,6 @@ section {
   position: relative;
   font-size: 20px;
   font-weight: 400;
-  z-index: 11;
 }
 @media only screen and (max-width: 428px) {
   .swiper .swiperContent__content__right p {
@@ -713,7 +838,7 @@ section {
 .swiper .swiperContent__content__right p::after {
   content: "";
   position: absolute;
-  top: 14px;
+  top: 16px;
   left: 50%;
   width: 110%;
   border-bottom: 10px solid #fff;
@@ -723,11 +848,12 @@ section {
 }
 @media only screen and (max-width: 428px) {
   .swiper .swiperContent__content__right p::after {
-    top: 8px;
+    top: 6px;
     border-bottom: 8px solid #fff;
   }
 }
 .swiper .swiperContent__content__right h4 {
+  width: 100%;
   font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
@@ -747,10 +873,11 @@ section {
 }
 .swiper .swiperContent__photo img {
   width: 100%;
-  max-height: 450px;
+  height: 450px;
   border-radius: 8px;
   -o-object-fit: cover;
      object-fit: cover;
+  z-index: 1;
 }
 .swiper .swiper-pagination {
   padding-right: 100px;
@@ -772,16 +899,4 @@ section {
     width: 10px;
     height: 10px;
   }
-}
-
-main {
-  width: 800px;
-  height: 1200px;
-  background-color: #535353;
-}
-
-aside {
-  width: 300px;
-  height: 1200px;
-  background-color: #eeeeee;
 }/*# sourceMappingURL=main.css.map */
