@@ -56,7 +56,7 @@ $(function () {
     $(this).find('i').toggleClass('active');
     $(this).siblings().find('i').removeClass('active');
   });
-  
+
   // 地區li點擊事件
   $('.menu__district li').click(function (event) {
     // li底色換色 與 同級元素關閉 與 遍歷同元素關閉

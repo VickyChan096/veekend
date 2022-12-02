@@ -11,7 +11,54 @@
   color: $c2nd;
   background-color: $c1st;
   border-radius: 50%;
+
+  @include min-mobile {
+    right: 8px;
+  }
 }
+
+// Button樣式
+.btn {
+  padding: 16px;
+  font-size: $fz-s;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  border-radius: 4px;
+  transition: $trsSlow;
+  cursor: pointer;
+
+  @include min-mobile {
+    padding: 8px;
+  }
+}
+
+.btnPrimary {
+  color: $c2nd;
+  background-color: $c1st;
+
+  &:hover {
+    color: #fff;
+    background-color: $c2nd;
+  }
+}
+
+.btnSecondary {
+  color: $c2nd;
+  border: 1px solid $c1st;
+  background-color: #fff;
+
+  &:hover {
+    color: $c2nd;
+    background-color: $c1st;
+  }
+}
+
+// .btnTertiary{
+//   color:
+//   background-color:
+// }
 
 body {
   position: relative;
@@ -367,12 +414,15 @@ header {
     color: $c2nd;
   }
 }
+
 // header結束 <-------
 
 // aside開始 ------->
 .aside {
-  position: relative;
+  position: sticky;
+  top: 76px;
   width: 200px;
+  height: 100%;
 
   @include mobile {
     display: none;
@@ -468,8 +518,8 @@ header {
 
       img {
         margin-right: 8px;
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         object-fit: cover;
         transition: $trsSlow;
         filter: grayscale(100%) contrast(1.2);
@@ -502,7 +552,6 @@ header {
   }
 
   &__ad {
-    margin-bottom: 20px;
     transition: $trsFast;
     filter: grayscale(100%);
 
@@ -517,6 +566,7 @@ header {
 // footer開始 ------->
 .footer {
   color: #fff;
+
   &__photo {
     width: 100%;
     height: 300px;
@@ -533,6 +583,7 @@ header {
   &__info {
     @include disFlex;
     padding: 32px 0 16px;
+    width: 90%;
     border-bottom: 1px solid darken($c3rd, 10%);
 
     li {
@@ -589,4 +640,5 @@ header {
     text-align: center;
   }
 }
+
 // footer結束 <-------

@@ -197,6 +197,50 @@ button {
   background-color: #ffe60f;
   border-radius: 50%;
 }
+@media only screen and (max-width: 428px) {
+  #toTop {
+    right: 8px;
+  }
+}
+
+.btn {
+  padding: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 4px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+@media only screen and (max-width: 428px) {
+  .btn {
+    padding: 8px;
+  }
+}
+
+.btnPrimary {
+  color: #000;
+  background-color: #ffe60f;
+}
+.btnPrimary:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.btnSecondary {
+  color: #000;
+  border: 1px solid #ffe60f;
+  background-color: #fff;
+}
+.btnSecondary:hover {
+  color: #000;
+  background-color: #ffe60f;
+}
 
 body {
   position: relative;
@@ -528,8 +572,11 @@ header {
 }
 
 .aside {
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 76px;
   width: 200px;
+  height: 100%;
 }
 @media only screen and (max-width: 768px) {
   .aside {
@@ -613,8 +660,8 @@ header {
 }
 .aside__popularPost ul img {
   margin-right: 8px;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   -o-object-fit: cover;
      object-fit: cover;
   transition: all 0.5s;
@@ -641,7 +688,6 @@ header {
   background-color: #ffe60f;
 }
 .aside__ad {
-  margin-bottom: 20px;
   transition: all 0.2s;
   filter: grayscale(100%);
 }
@@ -670,6 +716,7 @@ header {
   justify-content: center;
   align-items: center;
   padding: 32px 0 16px;
+  width: 90%;
   border-bottom: 1px solid #3a3a3a;
 }
 .footer__info li {
@@ -734,11 +781,11 @@ main .heroSection {
 main .contentWrap {
   display: flex;
   justify-content: space-between;
-  padding: 0 30px;
+  padding: 0 30px 30px;
 }
 @media only screen and (max-width: 768px) {
   main .contentWrap {
-    padding: 0 15px;
+    padding: 0 15px 30px;
   }
 }
 
@@ -916,6 +963,27 @@ main .contentWrap {
     width: 100%;
   }
 }
+.articleList > button {
+  width: calc(40% - 4px);
+}
+@media only screen and (max-width: 992px) {
+  .articleList > button {
+    width: 100%;
+  }
+}
+.articleList > button span {
+  display: inline-block;
+  padding-top: 8px;
+  width: 12px;
+  height: 12px;
+  background-image: url(../images/refresh-y.png);
+  background-size: cover;
+  transition: all 0.5s;
+}
+.articleList > button:hover span {
+  rotate: 180deg;
+  background-image: url(../images/refresh.png);
+}
 .articleList li {
   display: flex;
   padding-top: 20px;
@@ -931,9 +999,14 @@ main .contentWrap {
 .articleList__photo {
   position: relative;
   margin-right: 10px;
-  width: 350px;
+  width: 40%;
   height: 200px;
   overflow: hidden;
+}
+@media only screen and (max-width: 428px) {
+  .articleList__photo {
+    height: 150px;
+  }
 }
 .articleList__photo span {
   position: absolute;
@@ -945,56 +1018,75 @@ main .contentWrap {
   background-color: #ffe60f;
   z-index: 1;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 428px) {
   .articleList__photo span {
-    left: 0;
+    top: 0px;
+    width: 100%;
+    color: #fff;
+    font-size: 12.8px;
+    background-color: #000;
   }
 }
 .articleList__photo img {
   min-height: 200px;
   transition: all 0.5s;
-  -o-object-fit: fill;
-     object-fit: fill;
+  -o-object-fit: cover;
+     object-fit: cover;
   filter: grayscale(100%);
 }
+@media only screen and (max-width: 428px) {
+  .articleList__photo img {
+    min-height: 150px;
+  }
+}
 .articleList__photo img:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
   filter: grayscale(0%);
 }
 .articleList__content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 60%;
 }
 .articleList__content__text p {
   margin-bottom: 4px;
   font-weight: 400;
 }
+@media only screen and (max-width: 428px) {
+  .articleList__content__text p {
+    font-size: 12.8px;
+  }
+}
 .articleList__content__text h6 {
   margin-bottom: 4px;
+  max-height: 56px;
   font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
+  overflow: hidden;
 }
 @media only screen and (max-width: 992px) {
   .articleList__content__text h6 {
+    max-height: 48px;
     font-size: 20px;
+  }
+}
+@media only screen and (max-width: 428px) {
+  .articleList__content__text h6 {
+    max-height: 55px;
+    font-size: 16px;
   }
 }
 .articleList__content__text i {
   color: #868686;
   font-size: 12.8px;
 }
-.articleList__content__btn {
-  padding: 16px;
-  width: 150px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 4px;
-  background-color: #ffe60f;
-  transition: all 0.2s;
+@media only screen and (max-width: 428px) {
+  .articleList__content__text i {
+    font-size: 9.6px;
+  }
 }
-.articleList__content__btn:hover {
-  color: #fff;
-  background-color: #000;
+.articleList__content button {
+  width: 150px;
 }/*# sourceMappingURL=main.css.map */

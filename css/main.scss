@@ -19,10 +19,10 @@ main {
 	.contentWrap {
 		display: flex;
 		justify-content: space-between;
-		padding: 0 30px;
+		padding: 0 30px 30px;
 
 		@include mobile {
-			padding: 0 15px;
+			padding: 0 15px 30px;
 		}
 	}
 }
@@ -197,6 +197,31 @@ main {
 		width: 100%;
 	}
 
+	>button {
+		width: calc(40% - 4px);
+
+		@include pad {
+			width: 100%;
+		}
+
+		span {
+			display: inline-block;
+			padding-top: 8px;
+			width: 12px;
+			height: 12px;
+			background-image: url(../images/refresh-y.png);
+			background-size: cover;
+			transition: $trsSlow;
+		}
+
+		&:hover {
+			span {
+				rotate: 180deg;
+				background-image: url(../images/refresh.png);
+			}
+		}
+	}
+
 	li {
 		display: flex;
 		padding-top: 20px;
@@ -215,35 +240,46 @@ main {
 	&__photo {
 		position: relative;
 		margin-right: 10px;
-		width: 350px;
+		width: 40%;
 		height: 200px;
 		overflow: hidden;
+
+		@include min-mobile {
+			height: 150px;
+		}
 
 		span {
 			position: absolute;
 			top: 16px;
-
 			padding: 4px;
 			width: 100px;
 			font-weight: bold;
 			text-align: center;
-			// border-radius: 20px;
 			background-color: $c1st;
 			z-index: 1;
 
-			@include mobile {
-				left: 0;
+			@include min-mobile {
+				top: 0px;
+				width: 100%;
+				color: #fff;
+				font-size: $fz-s * 0.8;
+				background-color: $c2nd;
 			}
 		}
 
 		img {
 			min-height: 200px;
 			transition: $trsSlow;
-			object-fit: fill;
+			object-fit: cover;
 			filter: grayscale(100%);
 
+			@include min-mobile {
+				min-height: 150px;
+				// object-fit: contain;
+			}
+
 			&:hover {
-				transform: scale(1.5);
+				transform: scale(1.2);
 				filter: grayscale(0%);
 			}
 		}
@@ -253,43 +289,49 @@ main {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		width: 60%;
 
 		&__text {
 			p {
 				margin-bottom: 4px;
 				font-weight: $fw-m;
+
+				@include min-mobile {
+					font-size: $fz-s * 0.8;
+				}
 			}
 
 			h6 {
 				margin-bottom: 4px;
+				max-height: 56px;
 				font-size: $fz-l;
 				font-weight: $fw-l;
 				line-height: 1.2;
+				overflow: hidden;
 
 				@include pad {
+					max-height: 48px;
 					font-size: $fz-m;
+				}
+
+				@include min-mobile {
+					max-height: 55px;
+					font-size: $fz-s;
 				}
 			}
 
 			i {
 				color: lighten($c3rd, 20%);
 				font-size: $fz-s * 0.8;
+
+				@include min-mobile {
+					font-size: $fz-s * 0.6;
+				}
 			}
 		}
 
-		&__btn {
-			padding: 16px;
+		button {
 			width: 150px;
-			font-size: $fz-s;
-			font-weight: bold;
-			border-radius: 4px;
-			background-color: $c1st;
-			transition: $trsFast;
-
-			&:hover {
-				color: #fff;
-				background-color: $c2nd;
-			}
 		}
 	}
 }
