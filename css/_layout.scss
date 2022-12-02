@@ -13,38 +13,6 @@
   border-radius: 50%;
 }
 
-//Button樣式
-// .btn {
-//   display: inline-block;
-//   padding: 6px 12px;
-//   text-align: center;
-//   white-space: nowrap;
-//   user-select: none;
-//   border-radius: 20px;
-//   background-color: blue;
-//   transition: $trsSlow;
-//   cursor: pointer;
-
-//   &:hover {
-//     filter: brightness(120%);
-//   }
-// }
-
-// .btnPrimary {
-//   color:
-//   background-color:
-// }
-
-// .btnSecondary{
-//   color:
-//   background-color:
-// }
-
-// .btnTertiary{
-//   color:
-//   background-color:
-// }
-
 body {
   position: relative;
   color: #000;
@@ -399,14 +367,12 @@ header {
     color: $c2nd;
   }
 }
-
 // header結束 <-------
 
 // aside開始 ------->
 .aside {
   position: relative;
   width: 200px;
-  transition: all 0.5s;
 
   @include mobile {
     display: none;
@@ -425,8 +391,16 @@ header {
   &__photo {
     position: relative;
     margin-bottom: 10px;
-    width: 200px;
     height: 200px;
+
+    span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 185px;
+      height: 185px;
+      background-color: $c1st;
+    }
 
     img {
       position: absolute;
@@ -441,21 +415,11 @@ header {
         filter: grayscale(0%) contrast(120%);
       }
     }
-
-    span {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 185px;
-      height: 185px;
-      background-color: $c1st;
-    }
   }
 
   &__info {
     @include disFlex($jc: space-between);
     margin-bottom: 20px;
-    width: 200px;
 
     ul {
       display: flex;
@@ -469,21 +433,20 @@ header {
         &:hover {
           transform: scale(1.2);
         }
+
+        img {
+          width: 28px;
+        }
       }
 
       li:last-child {
         margin-bottom: 0;
       }
-
-      img {
-        width: 28px;
-      }
     }
   }
 
-  &__popular {
-    margin-bottom: 10px;
-    width: 200px;
+  &__popularPost {
+    margin-bottom: 20px;
 
     ul {
       li {
@@ -499,6 +462,7 @@ header {
       }
 
       li:last-child {
+        padding-bottom: 0;
         border-bottom: 0;
       }
 
@@ -517,9 +481,8 @@ header {
     }
   }
 
-  &__hushtag {
+  &__hashtag {
     margin-bottom: 20px;
-    width: 200px;
 
     a {
       display: inline-block;
@@ -532,6 +495,7 @@ header {
       transition: $trsFast;
 
       &:hover {
+        color: #000;
         background-color: $c1st;
       }
     }
@@ -547,12 +511,12 @@ header {
     }
   }
 }
+
 // aside結束 ------->
 
 // footer開始 ------->
 .footer {
   color: #fff;
-
   &__photo {
     width: 100%;
     height: 300px;
@@ -625,5 +589,4 @@ header {
     text-align: center;
   }
 }
-
 // footer結束 <-------

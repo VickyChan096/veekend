@@ -530,7 +530,6 @@ header {
 .aside {
   position: relative;
   width: 200px;
-  transition: all 0.5s;
 }
 @media only screen and (max-width: 768px) {
   .aside {
@@ -549,8 +548,15 @@ header {
 .aside__photo {
   position: relative;
   margin-bottom: 10px;
-  width: 200px;
   height: 200px;
+}
+.aside__photo span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 185px;
+  height: 185px;
+  background-color: #ffe60f;
 }
 .aside__photo img {
   position: absolute;
@@ -564,20 +570,11 @@ header {
 .aside__photo img:hover {
   filter: grayscale(0%) contrast(120%);
 }
-.aside__photo span {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 185px;
-  height: 185px;
-  background-color: #ffe60f;
-}
 .aside__info {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  width: 200px;
 }
 .aside__info ul {
   display: flex;
@@ -591,30 +588,30 @@ header {
 .aside__info ul li:hover {
   transform: scale(1.2);
 }
+.aside__info ul li img {
+  width: 28px;
+}
 .aside__info ul li:last-child {
   margin-bottom: 0;
 }
-.aside__info ul img {
-  width: 28px;
+.aside__popularPost {
+  margin-bottom: 20px;
 }
-.aside__popular {
-  margin-bottom: 10px;
-  width: 200px;
-}
-.aside__popular ul li {
+.aside__popularPost ul li {
   display: flex;
   padding: 10px 0;
   border-bottom: 1px solid #eeeeee;
   line-height: 1.2;
   cursor: pointer;
 }
-.aside__popular ul li:first-child {
+.aside__popularPost ul li:first-child {
   padding-top: 0;
 }
-.aside__popular ul li:last-child {
+.aside__popularPost ul li:last-child {
+  padding-bottom: 0;
   border-bottom: 0;
 }
-.aside__popular ul img {
+.aside__popularPost ul img {
   margin-right: 8px;
   width: 80px;
   height: 80px;
@@ -623,14 +620,13 @@ header {
   transition: all 0.5s;
   filter: grayscale(100%) contrast(1.2);
 }
-.aside__popular ul li:hover img {
+.aside__popularPost ul li:hover img {
   filter: grayscale(0%);
 }
-.aside__hushtag {
+.aside__hashtag {
   margin-bottom: 20px;
-  width: 200px;
 }
-.aside__hushtag a {
+.aside__hashtag a {
   display: inline-block;
   margin-bottom: 4px;
   padding: 2px 6px;
@@ -640,7 +636,8 @@ header {
   background-color: #eeeeee;
   transition: all 0.2s;
 }
-.aside__hushtag a:hover {
+.aside__hashtag a:hover {
+  color: #000;
   background-color: #ffe60f;
 }
 .aside__ad {
@@ -734,10 +731,15 @@ main .heroSection {
     padding: 16px 0;
   }
 }
-main .mainContent {
+main .contentWrap {
   display: flex;
   justify-content: space-between;
   padding: 0 30px;
+}
+@media only screen and (max-width: 768px) {
+  main .contentWrap {
+    padding: 0 15px;
+  }
 }
 
 .swiper {
@@ -899,4 +901,100 @@ main .mainContent {
     width: 10px;
     height: 10px;
   }
+}
+
+.articleList {
+  width: 78%;
+}
+@media only screen and (max-width: 992px) {
+  .articleList {
+    width: 71%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .articleList {
+    width: 100%;
+  }
+}
+.articleList li {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+.articleList li:first-child {
+  padding-top: 0;
+}
+.articleList li:last-child {
+  border-bottom: 0;
+}
+.articleList__photo {
+  position: relative;
+  margin-right: 10px;
+  width: 350px;
+  height: 200px;
+  overflow: hidden;
+}
+.articleList__photo span {
+  position: absolute;
+  top: 16px;
+  padding: 4px;
+  width: 100px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #ffe60f;
+  z-index: 1;
+}
+@media only screen and (max-width: 768px) {
+  .articleList__photo span {
+    left: 0;
+  }
+}
+.articleList__photo img {
+  min-height: 200px;
+  transition: all 0.5s;
+  -o-object-fit: fill;
+     object-fit: fill;
+  filter: grayscale(100%);
+}
+.articleList__photo img:hover {
+  transform: scale(1.5);
+  filter: grayscale(0%);
+}
+.articleList__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.articleList__content__text p {
+  margin-bottom: 4px;
+  font-weight: 400;
+}
+.articleList__content__text h6 {
+  margin-bottom: 4px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+@media only screen and (max-width: 992px) {
+  .articleList__content__text h6 {
+    font-size: 20px;
+  }
+}
+.articleList__content__text i {
+  color: #868686;
+  font-size: 12.8px;
+}
+.articleList__content__btn {
+  padding: 16px;
+  width: 150px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  background-color: #ffe60f;
+  transition: all 0.2s;
+}
+.articleList__content__btn:hover {
+  color: #fff;
+  background-color: #000;
 }/*# sourceMappingURL=main.css.map */
