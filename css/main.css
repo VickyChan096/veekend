@@ -204,7 +204,7 @@ button {
 }
 
 .btn {
-  padding: 16px;
+  padding: 12px 0;
   font-size: 16px;
   font-weight: bold;
   text-align: center;
@@ -497,7 +497,7 @@ header {
     right: 0;
     padding: 8px;
     width: 100%;
-    max-height: 200px;
+    max-height: 300px;
     overflow-y: scroll;
   }
 }
@@ -571,6 +571,31 @@ header {
   color: #000;
 }
 
+main {
+  padding-top: 56px;
+  width: 100%;
+  background-color: #fff;
+}
+main .heroSection {
+  padding: 30px 0;
+}
+@media only screen and (max-width: 768px) {
+  main .heroSection {
+    padding: 16px 0;
+  }
+}
+main .contentWrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px 30px;
+}
+@media only screen and (max-width: 768px) {
+  main .contentWrap {
+    flex-wrap: wrap;
+    padding: 0 15px 30px;
+  }
+}
+
 .aside {
   position: -webkit-sticky;
   position: sticky;
@@ -580,7 +605,10 @@ header {
 }
 @media only screen and (max-width: 768px) {
   .aside {
-    display: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
   }
 }
 .aside h5 {
@@ -595,6 +623,7 @@ header {
 .aside__photo {
   position: relative;
   margin-bottom: 10px;
+  width: 200px;
   height: 200px;
 }
 .aside__photo span {
@@ -608,7 +637,7 @@ header {
 .aside__photo img {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 0px;
   width: 185px;
   height: 185px;
   transition: all 0.5s;
@@ -623,9 +652,20 @@ header {
   align-items: center;
   margin-bottom: 20px;
 }
+@media only screen and (max-width: 768px) {
+  .aside__info {
+    justify-content: start;
+    margin-left: 20px;
+  }
+}
 .aside__info ul {
   display: flex;
   flex-direction: column;
+}
+@media only screen and (max-width: 768px) {
+  .aside__info ul {
+    margin-right: 10px;
+  }
 }
 .aside__info ul li {
   margin-bottom: 8px;
@@ -638,11 +678,27 @@ header {
 .aside__info ul li img {
   width: 28px;
 }
+@media only screen and (max-width: 768px) {
+  .aside__info ul li img {
+    width: 36px;
+  }
+}
 .aside__info ul li:last-child {
   margin-bottom: 0;
 }
 .aside__popularPost {
   margin-bottom: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .aside__popularPost {
+    padding: 0 1.5%;
+    width: 47%;
+  }
+}
+@media only screen and (max-width: 428px) {
+  .aside__popularPost {
+    width: 100%;
+  }
 }
 .aside__popularPost ul li {
   display: flex;
@@ -673,6 +729,17 @@ header {
 .aside__hashtag {
   margin-bottom: 20px;
 }
+@media only screen and (max-width: 768px) {
+  .aside__hashtag {
+    padding: 0 1.5%;
+    width: 47%;
+  }
+}
+@media only screen and (max-width: 428px) {
+  .aside__hashtag {
+    width: 100%;
+  }
+}
 .aside__hashtag a {
   display: inline-block;
   margin-bottom: 4px;
@@ -694,7 +761,6 @@ header {
 .aside__ad:hover {
   filter: grayscale(0%);
 }
-
 .footer {
   color: #fff;
 }
@@ -763,30 +829,6 @@ header {
   color: #464646;
   font-size: 8px;
   text-align: center;
-}
-
-main {
-  padding-top: 56px;
-  width: 100%;
-  background-color: #fff;
-}
-main .heroSection {
-  padding: 30px 0;
-}
-@media only screen and (max-width: 768px) {
-  main .heroSection {
-    padding: 16px 0;
-  }
-}
-main .contentWrap {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 30px 30px;
-}
-@media only screen and (max-width: 768px) {
-  main .contentWrap {
-    padding: 0 15px 30px;
-  }
 }
 
 .swiper {
@@ -968,12 +1010,13 @@ main .contentWrap {
 }
 @media only screen and (max-width: 992px) {
   .articleList > button {
+    margin-bottom: 20px;
     width: 100%;
   }
 }
 .articleList > button span {
   display: inline-block;
-  padding-top: 8px;
+  padding-top: 4px;
   width: 12px;
   height: 12px;
   background-image: url(../images/refresh-y.png);
@@ -1010,9 +1053,10 @@ main .contentWrap {
 }
 .articleList__photo span {
   position: absolute;
-  top: 16px;
+  top: 12px;
   padding: 4px;
-  width: 100px;
+  width: 80px;
+  font-size: 12.8px;
   font-weight: bold;
   text-align: center;
   background-color: #ffe60f;
@@ -1051,7 +1095,8 @@ main .contentWrap {
 }
 .articleList__content__text p {
   margin-bottom: 4px;
-  font-weight: 400;
+  color: #868686;
+  font-weight: 300;
 }
 @media only screen and (max-width: 428px) {
   .articleList__content__text p {

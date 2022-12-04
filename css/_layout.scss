@@ -19,7 +19,7 @@
 
 // Button樣式
 .btn {
-  padding: 16px;
+  padding: 12px 0;
   font-size: $fz-s;
   font-weight: bold;
   text-align: center;
@@ -54,11 +54,6 @@
     background-color: $c1st;
   }
 }
-
-// .btnTertiary{
-//   color:
-//   background-color:
-// }
 
 body {
   position: relative;
@@ -324,7 +319,7 @@ header {
         right: 0;
         padding: 8px;
         width: 100%;
-        max-height: 200px;
+        max-height: 300px;
         overflow-y: scroll;
       }
 
@@ -417,6 +412,31 @@ header {
 
 // header結束 <-------
 
+main {
+  padding-top: 56px;
+  width: 100%;
+  background-color: #fff;
+
+  .heroSection {
+    padding: 30px 0;
+
+    @include mobile {
+      padding: 16px 0;
+    }
+  }
+
+  .contentWrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px 30px;
+
+    @include mobile {
+      flex-wrap: wrap;
+      padding: 0 15px 30px;
+    }
+  }
+}
+
 // aside開始 ------->
 .aside {
   position: sticky;
@@ -425,7 +445,10 @@ header {
   height: 100%;
 
   @include mobile {
-    display: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   h5 {
@@ -441,6 +464,7 @@ header {
   &__photo {
     position: relative;
     margin-bottom: 10px;
+    width: 200px;
     height: 200px;
 
     span {
@@ -455,7 +479,7 @@ header {
     img {
       position: absolute;
       top: 0;
-      right: 0;
+      right: 0px;
       width: 185px;
       height: 185px;
       transition: $trsSlow;
@@ -471,9 +495,19 @@ header {
     @include disFlex($jc: space-between);
     margin-bottom: 20px;
 
+    @include mobile {
+      // width: 30%;
+      justify-content: start;
+      margin-left: 20px;
+    }
+
     ul {
       display: flex;
       flex-direction: column;
+
+      @include mobile {
+        margin-right: 10px;
+      }
 
       li {
         margin-bottom: 8px;
@@ -486,6 +520,10 @@ header {
 
         img {
           width: 28px;
+
+          @include mobile {
+            width: 36px;
+          }
         }
       }
 
@@ -497,6 +535,15 @@ header {
 
   &__popularPost {
     margin-bottom: 20px;
+
+    @include mobile {
+      padding: 0 1.5%;
+      width: 47%;
+    }
+
+    @include min-mobile {
+      width: 100%;
+    }
 
     ul {
       li {
@@ -534,6 +581,15 @@ header {
   &__hashtag {
     margin-bottom: 20px;
 
+    @include mobile {
+      padding: 0 1.5%;
+      width: 47%;
+    }
+
+    @include min-mobile {
+      width: 100%;
+    }
+
     a {
       display: inline-block;
       margin-bottom: 4px;
@@ -557,6 +613,10 @@ header {
 
     &:hover {
       filter: grayscale(0%);
+    }
+
+    @include mobile {
+      // width: 50%;
     }
   }
 }
