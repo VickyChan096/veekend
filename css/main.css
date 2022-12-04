@@ -472,6 +472,7 @@ header {
 .menu__district {
   position: relative;
   display: none;
+  transition: all 0.5s;
 }
 @media only screen and (max-width: 768px) {
   .menu__district {
@@ -1022,6 +1023,7 @@ main .contentWrap {
   background-image: url(../images/refresh-y.png);
   background-size: cover;
   transition: all 0.5s;
+  will-change: transform;
 }
 .articleList > button:hover span {
   rotate: 180deg;

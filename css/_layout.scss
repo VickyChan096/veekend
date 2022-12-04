@@ -296,6 +296,7 @@ header {
   &__district {
     position: relative;
     display: none;
+    transition: $trsSlow;
 
     @include mobile {
       width: 100%;

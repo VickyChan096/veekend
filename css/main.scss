@@ -189,6 +189,7 @@
 			background-image: url(../images/refresh-y.png);
 			background-size: cover;
 			transition: $trsSlow;
+			will-change: transform;
 		}
 
 		&:hover {
