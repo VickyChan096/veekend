@@ -3,6 +3,14 @@
 @import "mixin"; // Flex、@media
 @import "layout"; // header、footer、toTop、button
 
+.heroSection {
+	padding: 30px 0;
+
+	@include mobile {
+		padding: 16px 0;
+	}
+}
+
 .swiper {
 	max-width: 1200px;
 	max-height: 450px;
@@ -177,7 +185,7 @@
 		width: calc(40% - 4px);
 
 		@include pad {
-			margin-bottom: 20px;
+			margin-bottom: 30px;
 			width: 100%;
 		}
 
@@ -254,7 +262,6 @@
 
 			@include min-mobile {
 				min-height: 150px;
-				// object-fit: contain;
 			}
 
 			&:hover {

@@ -34,6 +34,7 @@
   }
 }
 
+// 實心btn
 .btnPrimary {
   color: $c2nd;
   background-color: $c1st;
@@ -44,6 +45,7 @@
   }
 }
 
+// 空心btn
 .btnSecondary {
   color: $c2nd;
   border: 1px solid $c1st;
@@ -418,14 +420,6 @@ main {
   width: 100%;
   background-color: #fff;
 
-  .heroSection {
-    padding: 30px 0;
-
-    @include mobile {
-      padding: 16px 0;
-    }
-  }
-
   .contentWrap {
     display: flex;
     justify-content: space-between;
@@ -460,6 +454,14 @@ main {
     letter-spacing: 1px;
     background-color: $c2nd;
     font-family: 'Archivo Black', sans-serif;
+
+    @include mobile {
+      margin-top: 20px;
+    }
+
+    @include min-mobile {
+      margin-top: 0px;
+    }
   }
 
   &__photo {
@@ -497,7 +499,6 @@ main {
     margin-bottom: 20px;
 
     @include mobile {
-      // width: 30%;
       justify-content: start;
       margin-left: 20px;
     }
@@ -615,10 +616,6 @@ main {
     &:hover {
       filter: grayscale(0%);
     }
-
-    @include mobile {
-      // width: 50%;
-    }
   }
 }
 
@@ -697,7 +694,7 @@ main {
   p {
     padding: 8px 0 32px;
     color: darken($c3rd, 5%);
-    font-size: $fz-s * 0.5;
+    font-size: $fz-s * 0.8;
     text-align: center;
   }
 }
