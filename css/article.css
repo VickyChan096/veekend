@@ -837,7 +837,7 @@ main .contentWrap {
 
 .heroBanner {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   width: 100%;
   height: 450px;
   overflow: hidden;
@@ -900,6 +900,7 @@ main .contentWrap {
 }
 .article {
   width: 78%;
+  transition: all 0.5s;
 }
 @media only screen and (max-width: 992px) {
   .article {
@@ -911,10 +912,10 @@ main .contentWrap {
     width: 100%;
   }
 }
-.article__title {
+.article__top {
   text-align: center;
 }
-.article__title h2 {
+.article__top h2 {
   margin: 0 24px 16px;
   font-size: 36px;
   font-weight: bold;
@@ -928,20 +929,93 @@ main .contentWrap {
   -webkit-text-decoration-skip-ink: none;
           text-decoration-skip-ink: none;
 }
-.article__title__icon {
+@media only screen and (max-width: 992px) {
+  .article__top h2 {
+    font-size: 30px;
+    line-height: 1.2;
+    text-decoration-thickness: 16px;
+    text-underline-offset: -8px;
+  }
+}
+.article__top__date {
+  margin-bottom: 10px;
+  color: #868686;
+  font-size: 12.8px;
+}
+.article__top__icon {
   display: flex;
   justify-content: end;
   align-items: end;
+  margin-bottom: 10px;
 }
-.article__title__icon span {
-  margin-right: 8px;
-}
-.article__title__icon i {
+.article__top__icon i {
   padding: 4px;
   font-size: 20px;
   transition: all 0.2s;
   cursor: pointer;
 }
-.article__title__icon i:hover {
+.article__top__icon i:hover {
   transform: scale(1.2);
+}
+.article__top__icon span {
+  margin-right: 8px;
+}
+.article__top__brief {
+  margin-bottom: 10px;
+  text-align: left;
+}
+.article__top__catalog {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  padding: 15px;
+  width: 300px;
+  text-align: left;
+  border: 1px solid #eeeeee;
+  transition: all 0.1;
+}
+.article__top__catalog p {
+  font-size: 24px;
+  font-weight: 500;
+}
+.article__top__catalog i {
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: #eeeeee;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.article__top__catalog i.active {
+  color: #000;
+  rotate: 225deg;
+}
+.article__top__catalog ul {
+  margin-left: -15px;
+  padding-left: 15px;
+  width: calc(100% + 15px);
+  list-style: disc;
+  list-style-position: inside;
+  height: 100px;
+  transition: all 0.5s;
+}
+.article__top__catalog ul li {
+  padding-left: 4px;
+  width: 100%;
+  line-height: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.article__top__catalog ul li a {
+  color: #000;
+}
+.article__top__catalog ul li:hover {
+  background-color: #eeeeee;
+}
+.article__top__catalog ul.close {
+  display: none;
 }/*# sourceMappingURL=article.css.map */

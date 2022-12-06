@@ -5,7 +5,7 @@
 
 .heroBanner {
 	position: relative;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	width: 100%;
 	height: 450px;
 	overflow: hidden;
@@ -55,6 +55,7 @@
 
 .article {
 	width: 78%;
+	transition: all 0.5s;
 
 	@include pad {
 		width: 71%;
@@ -64,7 +65,7 @@
 		width: 100%;
 	}
 
-	&__title {
+	&__top {
 		text-align: center;
 
 		h2 {
@@ -78,16 +79,26 @@
 			text-decoration-thickness: 20px;
 			text-underline-offset: -12px;
 			text-decoration-skip-ink: none;
+
+			@include pad {
+				font-size: 30px;
+				line-height: 1.2;
+				text-decoration-thickness: 16px;
+				text-underline-offset: -8px;
+			}
+		}
+
+		&__date {
+			margin-bottom: 10px;
+			color: lighten($c3rd, 20%);
+			font-size: $fz-s * 0.8;
 		}
 
 		&__icon {
 			display: flex;
 			justify-content: end;
 			align-items: end;
-
-			span {
-				margin-right: 8px;
-			}
+			margin-bottom: 10px;
 
 			i {
 				padding: 4px;
@@ -98,6 +109,80 @@
 
 			i:hover {
 				transform: scale(1.2);
+			}
+
+			span {
+				margin-right: 8px;
+			}
+		}
+
+		&__brief {
+			margin-bottom: 10px;
+			text-align: left;
+		}
+
+		&__catalog {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			margin-bottom: 10px;
+			padding: 15px;
+			width: 300px;
+			text-align: left;
+			border: 1px solid $c4th;
+			transition: all 0.1;
+
+			p {
+				// margin-bottom: 15px;
+				font-size: $fz-l;
+				font-weight: $fw-l;
+			}
+
+			i {
+				margin-bottom: 15px;
+				font-size: $fz-l;
+				color: $c4th;
+				transition: $trsSlow;
+				cursor: pointer;
+			}
+
+			i.active {
+				color: $c2nd;
+				rotate: 225deg;
+			}
+
+			ul {
+				margin-left: -15px;
+				padding-left: 15px;
+				width: calc(100% + 15px);
+				list-style: disc;
+				list-style-position: inside;
+				height:100px;
+				transition: all 0.5s;
+
+				li {
+					padding-left: 4px;
+					width: 100%;
+					line-height: 2;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					transition: $trsSlow;
+					cursor: pointer;
+
+					a {
+						color: $c2nd;
+					}
+
+					&:hover {
+						background-color: $c4th;
+					}
+				}
+			}
+
+			ul.close {
+				display: none;
 			}
 		}
 	}
