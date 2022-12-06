@@ -158,8 +158,6 @@
 				width: calc(100% + 15px);
 				list-style: disc;
 				list-style-position: inside;
-				height:100px;
-				transition: all 0.5s;
 
 				li {
 					padding-left: 4px;
@@ -181,9 +179,9 @@
 				}
 			}
 
-			ul.close {
-				display: none;
-			}
+			// ul.close {
+			// 	display: none;
+			// }
 		}
 	}
 }

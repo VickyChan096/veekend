@@ -135,6 +135,7 @@ table {
 *::before,
 *::after {
   box-sizing: border-box;
+  outline: 1px solid #aaa;
 }
 
 body {
@@ -997,8 +998,6 @@ main .contentWrap {
   width: calc(100% + 15px);
   list-style: disc;
   list-style-position: inside;
-  height: 100px;
-  transition: all 0.5s;
 }
 .article__top__catalog ul li {
   padding-left: 4px;
@@ -1015,7 +1014,4 @@ main .contentWrap {
 }
 .article__top__catalog ul li:hover {
   background-color: #eeeeee;
-}
-.article__top__catalog ul.close {
-  display: none;
 }/*# sourceMappingURL=article.css.map */

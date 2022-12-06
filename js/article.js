@@ -1,6 +1,6 @@
 $(function () {
-  $('.article__top__catalog').click(function (event) {
+  $('.catalogBtn').click(function (event) {
     $(this).find('i').toggleClass('active');
-    $(this).find('ul').toggleClass('close');
+    $(this).parent().find('ul').slideToggle('slow');
   });
 });
