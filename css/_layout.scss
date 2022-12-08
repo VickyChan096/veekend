@@ -470,6 +470,10 @@ main {
     width: 200px;
     height: 200px;
 
+    @include mobile {
+      display: none;
+    }
+
     span {
       position: absolute;
       bottom: 0;
@@ -499,8 +503,7 @@ main {
     margin-bottom: 20px;
 
     @include mobile {
-      justify-content: start;
-      margin-left: 20px;
+      display: none;
     }
 
     ul {
@@ -522,10 +525,6 @@ main {
 
         img {
           width: 28px;
-
-          @include mobile {
-            width: 36px;
-          }
         }
       }
 

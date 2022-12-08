@@ -69,7 +69,7 @@
 		text-align: center;
 
 		h2 {
-			margin: 0 24px 16px;
+			margin: 0 24px 10px;
 			font-size: 36px;
 			font-weight: bold;
 			line-height: 1.4;
@@ -108,6 +108,7 @@
 			}
 
 			i:hover {
+				rotate: -45deg;
 				transform: scale(1.2);
 			}
 
@@ -126,21 +127,20 @@
 			justify-content: space-between;
 			align-items: center;
 			flex-wrap: wrap;
-			margin-bottom: 10px;
+			margin-bottom: 20px;
 			padding: 15px;
 			width: 300px;
 			text-align: left;
 			border: 1px solid $c4th;
+			border-radius: 4px;
 			transition: all 0.1;
 
 			p {
-				// margin-bottom: 15px;
 				font-size: $fz-l;
-				font-weight: $fw-l;
+				font-weight: bold;
 			}
 
 			i {
-				margin-bottom: 15px;
 				font-size: $fz-l;
 				color: $c4th;
 				transition: $trsSlow;
@@ -178,10 +178,364 @@
 					}
 				}
 			}
+		}
+	}
 
-			// ul.close {
-			// 	display: none;
-			// }
+	&__middle {
+		section {
+			margin-bottom: 20px;
+			padding-bottom: 20px;
+			width: 100%;
+			border-bottom: 1px solid $c4th;
+
+			img {
+				border-radius: 4px;
+			}
+
+			a {
+				color: $c2nd;
+			}
+
+			h4 {
+				position: relative;
+				margin-bottom: 10px;
+				text-indent: 1.5rem;
+				font-size: $fz-l;
+				font-weight: bold;
+			}
+
+			h4::before {
+				content: '';
+				position: absolute;
+				top: 7px;
+				left: 0;
+				width: 20px;
+				height: 20px;
+				background-image: url(../images/location.svg);
+				animation: locationIcon 2s infinite ease-out;
+			}
+
+			h5 {
+				margin-bottom: 10px;
+				font-weight: bold;
+			}
+
+			h6 {
+				position: relative;
+				display: inline-block;
+				margin-bottom: 10px;
+				text-decoration: underline;
+				text-decoration-color: $c1st;
+				text-decoration-thickness: 8px;
+				text-underline-offset: -4px;
+				text-decoration-skip-ink: none;
+			}
+
+			h6::before {
+				content: '[註]';
+				position: absolute;
+				right: -25px;
+				color: $c3rd;
+				font-size: $fz-s * 0.6;
+			}
+
+			h6:hover::after {
+				position: absolute;
+				top: 18px;
+				right: -45px;
+				padding: 4px;
+				width: 60px;
+				text-align: center;
+				color: #fff;
+				font-size: $fz-s * 0.6;
+				border-radius: 4px;
+				background: rgb(0, 0, 0, .6);
+				content: '滿分5分';
+			}
+		}
+	}
+
+	&__bottom {
+		@include disFlex($jc: space-between);
+
+		@include mobile {
+			margin-bottom: 20px;
+		}
+
+		img {
+			margin: 0 10px;
+			width: 30px;
+			transition: $trsFast;
+
+			@include mobile {
+				margin: 0 5px;
+				width: 20px;
+			}
+		}
+
+		em {
+			font-weight: bold;
+		}
+
+		p {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;
+
+			@include mobile {
+				-webkit-line-clamp: 2;
+			}
+		}
+
+		&__prev,
+		&__next {
+			@include disFlex($jc: space-between);
+			position: relative;
+			padding: 10px;
+			width: 49%;
+			border: 1px solid $c1st;
+			border-radius: 4px;
+			cursor: pointer;
+			z-index: 1;
+		}
+
+		&__prev::before,
+		&__next::before {
+			content: "";
+			display: block;
+			position: absolute;
+			background: $c1st;
+			transition: $trsSlow;
+			border-radius: 4px;
+			z-index: -1;
+		}
+
+		&__prev::before {
+			top: -1px;
+			bottom: -1px;
+			left: -1px;
+			right: 105%;
+		}
+
+		&__next::before {
+			top: -1px;
+			bottom: -1px;
+			right: -1px;
+			left: 105%;
+		}
+
+		&__prev:hover,
+		&__next:hover {
+			img {
+				filter: brightness(350%);
+			}
+		}
+
+		&__prev {
+			text-align: right;
+
+			img {
+				rotate: 180deg;
+			}
+
+			&:hover:before {
+				right: -1px;
+			}
+		}
+
+		&__next {
+
+			&:hover:before {
+				left: -1px;
+			}
+		}
+
+
+
+
+
+
+
+
+	}
+}
+
+@keyframes locationIcon {
+	0% {
+		top: 7px;
+	}
+
+	20% {
+		top: -2px;
+		opacity: 0;
+	}
+
+	40% {
+		top: 7px;
+		opacity: 1;
+	}
+
+	60% {
+		top: 0px;
+	}
+
+	100% {
+		top: 7px;
+	}
+}
+
+.articleStyle1,
+.articleStyle2 {
+	@include disFlex($jc: space-between);
+
+	@include mobile {
+		flex-wrap: wrap;
+	}
+
+	img {
+		width: 50%;
+		max-height: 300px;
+		object-fit: cover;
+		object-position: top;
+
+		@include mobile {
+			margin-bottom: 10px;
+			width: 100%;
+		}
+	}
+
+	div {
+		padding-left: 20px;
+		width: 50%;
+
+		@include mobile {
+			padding-left: 0;
+			width: 100%;
+		}
+	}
+}
+
+.articleStyle2 {
+	@include mobile {
+		flex-direction: column-reverse;
+	}
+
+	div {
+		padding-left: 0px;
+		padding-right: 20px;
+	}
+}
+
+.articleStyle3,
+.articleStyle4 {
+	img {
+		margin-bottom: 10px;
+		width: 100%;
+	}
+}
+
+.articleStyle4 {
+	@include mobile {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column-reverse;
+
+		img {
+			width: 100%;
+		}
+
+		div {
+			width: 100%;
+		}
+	}
+
+	p:last-child {
+		margin-bottom: 10px;
+	}
+}
+
+.articleStyle5 {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+
+	@include pad {
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	&__oneThird {
+		width: 32%;
+
+		@include pad {
+			margin-bottom: 20px;
+			width: 60%;
+		}
+		@include mobile{
+			width: 80%;
+		}
+
+		&:last-child {
+			@include mobile {
+				margin-bottom: 0;
+			}
+		}
+
+		img {
+			margin-bottom: 8px;
+			width: 100%;
+			height: 200px;
+			object-fit: cover;
+			border-radius: 4px !important;
+
+			@include pad {
+				height: auto;
+			}
+		}
+
+		h5 {
+			margin-bottom: 0px !important;
+		}
+	}
+}
+
+.articleStyle6 {
+	#iFrame {
+		width: 100%;
+		height: 350px;
+		border-radius: 4px;
+	}
+}
+
+.articleStyle7 {
+	#map {
+		margin-bottom: 20px;
+		width: 100%;
+		height: 350px;
+		border-radius: 4px;
+		z-index: 1;
+	}
+
+	ul {
+		width: 100%;
+
+		li {
+			display: inline-block;
+			margin-bottom: 4px;
+			padding: 2px 6px;
+			color: $c2nd;
+			font-weight: $fw-m;
+			border-radius: 4px;
+			background-color: $c4th;
+			transition: $trsFast;
+			cursor: pointer;
+
+			&:hover {
+				color: #000;
+				background-color: $c1st;
+			}
 		}
 	}
 }

@@ -135,7 +135,6 @@ table {
 *::before,
 *::after {
   box-sizing: border-box;
-  outline: 1px solid #aaa;
 }
 
 body {
@@ -630,6 +629,11 @@ main .contentWrap {
   width: 200px;
   height: 200px;
 }
+@media only screen and (max-width: 768px) {
+  .aside__photo {
+    display: none;
+  }
+}
 .aside__photo span {
   position: absolute;
   bottom: 0;
@@ -658,8 +662,7 @@ main .contentWrap {
 }
 @media only screen and (max-width: 768px) {
   .aside__info {
-    justify-content: start;
-    margin-left: 20px;
+    display: none;
   }
 }
 .aside__info ul {
@@ -681,11 +684,6 @@ main .contentWrap {
 }
 .aside__info ul li img {
   width: 28px;
-}
-@media only screen and (max-width: 768px) {
-  .aside__info ul li img {
-    width: 36px;
-  }
 }
 .aside__info ul li:last-child {
   margin-bottom: 0;
