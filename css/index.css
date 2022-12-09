@@ -183,6 +183,20 @@ button {
   cursor: pointer;
 }
 
+strong {
+  font-weight: bold;
+}
+
+mark {
+  background: none;
+  background-color: none;
+  text-decoration: underline;
+  -webkit-text-decoration-style: wavy;
+          text-decoration-style: wavy;
+  -webkit-text-decoration-color: #e60012;
+          text-decoration-color: #e60012;
+}
+
 #toTop {
   z-index: 90;
   display: none;
@@ -240,6 +254,11 @@ button {
 .btnSecondary:hover {
   color: #000;
   background-color: #ffe60f;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
 }
 
 body {
@@ -640,6 +659,7 @@ main .contentWrap {
   left: 0;
   width: 185px;
   height: 185px;
+  border-radius: 4px;
   background-color: #ffe60f;
 }
 .aside__photo img {
@@ -648,6 +668,7 @@ main .contentWrap {
   right: 0px;
   width: 185px;
   height: 185px;
+  border-radius: 4px;
   transition: all 0.5s;
   filter: grayscale(100%) contrast(140%);
 }
@@ -693,8 +714,8 @@ main .contentWrap {
 }
 @media only screen and (max-width: 768px) {
   .aside__popularPost {
-    padding: 0 1.5%;
-    width: 47%;
+    padding: 0 1%;
+    width: 48%;
   }
 }
 @media only screen and (max-width: 428px) {
@@ -722,8 +743,14 @@ main .contentWrap {
   height: 70px;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 4px;
   transition: all 0.5s;
   filter: grayscale(100%) contrast(1.2);
+}
+@media only screen and (max-width: 428px) {
+  .aside__popularPost ul img {
+    width: 150px;
+  }
 }
 .aside__popularPost ul li:hover img {
   filter: grayscale(0%);
@@ -733,8 +760,8 @@ main .contentWrap {
 }
 @media only screen and (max-width: 768px) {
   .aside__hashtag {
-    padding: 0 1.5%;
-    width: 47%;
+    padding: 0 1%;
+    width: 48%;
   }
 }
 @media only screen and (max-width: 428px) {
@@ -762,6 +789,9 @@ main .contentWrap {
 }
 .aside__ad:hover {
   filter: grayscale(0%);
+}
+.aside__ad img {
+  border-radius: 4px;
 }
 
 .footer {
@@ -913,7 +943,13 @@ main .contentWrap {
   flex-wrap: wrap;
   padding: 0 20px;
   width: 75%;
+  border-radius: 0 4px 4px 0;
   background-color: #ffe60f;
+}
+@media (max-width: 1200px) {
+  .swiper .swiperContent__content__right {
+    border-radius: 0;
+  }
 }
 @media only screen and (max-width: 768px) {
   .swiper .swiperContent__content__right {
@@ -1086,6 +1122,7 @@ main .contentWrap {
 }
 .articleList__photo img {
   min-height: 200px;
+  border-radius: 4px;
   transition: all 0.5s;
   -o-object-fit: cover;
      object-fit: cover;

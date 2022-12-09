@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- icon -->
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
     <meta property="og:site_name" content="Veekend | 週遊記" />
     <meta property="og:type" content="website" />
@@ -21,14 +20,13 @@
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
       crossorigin="anonymous"
     />
-    <!-- Leaflet框架CSS -->
+    <!-- Leaflet -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
       integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
       crossorigin=""
     />
-    <!-- Leaflet框架JS -->
     <script
       src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
       integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
@@ -172,7 +170,8 @@
         <img src="images/week1/cover.jpg" alt="week1" />
       </section>
       <div class="wrap contentWrap">
-        <!-- 文章(變動區塊) -->
+        
+        <!-- 文章(變動結構) -->
         <article class="article">
           <div class="article__top">
             <h2>ORION BEER FEST in TAIPEI 一起狂喝一整夜吧!</h2>
@@ -190,50 +189,49 @@
               <div class="catalogBtn">
                 <i class="fa-solid fa-circle-xmark"></i>
               </div>
-              <ul>
-                <li><a href="#section1">丸林魯肉飯</a></li>
-                <li>
-                  <a href="#section2"
-                    >2019 ORION 沖繩啤酒節9 ORION 沖繩啤酒節9 ORION
-                    沖繩啤酒節</a
-                  >
-                </li>
-                <li>
-                  <a href="#section1"
-                    >花博公園右邊馬路 很多日本人愛吃的丸林魯肉飯</a
-                  >
-                </li>
-              </ul>
+              <div class="catalogDest">
+                <a href="#dest1">丸林魯肉飯 </a>
+                <a href="#dest2"
+                  >2019 ORION Beer Taipei 沖繩啤酒節 ORION 沖繩啤酒節</a
+                >
+              </div>
             </div>
           </div>
+
           <div class="article__middle">
-            <section class="articleStyle1">
+            <section class="articleStyle1" id="dest1">
               <img src="images/week1/p-01.jpg" alt="丸林滷肉飯" />
               <div>
                 <h4>丸林滷肉飯</h4>
                 <h6>個人評分：3.9</h6>
-                <p>營業電話：(02) 2597-7971</p>
-                <p>營業地址：台北市中山區民族東路32號</p>
-                <p>營業時間：10:30-21:00</p>
+                <ul>
+                  <li>營業電話：(02) 2597-7971</li>
+                  <li>營業地址：<a href="#">台北市中山區民族東路32號</a></li>
+                  <li>營業時間：10:30-21:00</li>
+                </ul>
               </div>
             </section>
             <section class="articleStyle4">
               <div>
                 <h5>據說是日本觀光客必吃的滷肉飯</h5>
-                <p>
-                  這幾年非常受陸客/日客歡迎，遊覽車總是一車一車的來。一樓大多是台灣的客人，二樓就都留給觀光客用餐了，另外還有現打新鮮果汁，用餐環境不錯。
-                </p>
+                <ul>
+                  <li>
+                    這幾年非常受陸客/日客歡迎，遊覽車總是一車一車的來。一樓大多是台灣的客人，二樓就都留給觀光客用餐了，另外還有現打新鮮果汁，用餐環境不錯。
+                  </li>
+                </ul>
               </div>
               <img src="images/week1/p-03.jpg" alt="晚餐菜色" />
             </section>
-            <section class="articleStyle2">
+            <section class="articleStyle2" id="dest2">
               <div>
                 <h4>2019 ORION 沖繩啤酒節</h4>
                 <h6>個人評分：4.2</h6>
-                <p>
-                  每年最大的沖繩ORION啤酒祭典即將在10/19舉辦，會場改到花博公園的花海廣場，大家別跑錯了！
-                </p>
-                <p>時間：10/19、10/20</p>
+                <ul>
+                  <li>
+                    每年最大的沖繩ORION啤酒祭典即將在10/19舉辦，會場改到花博公園的花海廣場，大家別跑錯了！
+                  </li>
+                  <li>時間：<mark>10/19、10/20</mark></li>
+                </ul>
               </div>
               <img src="images/week1/p-02.jpg" alt="Orion舞台" />
             </section>
@@ -241,18 +239,23 @@
               <img src="images/week1/p-04.jpg" alt="Orion啤酒" />
               <div>
                 <h5>新生啤酒好喝的三個理由</h5>
-                <p>
-                  其一：更加「新鮮清爽」的口感，通過新的過濾工序減低了麥汁的雜味成分，調節最佳的發酵溫度，讓香氣更加沁人心脾。
-                  重新調節啤酒花的添加比率，突出酒花原來具有的清爽苦味。
-                </p>
-                <p>
-                  其二：美味持久。鲜度長存！
-                  通過加料和過濾的兩道工序抑制氧化，使得鮮度更加持久，長時間保持美味。
-                </p>
-                <p>
-                  其三：再有，奶油般口感持久的「泡沫」
-                  保留更多的來自麥芽的蛋白質，使泡沫更加柔軟持久。
-                </p>
+                <ul>
+                  <li>
+                    <strong>其一</strong
+                    >：更加「新鮮清爽」的口感，通過新的過濾工序減低了麥汁的雜味成分，調節最佳的發酵溫度，讓香氣更加沁人心脾。
+                    重新調節啤酒花的添加比率，突出酒花原來具有的清爽苦味。
+                  </li>
+                  <li>
+                    <strong>其二</strong>：美味持久。鲜度長存！
+                    通過加料和過濾的<mark
+                      >兩道工序抑制氧化，使得鮮度更加持久，長時間保持美味。</mark
+                    >
+                  </li>
+                  <li>
+                    <strong>其三</strong
+                    >：再有，奶油般口感持久的「泡沫」保留更多的來自麥芽的蛋白質，使泡沫更加柔軟持久。
+                  </li>
+                </ul>
               </div>
             </section>
             <section class="articleStyle5">
@@ -275,20 +278,18 @@
               </div>
             </section>
             <section class="articleStyle6">
-              <div>
-                <h5>醉不上路</h5>
-                <iframe
-                  id="iFrame"
-                  src="https://www.youtube.com/embed/OSYVNSWaoCE"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-                <p>
-                  一直以來我有個在草地翻滾的願望，但在理性的作用下，一直無法去實現，謝謝你
-                  Orion Beer。
-                </p>
-              </div>
+              <h5>醉不上路</h5>
+              <iframe
+                id="iFrame"
+                src="https://www.youtube.com/embed/OSYVNSWaoCE"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <p>
+                一直以來我有個在草地翻滾的願望，但在理性的作用下，一直無法去實現，謝謝你
+                Orion Beer。
+              </p>
             </section>
             <section class="articleStyle7">
               <h5>本週景點地圖</h5>
@@ -301,6 +302,7 @@
               </ul>
             </section>
           </div>
+
           <div class="article__bottom">
             <div class="article__bottom__prev">
               <img src="images/arrow.svg" />
@@ -318,6 +320,7 @@
             </div>
           </div>
         </article>
+
         <!-- 資訊欄 -->
         <aside class="aside">
           <div class="aside__photo">

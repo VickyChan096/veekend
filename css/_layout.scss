@@ -25,7 +25,7 @@
   text-align: center;
   white-space: nowrap;
   user-select: none;
-  border-radius: 4px;
+  border-radius: $br-s;
   transition: $trsSlow;
   cursor: pointer;
 
@@ -55,6 +55,11 @@
     color: $c2nd;
     background-color: $c1st;
   }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
 }
 
 body {
@@ -118,7 +123,7 @@ header {
 
     &__hamburger {
       display: none;
-      border-radius: 4px;
+      border-radius: $br-s;
       background-color: $c2nd;
 
       @include mobile {
@@ -189,7 +194,7 @@ header {
         padding: 8px;
         height: 30px;
         width: 25vw;
-        border-radius: 4px 0 0 4px;
+        border-radius: $br-s 0 0 $br-s;
 
         @include mobile {
           margin-bottom: 8px;
@@ -200,7 +205,7 @@ header {
       button {
         width: 30px;
         height: 30px;
-        border-radius: 0 4px 4px 0;
+        border-radius: 0 $br-s $br-s 0;
         background-size: 20px;
         background-color: $c2nd;
         background-image: url(../images/search.png);
@@ -343,7 +348,7 @@ header {
           margin: 4px;
           font-size: 18px;
           border: 1px solid $c4th;
-          border-radius: 4px;
+          border-radius: $br-s;
         }
       }
 
@@ -480,6 +485,7 @@ main {
       left: 0;
       width: 185px;
       height: 185px;
+      border-radius: $br-s;
       background-color: $c1st;
     }
 
@@ -489,6 +495,7 @@ main {
       right: 0px;
       width: 185px;
       height: 185px;
+      border-radius: $br-s;
       transition: $trsSlow;
       filter: grayscale(100%) contrast(140%);
 
@@ -538,8 +545,8 @@ main {
     margin-bottom: 20px;
 
     @include mobile {
-      padding: 0 1.5%;
-      width: 47%;
+      padding: 0 1%;
+      width: 48%;
     }
 
     @include min-mobile {
@@ -569,8 +576,13 @@ main {
         width: 70px;
         height: 70px;
         object-fit: cover;
+        border-radius: $br-s;
         transition: $trsSlow;
         filter: grayscale(100%) contrast(1.2);
+
+        @include min-mobile {
+          width: 150px;
+        }
       }
 
       li:hover img {
@@ -583,8 +595,8 @@ main {
     margin-bottom: 20px;
 
     @include mobile {
-      padding: 0 1.5%;
-      width: 47%;
+      padding: 0 1%;
+      width: 48%;
     }
 
     @include min-mobile {
@@ -597,7 +609,7 @@ main {
       padding: 2px 6px;
       color: $c2nd;
       font-weight: $fw-m;
-      border-radius: 4px;
+      border-radius: $br-s;
       background-color: $c4th;
       transition: $trsFast;
 
@@ -614,6 +626,10 @@ main {
 
     &:hover {
       filter: grayscale(0%);
+    }
+
+    img {
+      border-radius: $br-s;
     }
   }
 }

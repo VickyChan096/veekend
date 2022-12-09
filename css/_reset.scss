@@ -180,3 +180,15 @@ button {
   outline: none;
   cursor: pointer;
 }
+
+strong {
+  font-weight: bold;
+}
+
+mark {
+  background: none;
+  background-color: none;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: $c5th;
+}
