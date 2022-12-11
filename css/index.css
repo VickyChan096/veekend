@@ -1040,6 +1040,33 @@ main .contentWrap {
   }
 }
 
+.result {
+  display: none;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+.result h2 {
+  font-size: 36px;
+  font-weight: bolder;
+  line-height: 1.4;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #ffe60f;
+          text-decoration-color: #ffe60f;
+  text-decoration-thickness: 10px;
+  text-underline-offset: -4px;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+.result p {
+  color: #868686;
+}
+.result span {
+  color: #000;
+  font-size: 20px;
+}
+
 .articleList {
   width: 78%;
 }

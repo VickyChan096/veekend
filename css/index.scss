@@ -4,6 +4,8 @@
 @import "layout"; // header、footer、toTop、button
 
 .heroSection {
+	// 搜尋後隱藏
+	// display: none;
 	padding: 30px 0;
 
 	@include mobile {
@@ -81,7 +83,7 @@
 				background-color: $c1st;
 
 				@media (max-width: 1200px) {
-				border-radius: 0;
+					border-radius: 0;
 				}
 
 				@include mobile {
@@ -172,6 +174,35 @@
 				height: 10px;
 			}
 		}
+	}
+}
+
+// 搜尋後出現
+.result {
+	display: none;
+	margin-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid $c4th;
+
+	h2 {
+		font-size: 36px;
+		font-weight: bolder;
+		line-height: 1.4;
+		text-decoration: underline;
+		text-decoration-color: $c1st;
+		text-decoration-thickness: 10px;
+		text-underline-offset: -4px;
+		text-decoration-skip-ink: none;
+	}
+
+	p {
+		color: lighten($c3rd, 20%);
+	}
+
+	span {
+		color: $c2nd;
+		font-size: $fz-m;
 	}
 }
 

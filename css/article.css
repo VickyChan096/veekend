@@ -1239,11 +1239,17 @@ main .contentWrap {
   width: 100%;
 }
 
+.articleStyle4 li {
+  margin-bottom: 10px !important;
+}
 @media only screen and (max-width: 768px) {
   .articleStyle4 {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column-reverse;
+  }
+  .articleStyle4 li {
+    margin-bottom: 0px !important;
   }
 }
 

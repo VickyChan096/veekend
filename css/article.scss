@@ -243,6 +243,7 @@
 			li {
 				margin-bottom: 8px;
 			}
+
 			li:last-child {
 				margin-bottom: 0px;
 			}
@@ -397,10 +398,18 @@
 }
 
 .articleStyle4 {
+	li {
+		margin-bottom: 10px !important;
+	}
+
 	@include mobile {
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: column-reverse;
+
+		li {
+			margin-bottom: 0px !important;
+		}
 	}
 }
 
