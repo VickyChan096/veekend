@@ -1,0 +1,106 @@
+@import "variable"; // 字級、顏色、速度
+@import "reset"; // Reset、初始設定
+@import "mixin"; // Flex、@media
+@import "layout"; // header、footer、toTop、button
+
+.about {
+	padding: 150px 114px;
+
+	@include mobile {
+		padding-top: 100px;
+		padding-bottom: 70px;
+	}
+
+	@media (max-width:650px) {
+		padding-left: 64px;
+		padding-right: 64px;
+	}
+
+	&__content {
+		@include disFlex;
+		position: relative;
+
+		@include pad {
+			flex-wrap: wrap;
+		}
+
+		&__photo {
+			position: relative;
+			z-index: 1;
+
+			@include mobile {
+				margin-bottom: 50px;
+			}
+
+			img {
+				margin-right: 20px;
+				width: 300px;
+				height: 300px;
+				filter: grayscale(100%);
+
+				@include min-mobile {
+					margin-right: 0;
+					width: 200px;
+					height: 200px;
+					object-fit: cover;
+				}
+			}
+		}
+
+		&__photo::before {
+			content: "";
+			position: absolute;
+			top: 30px;
+			left: -30px;
+			width: 300px;
+			height: 300px;
+			background-color: $c2nd;
+
+			@include min-mobile {
+				width: 200px;
+				height: 200px;
+			}
+		}
+
+		&__photo::after {
+			content: "";
+			position: absolute;
+			top: -100px;
+			right: -40px;
+			width: 200px;
+			height: 500px;
+			background-color: $c1st;
+			z-index: -1;
+
+			@include mobile {
+				top: -30px;
+				right: -15px;
+				width: 300px;
+				height: 300px;
+			}
+
+			@include min-mobile {
+				right: -30px;
+				width: 200px;
+				height: 200px;
+			}
+		}
+
+		&__text {
+			z-index: 1;
+
+			@include mobile {
+				text-align: center;
+			}
+
+			h2 {
+				font-size: 60px;
+				font-weight: bold;
+
+				@include min-mobile {
+					font-size: 36px;
+				}
+			}
+		}
+	}
+}

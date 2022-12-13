@@ -95,6 +95,10 @@ header {
     padding: 0 15px;
   }
 
+  a {
+    color: $c2nd;
+  }
+
   &__content {
     @include disFlex($jc: space-between);
     margin: 8px 0;
