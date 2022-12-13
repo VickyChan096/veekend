@@ -43,8 +43,8 @@ $(function () {
     $(this).siblings().find('.menu__district').removeClass('active');
 
     // 大網h3底線(偽元素)開合 與 同級元素關閉
-    $(this).find('h3').toggleClass('active');
-    $(this).siblings().find('h3').removeClass('active');
+    $(this).find('.menuUnderline').toggleClass('active');
+    $(this).siblings().find('.menuUnderline').removeClass('active');
 
     // 大網icon換色 與 同級元素關閉
     $(this).find('i').toggleClass('active');

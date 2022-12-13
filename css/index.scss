@@ -17,6 +17,9 @@
 	max-width: 1200px;
 	max-height: 450px;
 	border-radius: $br-m;
+	a{
+		color: #000;
+	}
 
 	.swiperContent {
 		position: relative;
@@ -354,8 +357,12 @@
 			}
 		}
 
-		button {
+		a {
 			width: 150px;
 		}
+	}
+
+	.moreBtn {
+		display: none;
 	}
 }

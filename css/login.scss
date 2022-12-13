@@ -1,0 +1,62 @@
+@import "variable"; // 字級、顏色、速度
+@import "reset"; // Reset、初始設定
+@import "mixin"; // Flex、@media
+@import "layout"; // header、footer、toTop、button
+
+.clearfix::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.login {
+	padding: 150px 20px;
+
+	&__content {
+		margin: 0 auto;
+		padding: 20px;
+		width: 300px;
+		border: 1px solid $c4th;
+		border-radius: $br-s;
+
+		@include min-mobile {
+			width: 100%;
+		}
+
+		h2 {
+			margin-bottom: 20px;
+			font-size: 36px;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		&__label {
+			@include disFlex($jc: space-between);
+			margin-bottom: 20px;
+
+			@include min-mobile {
+				flex-wrap: wrap;
+			}
+
+			p {
+				font-size: $fz-m;
+			}
+
+			input {
+				padding: 4px;
+				width: 80%;
+				border-bottom: 1px solid $c1st;
+				background-color: lighten($c4th, 4%);
+
+				@include min-mobile {
+					width: 100%;
+				}
+			}
+		}
+
+		button {
+			width: 100px;
+			float: right;
+		}
+	}
+}

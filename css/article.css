@@ -428,8 +428,6 @@ header {
   align-items: center;
   position: relative;
   margin-right: 10px;
-  font-weight: 500;
-  cursor: pointer;
 }
 @media only screen and (max-width: 768px) {
   .menu {
@@ -453,7 +451,9 @@ header {
 }
 .menu h3 {
   position: relative;
+  font-weight: 500;
   z-index: 1;
+  cursor: pointer;
 }
 @media only screen and (max-width: 768px) {
   .menu h3 {
@@ -528,12 +528,10 @@ header {
 .menu__district ul li {
   padding: 0 4px;
   margin-bottom: 8px;
-  font-weight: 300;
+  color: #b9b9b9;
   border-left: 1px solid #eeeeee;
   transition: all 0.2s;
-}
-.menu__district ul li:hover, .menu__district ul li.active {
-  background-color: #ffe60f;
+  cursor: not-allowed;
 }
 @media only screen and (max-width: 768px) {
   .menu__district ul li {
@@ -543,6 +541,9 @@ header {
     border: 1px solid #eeeeee;
     border-radius: 4px;
   }
+}
+.menu__district ul li:hover {
+  background-color: #ffe60f;
 }
 .menu__district ul li:nth-child(5n+1) {
   border: none;
@@ -565,6 +566,7 @@ header {
   display: block;
   margin-right: 2px;
   margin-top: 4px;
+  color: #b9b9b9;
   font-size: 9.6px;
 }
 .menu .lastDistrict li:nth-child(5n+1) {
