@@ -959,25 +959,6 @@ main .contentWrap {
   color: #868686;
   font-size: 12.8px;
 }
-.article__top__icon {
-  display: flex;
-  justify-content: end;
-  align-items: end;
-  margin-bottom: 10px;
-}
-.article__top__icon i {
-  padding: 4px;
-  font-size: 20px;
-  transition: all 0.2s;
-  cursor: pointer;
-}
-.article__top__icon i:hover {
-  rotate: -45deg;
-  transform: scale(1.2);
-}
-.article__top__icon span {
-  margin-right: 10px;
-}
 .article__top__brief {
   margin-bottom: 20px;
   text-align: left;
@@ -1120,6 +1101,9 @@ main .contentWrap {
 .article__middle section li:last-child {
   margin-bottom: 0px;
 }
+.article__middle section span {
+  text-decoration: line-through;
+}
 .article__bottom {
   display: flex;
   justify-content: space-between;
@@ -1223,14 +1207,13 @@ main .contentWrap {
   max-height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
 }
 @media only screen and (max-width: 768px) {
   .articleStyle1 img,
 .articleStyle2 img {
     margin-bottom: 10px;
     width: 100%;
+    max-height: 100%;
   }
 }
 .articleStyle1 div,
