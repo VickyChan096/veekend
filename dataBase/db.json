@@ -1,8 +1,75 @@
 {
-  "contents": [
+  "users": [
     {
       "id": 1,
+      "name": "VC",
+      "email": "s6102161021@yahoo.com.tw",
+      "password": "test1234"
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "userName": "VC",
+      "week": 1,
+      "city": "台北市",
+      "district": "中山區",
+      "visitedDate": "2019.10.20",
+      "writtenDate": "2022.10.18",
+      "title": "ORION BEER FEST in TAIPEI 一起狂喝一整晚!",
+      "briefing": "這禮拜是Veekend計畫的第一週，聽朋友說花博有個Orion啤酒之夜。第一週就先簡單安排行程，吃飽飯就緩緩散步去會場。",
+      "largeCoverUrl": "images/week1/cover.jpg",
+      "smallCoverUrl": "images/week1/cover-s.jpg",
+      "destinations": [
+        {
+          "name": "丸林滷肉飯",
+          "rate": 3.9,
+          "mapUrl": "https://goo.gl/maps/hbX1HYq1oJ4qDMbL6",
+          "local": [
+            25.068780763626144,
+            121.52490147444489
+          ]
+        },
+        {
+          "name": "Orion Beer 沖繩啤酒節",
+          "rate": 4.2,
+          "mapUrl": "https://goo.gl/maps/7LZvGnEm3UBKjj6p6",
+          "local": [
+            25.07189941449988,
+            121.5222065131828
+          ]
+        }
+      ],
+      "hashTags": [
+        "花博公園","中山區","台北市","啤酒季"
+      ],
       "content": "<div class=\"article__middle__catalog\"><p>本週景點</p><div class=\"catalogBtn\"><i class=\"fa-solid fa-circle-xmark\"></i></div><div class=\"catalogDest\"><a href=\"#dest1\">丸林魯肉飯 </a><a href=\"#dest2\">2019 ORION Beer Taipei 沖繩啤酒節 ORION 沖繩啤酒節</a></div></div><section class=\"articleStyle1\" id=\"dest1\"><img src=\"images/week1/p-01.jpg\"><div><h4>丸林滷肉飯</h4><h6>個人評分：3.9</h6><ul><li>營業電話：(02) 2597-7971</li><li>營業地址：<a href=\"#\">台北市中山區民族東路32號</a></li><li>營業時間：10:30-21:00</li></ul></div></section><section class=\"articleStyle4\"><div><h5>據說是日本觀光客必吃的滷肉飯</h5><ul><li>這幾年非常受陸客/日客歡迎，遊覽車總是一車一車的來。一樓大多是台灣的客人，二樓就都留給觀光客用餐了，另外還有現打新鮮果汁，用餐環境不錯。</li></ul></div><img src=\"images/week1/p-03.jpg\"></section><section class=\"articleStyle2\" id=\"dest2\"><div><h4>2019 ORION 沖繩啤酒節</h4><h6>個人評分：4.2</h6><ul><li>每年最大的沖繩ORION啤酒祭典即將在10/19舉辦，會場改到花博公園的花海廣場，大家別跑錯了！</li><li>時間：<mark>10/19、10/20</mark></li></ul></div><img src=\"images/week1/p-02.jpg\" alt=\"Orion舞台\"></section><section class=\"articleStyle3\"><img src=\"images/week1/p-04.jpg\" alt=\"Orion啤酒\"><div><h5>新生啤酒好喝的三個理由</h5><ul><li><strong>其一</strong>：更加「新鮮清爽」的口感，通過新的過濾工序減低了麥汁的雜味成分，調節最佳的發酵溫度，讓香氣更加沁人心脾。 重新調節啤酒花的添加比率，突出酒花原來具有的清爽苦味。</li><li><strong>其二</strong>：美味持久。鲜度長存！ 通過加料和過濾的<mark>兩道工序抑制氧化，使得鮮度更加持久，長時間保持美味。</mark></li><li><strong>其三</strong>：再有，奶油般口感持久的「泡沫」保留更多的來自麥芽的蛋白質，使泡沫更加柔軟持久。</li></ul></div></section><section class=\"articleStyle5\"><div class=\"articleStyle5__oneThird\"><img src=\"images/week1/p-05.jpg\"><h5>啤酒啤酒啤酒啤酒啤酒啤酒啤酒啤酒啤酒啤酒啤酒</h5><p>保留更多的來自麥芽的蛋白質，使泡沫更加柔軟持久。</p></div><div class=\"articleStyle5__oneThird\"><img src=\"images/week1/p-04.jpg\"><h5>Orion Beer</h5><p>保留更多的來自麥芽的蛋白質，使泡沫更加柔軟持久。的蛋白質，使泡沫更加柔軟持久。的蛋白質，使泡沫更加柔軟持久。的蛋白質，使泡沫更加柔軟持久。的蛋白質，使泡沫更加柔軟持久。</p></div><div class=\"articleStyle5__oneThird\"><img src=\"images/week1/p-03.jpg\"><h5>Orion Beer</h5><p>保留更多的來自麥芽的蛋白質，使泡沫更加柔軟持久。</p></div></section><section class=\"articleStyle6\"><h5>醉不上路</h5><iframe id=\"iFrame\" src=\"https://www.youtube.com/embed/OSYVNSWaoCE\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe><p>一直以來我有個在草地翻滾的願望，但在理性的作用下，一直無法去實現，謝謝你 Orion Beer。</p></section><section class=\"articleStyle7\"><h5>本週景點地圖</h5><div id=\"map\"></div><ul><li>#花博公園</li><li>#中山區</li><li>#台北市</li><li>#啤酒季</li></ul></section>"
+    },
+    {
+      "id": 2,
+      "userName": "VC",
+      "week": 2,
+      "city": "台北市",
+      "district": "大同區",
+      "visitedDate": "2019.10.27",
+      "writtenDate": "2022.12.14",
+      "title": "就這麼不經意的參加了天橋萬聖節Party",
+      "briefing": "這禮拜是Veekend計畫的第一週，聽朋友說花博有個Orion啤酒之夜。第一週就先簡單安排行程，吃飽飯就緩緩散步去會場。",
+      "coverPath": "images/week1/cover.jpg",
+      "coverPathSmall": "images/week1/cover-s.jpg"
+    },
+    {
+      "id": 3,
+      "userName": "VC",
+      "week": 3,
+      "city": "新北市",
+      "district": "汐止區",
+      "visitedDate": "2019.11.02",
+      "writtenDate": "2022.12.15",
+      "title": "待了汐止兩年多，這還是第一次這麼愜意的吃午餐？！",
+      "briefing": "這禮拜是Veekend計畫的第一週，聽朋友說花博有個Orion啤酒之夜。第一週就先簡單安排行程，吃飽飯就緩緩散步去會場。",
+      "coverPath": "images/week1/cover.jpg",
+      "coverPathSmall": "images/week1/cover-s.jpg"
     }
   ]
 }

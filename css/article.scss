@@ -3,6 +3,11 @@
 @import "mixin"; // Flex、@media
 @import "layout"; // header、footer、toTop、button
 
+// <strong>: 文字粗體
+// <mark>: 文字紅色底線
+// <u>: 文字刪除線
+
+
 .heroBanner {
 	position: relative;
 	margin-bottom: 20px;
@@ -158,6 +163,10 @@
 				border-radius: 4px;
 			}
 
+			.fancyBoxImg {
+				width: 300px;
+			}
+
 			a {
 				color: $c2nd;
 				text-decoration: underline;
@@ -236,15 +245,80 @@
 			li:last-child {
 				margin-bottom: 0px;
 			}
+		}
+	}
 
-			span {
-				text-decoration: line-through;
+	&__mapAndTags {
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid $c4th;
+
+		h5 {
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+
+		#map {
+			margin-bottom: 20px;
+			width: 100%;
+			height: 350px;
+			text-align: center;
+			border-radius: 4px;
+			z-index: 1;
+
+			.popupContent {
+				margin-bottom: 20px;
+				text-align: center;
+
+				h4 {
+					margin-bottom: 3px;
+					font-weight: $fw-l;
+				}
+
+				p {
+					margin-top: 0;
+					margin-bottom: 8px;
+				}
+
+				a {
+					padding: 4px 12px;
+					color: $c2nd;
+					font-size: $fz-s * 0.8;
+					font-weight: $fw-m;
+					text-decoration: none;
+
+					&:hover {
+						color: #fff;
+					}
+				}
+			}
+		}
+
+		ul {
+			width: 100%;
+
+			li {
+				display: inline-block;
+				margin-bottom: 4px;
+				padding: 2px 6px;
+				color: $c2nd;
+				font-weight: $fw-m;
+				border-radius: $br-s;
+				background-color: $c4th;
+				transition: $trsFast;
+				cursor: pointer;
+
+				&:hover {
+					color: #000;
+					background-color: $c1st;
+				}
 			}
 		}
 	}
 
 	&__bottom {
-		@include disFlex($jc: space-between);
+		@include disFlex($jc: space-between, $ai: stretch);
+		// align-items: stretch;
 
 		@include mobile {
 			margin-bottom: 20px;
@@ -261,10 +335,6 @@
 			}
 		}
 
-		em {
-			font-weight: bold;
-		}
-
 		p {
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -279,7 +349,7 @@
 
 		&__prev,
 		&__next {
-			@include disFlex($jc: space-between);
+			@include disFlex($jc: space-between, $ai: top);
 			position: relative;
 			padding: 10px;
 			width: 49%;
@@ -348,7 +418,8 @@
 		flex-wrap: wrap;
 	}
 
-	img {
+	img,
+	a[data-fancybox="gallery"] {
 		width: 50%;
 		max-height: 300px;
 		object-fit: cover;
@@ -358,6 +429,24 @@
 			width: 100%;
 			max-height: 100%;
 		}
+	}
+
+	a[data-fancybox="gallery"] {
+		position: relative;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	a[data-fancybox="gallery"]::after {
+		content: "🔍 點我看大圖";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		padding: 2px 8px;
+		color: #fff;
+		background-color: $c2nd;
 	}
 
 	div {
@@ -456,37 +545,6 @@
 		width: 100%;
 		height: 350px;
 		border-radius: 4px;
-	}
-}
-
-.articleStyle7 {
-	#map {
-		margin-bottom: 20px;
-		width: 100%;
-		height: 350px;
-		border-radius: 4px;
-		z-index: 1;
-	}
-
-	ul {
-		width: 100%;
-
-		li {
-			display: inline-block;
-			margin-bottom: 4px;
-			padding: 2px 6px;
-			color: $c2nd;
-			font-weight: $fw-m;
-			border-radius: $br-s;
-			background-color: $c4th;
-			transition: $trsFast;
-			cursor: pointer;
-
-			&:hover {
-				color: #000;
-				background-color: $c1st;
-			}
-		}
 	}
 }
 

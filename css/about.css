@@ -197,6 +197,10 @@ mark {
           text-decoration-color: #e60012;
 }
 
+u {
+  text-decoration: line-through;
+}
+
 #toTop {
   z-index: 90;
   display: none;
@@ -218,7 +222,7 @@ mark {
 }
 
 .btn {
-  padding: 12px 0;
+  padding: 12px;
   font-size: 16px;
   font-weight: bold;
   text-align: center;
@@ -792,6 +796,11 @@ main .contentWrap {
   transition: all 0.2s;
   filter: grayscale(100%);
 }
+@media only screen and (max-width: 768px) {
+  .aside__ad {
+    display: none;
+  }
+}
 .aside__ad:hover {
   filter: grayscale(0%);
 }
@@ -830,6 +839,9 @@ main .contentWrap {
 }
 .footer__info li img {
   display: none;
+}
+.footer__info li a {
+  color: #fff;
 }
 @media only screen and (max-width: 768px) {
   .footer__info li img {

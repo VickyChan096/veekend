@@ -198,6 +198,10 @@ mark {
           text-decoration-color: #e60012;
 }
 
+u {
+  text-decoration: line-through;
+}
+
 #toTop {
   z-index: 90;
   display: none;
@@ -219,7 +223,7 @@ mark {
 }
 
 .btn {
-  padding: 12px 0;
+  padding: 12px;
   font-size: 16px;
   font-weight: bold;
   text-align: center;
@@ -793,6 +797,11 @@ main .contentWrap {
   transition: all 0.2s;
   filter: grayscale(100%);
 }
+@media only screen and (max-width: 768px) {
+  .aside__ad {
+    display: none;
+  }
+}
 .aside__ad:hover {
   filter: grayscale(0%);
 }
@@ -831,6 +840,9 @@ main .contentWrap {
 }
 .footer__info li img {
   display: none;
+}
+.footer__info li a {
+  color: #fff;
 }
 @media only screen and (max-width: 768px) {
   .footer__info li img {
@@ -1025,6 +1037,9 @@ main .contentWrap {
 .article__middle section img {
   border-radius: 4px;
 }
+.article__middle section .fancyBoxImg {
+  width: 300px;
+}
 .article__middle section a {
   color: #000;
   text-decoration: underline;
@@ -1101,13 +1116,67 @@ main .contentWrap {
 .article__middle section li:last-child {
   margin-bottom: 0px;
 }
-.article__middle section span {
-  text-decoration: line-through;
+.article__mapAndTags {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+.article__mapAndTags h5 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.article__mapAndTags #map {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 350px;
+  text-align: center;
+  border-radius: 4px;
+  z-index: 1;
+}
+.article__mapAndTags #map .popupContent {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.article__mapAndTags #map .popupContent h4 {
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+.article__mapAndTags #map .popupContent p {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+.article__mapAndTags #map .popupContent a {
+  padding: 4px 12px;
+  color: #000;
+  font-size: 12.8px;
+  font-weight: 400;
+  text-decoration: none;
+}
+.article__mapAndTags #map .popupContent a:hover {
+  color: #fff;
+}
+.article__mapAndTags ul {
+  width: 100%;
+}
+.article__mapAndTags ul li {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 2px 6px;
+  color: #000;
+  font-weight: 400;
+  border-radius: 4px;
+  background-color: #eeeeee;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.article__mapAndTags ul li:hover {
+  color: #000;
+  background-color: #ffe60f;
 }
 .article__bottom {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
 }
 @media only screen and (max-width: 768px) {
   .article__bottom {
@@ -1125,9 +1194,6 @@ main .contentWrap {
     width: 20px;
   }
 }
-.article__bottom em {
-  font-weight: bold;
-}
 .article__bottom p {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1143,7 +1209,7 @@ main .contentWrap {
 .article__bottom__prev, .article__bottom__next {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: top;
   position: relative;
   padding: 10px;
   width: 49%;
@@ -1202,7 +1268,9 @@ main .contentWrap {
   }
 }
 .articleStyle1 img,
-.articleStyle2 img {
+.articleStyle1 a[data-fancybox=gallery],
+.articleStyle2 img,
+.articleStyle2 a[data-fancybox=gallery] {
   width: 50%;
   max-height: 300px;
   -o-object-fit: cover;
@@ -1210,11 +1278,31 @@ main .contentWrap {
 }
 @media only screen and (max-width: 768px) {
   .articleStyle1 img,
-.articleStyle2 img {
+.articleStyle1 a[data-fancybox=gallery],
+.articleStyle2 img,
+.articleStyle2 a[data-fancybox=gallery] {
     margin-bottom: 10px;
     width: 100%;
     max-height: 100%;
   }
+}
+.articleStyle1 a[data-fancybox=gallery],
+.articleStyle2 a[data-fancybox=gallery] {
+  position: relative;
+}
+.articleStyle1 a[data-fancybox=gallery] img,
+.articleStyle2 a[data-fancybox=gallery] img {
+  width: 100%;
+}
+.articleStyle1 a[data-fancybox=gallery]::after,
+.articleStyle2 a[data-fancybox=gallery]::after {
+  content: "🔍 點我看大圖";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2px 8px;
+  color: #fff;
+  background-color: #000;
 }
 .articleStyle1 div,
 .articleStyle2 div {
@@ -1309,32 +1397,6 @@ main .contentWrap {
   width: 100%;
   height: 350px;
   border-radius: 4px;
-}
-
-.articleStyle7 #map {
-  margin-bottom: 20px;
-  width: 100%;
-  height: 350px;
-  border-radius: 4px;
-  z-index: 1;
-}
-.articleStyle7 ul {
-  width: 100%;
-}
-.articleStyle7 ul li {
-  display: inline-block;
-  margin-bottom: 4px;
-  padding: 2px 6px;
-  color: #000;
-  font-weight: 400;
-  border-radius: 4px;
-  background-color: #eeeeee;
-  transition: all 0.2s;
-  cursor: pointer;
-}
-.articleStyle7 ul li:hover {
-  color: #000;
-  background-color: #ffe60f;
 }
 
 @-webkit-keyframes heroBannerMove {

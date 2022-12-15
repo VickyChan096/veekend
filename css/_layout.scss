@@ -19,7 +19,7 @@
 
 // Button樣式
 .btn {
-  padding: 12px 0;
+  padding: 12px;
   font-size: $fz-s;
   font-weight: bold;
   text-align: center;
@@ -629,6 +629,10 @@ main {
     transition: $trsFast;
     filter: grayscale(100%);
 
+    @include mobile {
+      display: none;
+    }
+
     &:hover {
       filter: grayscale(0%);
     }
@@ -671,6 +675,10 @@ main {
 
       img {
         display: none;
+      }
+
+      a {
+        color: #fff;
       }
 
       @include mobile {
