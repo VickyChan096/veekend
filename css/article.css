@@ -1296,7 +1296,7 @@ main .contentWrap {
 }
 .articleStyle1 a[data-fancybox=gallery]::after,
 .articleStyle2 a[data-fancybox=gallery]::after {
-  content: "🔍 點我看大圖";
+  content: "🔍 點擊看大圖";
   position: absolute;
   bottom: 0;
   left: 0;

@@ -1,6 +1,9 @@
 const _hamburger = document.getElementById('hamburger');
 const _nav = document.getElementById('nav');
 
+// 點擊 小網效果
+document.body.addEventListener('touchstart', function () {});
+
 // 漢堡選單toggle TODO:加過場動畫
 _hamburger.addEventListener('click', function () {
   if (_nav.style.display === 'block') {

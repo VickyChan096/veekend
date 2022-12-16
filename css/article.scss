@@ -7,7 +7,6 @@
 // <mark>: 文字紅色底線
 // <u>: 文字刪除線
 
-
 .heroBanner {
 	position: relative;
 	margin-bottom: 20px;
@@ -440,7 +439,7 @@
 	}
 
 	a[data-fancybox="gallery"]::after {
-		content: "🔍 點我看大圖";
+		content: "🔍 點擊看大圖";
 		position: absolute;
 		bottom: 0;
 		left: 0;

@@ -1,4 +1,5 @@
-var blackIcon = new L.Icon({
+let _data = [];
+const _blackIcon = new L.Icon({
   iconUrl:
     'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
   shadowUrl:
@@ -10,11 +11,42 @@ var blackIcon = new L.Icon({
 });
 
 function init() {
-  // 點擊 小網效果
-  document.body.addEventListener('touchstart', function () {});
+  getData();
   renderLeaflet();
 }
 init();
+
+function getData() {
+  axios
+    .get('https://vickychan096.github.io/veekend/dataBase/db.json')
+    .then(function (response) {
+      _data = response.data;
+      console.log(_data);
+
+      let getUrlString = location.href;
+      let url = new URL(getUrlString);
+      let weekNumber = url.searchParams.get('week');
+
+      const thisWeek = _data.articles[weekNumber - 1];
+      console.log(thisWeek);
+      document.title = `Week ${thisWeek.week} - ${thisWeek.city + thisWeek.district} | Veekend`;
+      // 修改meta標籤的content內容
+      $("meta[property='og:title']").attr(
+        'content',
+        `Week ${thisWeek.week} - ${thisWeek.city + thisWeek.district} | Veekend`
+      );
+      $("meta[property='og:description']").attr('content', thisWeek.briefing);
+      $("meta[property='og:image']").attr('content', thisWeek.largeCoverUrl);
+    })
+    .catch(function (err) {
+      swal({
+        title: 'Σ(ﾟдﾟ) 哇糟糕了',
+        text: '連線異常，請重整試試',
+        icon: 'warning',
+        button: '確定',
+      });
+    });
+}
 
 $(function () {
   // 點擊 本週景點動畫
@@ -54,7 +86,7 @@ function renderLeaflet() {
 
   data.forEach((item) => {
     // 添加標記點
-    L.marker(item.local, { icon: blackIcon })
+    L.marker(item.local, { icon: _blackIcon })
       .addTo(map)
       .bindPopup(
         `<div class="popupContent">
