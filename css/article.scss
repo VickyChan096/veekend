@@ -8,11 +8,13 @@
 // <u>: 文字刪除線
 
 .swalBtn {
+
 	.swal-icon--warning__body,
 	.swal-icon--warning__dot {
 		background-color: $c1st;
 	}
-	.swal-icon--warning{
+
+	.swal-icon--warning {
 		border-color: $c1st !important;
 	}
 
@@ -343,7 +345,6 @@
 
 	&__bottom {
 		@include disFlex($jc: space-between, $ai: stretch);
-		// align-items: stretch;
 
 		@include mobile {
 			margin-bottom: 20px;
@@ -380,7 +381,7 @@
 			width: 49%;
 			border: 1px solid $c1st;
 			border-radius: $br-s;
-			cursor: pointer;
+			// cursor: pointer;
 			z-index: 1;
 		}
 
@@ -425,13 +426,28 @@
 			}
 		}
 
-		&__prev:hover:before {
+		&__prev:hover::before {
 			right: -1px;
 		}
 
-		&__next:hover:before {
+		&__next:hover::before {
 			left: -1px;
 		}
+	}
+}
+
+#articleNone {
+	color: $c4th;
+	border: 1px solid $c4th;
+	background-color: #fff;
+	user-select: none;
+
+	img{
+		filter: grayscale(100%) brightness(109%);
+	}
+
+	&:hover::before {
+		display: none;
 	}
 }
 
@@ -465,12 +481,15 @@
 	}
 
 	a[data-fancybox="gallery"]::after {
-		content: "🔍 點擊看大圖";
+		content: "點擊看大圖";
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		padding: 2px 8px;
+		padding: 4px;
+		width: 100%;
 		color: #fff;
+		text-align: center;
+		border-radius: 0 0 $br-s $br-s;
 		background-color: $c2nd;
 	}
 

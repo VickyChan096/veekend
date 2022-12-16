@@ -2,6 +2,7 @@ const _heroSection = document.querySelector('.heroSection');
 const _artTop = document.querySelector('.article__top');
 const _artMid = document.querySelector('.article__middle');
 const _artMap = document.querySelector('.article__mapAndTags');
+const _artBottom = document.querySelector('.article__bottom');
 let _data = [];
 let _week = '';
 let _article = '';
@@ -21,15 +22,15 @@ function getData() {
       renderHtml();
     })
     .catch(function (err) {
-      // swal({
-      //   title: 'Σ(ﾟдﾟ) 哇糟糕了',
-      //   text: '找不到文章，帶你回首頁',
-      //   icon: 'warning',
-      //   button: '確定',
-      //   className: 'swalBtn',
-      // }).then(function () {
-      //   window.location.href = 'index.html';
-      // });
+      swal({
+        title: 'Σ(ﾟдﾟ) 哇糟糕了',
+        text: '找不到文章，帶你回首頁',
+        icon: 'warning',
+        button: '確定',
+        className: 'swalBtn',
+      }).then(function () {
+        window.location.href = 'index.html';
+      });
     });
 }
 
@@ -37,8 +38,9 @@ function renderHtml() {
   changeHeadContent(_article);
   _heroSection.innerHTML = createHeroSection(_article);
   _artTop.innerHTML = createArtTop(_article);
-  createArtMid(_article);
+  createArtMid();
   createArtMap();
+  createArtBottom();
 }
 
 function getUrlParameter(parameter) {
@@ -80,7 +82,7 @@ function createArtTop(data) {
   return content;
 }
 
-function createArtMid(data) {
+function createArtMid() {
   _artMid.innerHTML = _article.content;
 
   $('.catalogBtn').click(function (event) {
@@ -140,4 +142,54 @@ function renderLeaflet(data) {
         </div>`
       );
   });
+}
+
+function createArtBottom() {
+  console.log(_data.articles);
+  console.log(`我在第${_week}週`);
+  let prev = parseInt(_week) - 1;
+  let next = parseInt(_week) + 1;
+  console.log(`上一篇是${prev}週，陣列是${prev - 1}`);
+  console.log(`下一篇是${next}週，陣列是${next - 1}`);
+
+  let prevStr = '';
+  let nextStr = '';
+  // console.log(_data.articles[prev].title);
+  // console.log(_data.articles[next].title);
+  if (prev === 0) {
+    prevStr = `<div id="articleNone" class="article__bottom__prev">
+              <img src="images/arrow.svg" />
+              <div>
+                <strong>Prev Post</strong>
+                <p>沒有上一篇囉(◞‸◟)</p>
+              </div>
+            </div>`;
+  } else {
+    prevStr = `<a href="article.html?week=${prev}" class="article__bottom__prev">
+              <img src="images/arrow.svg" />
+              <div>
+                <strong>Prev Post</strong>
+                <p>${_data.articles[prev - 1].title}</p>
+              </div>
+            </a>`;
+  }
+
+  if (next > _data.articles.length) {
+    nextStr = `<div id="articleNone" class="article__bottom__next">
+              <div>
+                <strong>Next Post</strong>
+                <p>沒有下一篇囉(◞‸◟)</p>
+              </div>
+              <img src="images/arrow.svg" />
+            </div>`;
+  } else {
+    nextStr = `<a href="article.html?week=${next}" class="article__bottom__next">
+              <div>
+                <strong>Next Post</strong>
+                <p>${_data.articles[next - 1].title}</p>
+              </div>
+              <img src="images/arrow.svg" />
+            </a>`;
+  }
+  _artBottom.innerHTML = prevStr + nextStr;
 }

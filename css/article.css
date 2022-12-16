@@ -152,6 +152,7 @@ img {
 }
 
 a {
+  color: #000;
   text-decoration: none;
 }
 
@@ -1236,7 +1237,6 @@ main .contentWrap {
   width: 49%;
   border: 1px solid #ffe60f;
   border-radius: 4px;
-  cursor: pointer;
   z-index: 1;
 }
 .article__bottom__prev {
@@ -1269,11 +1269,27 @@ main .contentWrap {
 .article__bottom__prev:hover img, .article__bottom__next:hover img {
   filter: brightness(350%);
 }
-.article__bottom__prev:hover:before {
+.article__bottom__prev:hover::before {
   right: -1px;
 }
-.article__bottom__next:hover:before {
+.article__bottom__next:hover::before {
   left: -1px;
+}
+
+#articleNone {
+  color: #eeeeee;
+  border: 1px solid #eeeeee;
+  background-color: #fff;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+#articleNone img {
+  filter: grayscale(100%) brightness(109%);
+}
+#articleNone:hover::before {
+  display: none;
 }
 
 .articleStyle1,
@@ -1317,12 +1333,15 @@ main .contentWrap {
 }
 .articleStyle1 a[data-fancybox=gallery]::after,
 .articleStyle2 a[data-fancybox=gallery]::after {
-  content: "🔍 點擊看大圖";
+  content: "點擊看大圖";
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 2px 8px;
+  padding: 4px;
+  width: 100%;
   color: #fff;
+  text-align: center;
+  border-radius: 0 0 4px 4px;
   background-color: #000;
 }
 .articleStyle1 div,
