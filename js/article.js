@@ -21,22 +21,28 @@ function getData() {
     .get('https://vickychan096.github.io/veekend/dataBase/db.json')
     .then(function (response) {
       _data = response.data;
-      console.log(_data);
+      // console.log(_data);
 
+      // 取得url的week=xx
       let getUrlString = location.href;
       let url = new URL(getUrlString);
       let weekNumber = url.searchParams.get('week');
 
-      const thisWeek = _data.articles[weekNumber - 1];
-      console.log(thisWeek);
-      document.title = `Week ${thisWeek.week} - ${thisWeek.city + thisWeek.district} | Veekend`;
+      const article = _data.articles[weekNumber - 1];
+      console.log(article);
+      document.title = `Week ${article.week} - ${article.city + article.district} | Veekend`;
+
       // 修改meta標籤的content內容
+      $("meta[property='og:url']").attr(
+        'content',
+        `https://vickychan096.github.io/veekend/?week=${article.week}`
+      );
       $("meta[property='og:title']").attr(
         'content',
-        `Week ${thisWeek.week} - ${thisWeek.city + thisWeek.district} | Veekend`
+        `Week ${article.week} - ${article.city + article.district} | Veekend`
       );
-      $("meta[property='og:description']").attr('content', thisWeek.briefing);
-      $("meta[property='og:image']").attr('content', thisWeek.largeCoverUrl);
+      $("meta[property='og:description']").attr('content', article.briefing);
+      $("meta[property='og:image']").attr('content', article.largeCoverUrl);
     })
     .catch(function (err) {
       swal({
