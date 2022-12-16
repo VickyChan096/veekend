@@ -1,14 +1,8 @@
+const _heroSection = document.querySelector('.heroSection');
+const _artTop = document.querySelector('.article__top');
 let _data = [];
-const _blackIcon = new L.Icon({
-  iconUrl:
-    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
-  shadowUrl:
-    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
-});
+let _week = '';
+let _article = '';
 
 function init() {
   getData();
@@ -21,37 +15,27 @@ function getData() {
     .get('https://vickychan096.github.io/veekend/dataBase/db.json')
     .then(function (response) {
       _data = response.data;
-      // console.log(_data);
-
-      // 取得url的week=xx
-      let getUrlString = location.href;
-      let url = new URL(getUrlString);
-      let weekNumber = url.searchParams.get('week');
-
-      const article = _data.articles[weekNumber - 1];
-      console.log(article);
-      document.title = `Week ${article.week} - ${article.city + article.district} | Veekend`;
-
-      // 修改meta標籤的content內容
-      $("meta[property='og:url']").attr(
-        'content',
-        `https://vickychan096.github.io/veekend/?week=${article.week}`
-      );
-      $("meta[property='og:title']").attr(
-        'content',
-        `Week ${article.week} - ${article.city + article.district} | Veekend`
-      );
-      $("meta[property='og:description']").attr('content', article.briefing);
-      $("meta[property='og:image']").attr('content', article.largeCoverUrl);
+      _week = getUrlParameter('week');
+      _article = _data.articles[_week - 1];
+      renderHtml();
     })
     .catch(function (err) {
       swal({
         title: 'Σ(ﾟдﾟ) 哇糟糕了',
-        text: '連線異常，請重整試試',
+        text: '找不到文章，帶你回首頁',
         icon: 'warning',
         button: '確定',
+        className: 'swalBtn',
+      }).then(function () {
+        window.location.href = 'index.html';
       });
     });
+}
+
+function renderHtml() {
+  changeHeadContent(_article);
+  _heroSection.innerHTML = createHeroSection(_article);
+  _artTop.innerHTML = createArtTop(_article);
 }
 
 $(function () {
@@ -63,6 +47,17 @@ $(function () {
 });
 
 function renderLeaflet() {
+  const _blackIcon = new L.Icon({
+    iconUrl:
+      'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+    shadowUrl:
+      'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
+
   let map = L.map('map', {
     center: [25.068356194024172, 121.52481353493157],
     zoom: 14,
@@ -102,4 +97,44 @@ function renderLeaflet() {
         </div>`
       );
   });
+}
+
+function getUrlParameter(parameter) {
+  const getUrlString = location.href;
+  const url = new URL(getUrlString);
+  return url.searchParams.get(parameter);
+}
+
+function changeHeadContent(data) {
+  document.title = `Week ${data.week} - ${data.city + data.district} | Veekend`;
+
+  // 修改 meta 的 content，但貌似 Line/fb 抓不到資訊
+  $("meta[property='og:url']").attr(
+    'content',
+    `https://vickychan096.github.io/veekend/?week=${data.week}`
+  );
+  $("meta[property='og:title']").attr(
+    'content',
+    `Week ${data.week} - ${data.city + data.district} | Veekend`
+  );
+  $("meta[property='og:description']").attr('content', data.briefing);
+  $("meta[property='og:image']").attr('content', data.largeCoverUrl);
+}
+
+function createHeroSection(data) {
+  let content = `<div class="heroSection__content">
+          <p>Week ${data.week} | ${data.visitedDate}</p>
+          <h3>${data.city} ${data.district}</h3>
+        </div>
+        <img src="${data.largeCoverUrl}" alt="week ${data.week}" />`;
+  return content;
+}
+
+function createArtTop(data){
+  let content = `<div class="article__top">
+            <h2>${data.title}</h2>
+            <p class="article__top__date">written by ${data.userName} ｜ ${data.writtenDate}</p>
+            <p class="article__top__brief">${data.briefing}</p>
+          </div>`;
+  return content;
 }

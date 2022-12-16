@@ -882,14 +882,34 @@ main .contentWrap {
   text-align: center;
 }
 
-.heroBanner {
+.swalBtn .swal-icon--warning__body,
+.swalBtn .swal-icon--warning__dot {
+  background-color: #ffe60f;
+}
+.swalBtn .swal-icon--warning {
+  border-color: #ffe60f !important;
+}
+.swalBtn button {
+  color: #000;
+  background-color: #ffe60f;
+  transition: all 0.2s;
+}
+.swalBtn button:not([disabled]):hover {
+  color: #fff;
+  background-color: #000;
+}
+.swalBtn button:not([disabled]):focus {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.heroSection {
   position: relative;
   margin-bottom: 20px;
   width: 100%;
   height: 450px;
   overflow: hidden;
 }
-.heroBanner__content {
+.heroSection__content {
   position: absolute;
   top: calc(50% - 47px);
   left: calc(50% - 140px);
@@ -898,11 +918,11 @@ main .contentWrap {
   text-align: center;
   z-index: 11;
 }
-.heroBanner__content h3 {
+.heroSection__content h3 {
   font-size: 42px;
   font-weight: 500;
 }
-.heroBanner img {
+.heroSection img {
   margin-top: -350px;
   min-height: 450px;
   -o-object-fit: cover;
@@ -914,7 +934,7 @@ main .contentWrap {
           animation: heroBannerMove 8s infinite;
 }
 @media (max-width: 1200px) {
-  .heroBanner img {
+  .heroSection img {
     margin-top: 0;
   }
 }
