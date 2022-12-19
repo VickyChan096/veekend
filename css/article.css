@@ -961,7 +961,6 @@ main .contentWrap {
   font-size: 36px;
   font-weight: bold;
   line-height: 1.4;
-  word-break: keep-all;
   text-decoration: underline;
   -webkit-text-decoration-color: #ffe60f;
           text-decoration-color: #ffe60f;
@@ -1061,6 +1060,12 @@ main .contentWrap {
 .article__middle section .fancyBoxImg {
   width: 300px;
 }
+.article__middle section #mb10 {
+  margin-bottom: 10px;
+}
+.article__middle section #mb0 {
+  margin-bottom: 0;
+}
 .article__middle section a {
   color: #000;
   text-decoration: underline;
@@ -1136,6 +1141,10 @@ main .contentWrap {
 }
 .article__middle section li:last-child {
   margin-bottom: 0px;
+}
+.article__middle section .wikiHref {
+  color: #535353;
+  font-size: 8px;
 }
 .article__mapAndTags {
   margin-bottom: 20px;
@@ -1286,7 +1295,7 @@ main .contentWrap {
           user-select: none;
 }
 #articleNone img {
-  filter: grayscale(100%) brightness(109%);
+  filter: grayscale(100%) brightness(110%);
 }
 #articleNone:hover::before {
   display: none;
@@ -1412,10 +1421,8 @@ main .contentWrap {
     width: 80%;
   }
 }
-@media only screen and (max-width: 768px) {
-  .articleStyle5__oneThird:last-child {
-    margin-bottom: 0;
-  }
+.articleStyle5__oneThird:last-child {
+  margin-bottom: 0;
 }
 .articleStyle5__oneThird img {
   margin-bottom: 8px;

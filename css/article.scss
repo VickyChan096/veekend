@@ -89,7 +89,6 @@
 			font-size: 36px;
 			font-weight: bold;
 			line-height: 1.4;
-			word-break: keep-all;
 			text-decoration: underline;
 			text-decoration-color: $c1st;
 			text-decoration-thickness: 20px;
@@ -192,6 +191,12 @@
 			.fancyBoxImg {
 				width: 300px;
 			}
+			#mb10{
+				margin-bottom: 10px;
+			}
+			#mb0{
+				margin-bottom: 0;
+			}
 
 			a {
 				color: $c2nd;
@@ -270,6 +275,11 @@
 
 			li:last-child {
 				margin-bottom: 0px;
+			}
+
+			.wikiHref {
+				color: $c3rd;
+				font-size: $fz-s * 0.5;
 			}
 		}
 	}
@@ -442,8 +452,8 @@
 	background-color: #fff;
 	user-select: none;
 
-	img{
-		filter: grayscale(100%) brightness(109%);
+	img {
+		filter: grayscale(100%) brightness(110%);
 	}
 
 	&:hover::before {
@@ -562,9 +572,7 @@
 		}
 
 		&:last-child {
-			@include mobile {
-				margin-bottom: 0;
-			}
+			margin-bottom: 0;
 		}
 
 		img {

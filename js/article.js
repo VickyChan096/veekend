@@ -15,6 +15,7 @@ init();
 function getData() {
   axios
     .get('https://vickychan096.github.io/veekend/dataBase/db.json')
+    // .get('../dataBase/db.json')
     .then(function (response) {
       _data = response.data;
       _week = getUrlParameter('week');
