@@ -734,11 +734,21 @@ main .contentWrap {
   }
 }
 .aside__popularPost ul li {
-  display: flex;
   padding: 10px 0;
   border-bottom: 1px solid #eeeeee;
   line-height: 1.2;
   cursor: pointer;
+}
+.aside__popularPost ul li a {
+  display: flex;
+  align-items: center;
+}
+.aside__popularPost ul li a p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .aside__popularPost ul li:first-child {
   padding-top: 0;

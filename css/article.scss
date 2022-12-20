@@ -184,18 +184,35 @@
 			padding-bottom: 20px;
 			border-bottom: 1px solid $c4th;
 
+			// .mb10 {
+			// 	margin-bottom: 10px !important;
+			// }
+
+			// .mb0 {
+			// 	margin-bottom: 0 !important;
+			// }
+
 			img {
 				border-radius: 4px;
 			}
 
+			.imgText {
+				position: relative;
+
+				>p {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					padding: 4px 12px;
+					color: #fff;
+					border-radius: $br-s $br-s 0 0;
+					background-color: rgba(0, 0, 0, 0.6);
+				}
+			}
+
 			.fancyBoxImg {
 				width: 300px;
-			}
-			#mb10{
-				margin-bottom: 10px;
-			}
-			#mb0{
-				margin-bottom: 0;
 			}
 
 			a {
@@ -391,7 +408,6 @@
 			width: 49%;
 			border: 1px solid $c1st;
 			border-radius: $br-s;
-			// cursor: pointer;
 			z-index: 1;
 		}
 
@@ -403,7 +419,6 @@
 			}
 		}
 
-		// 
 		&__prev::before,
 		&__next::before {
 			content: "";

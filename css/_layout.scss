@@ -560,11 +560,23 @@ main {
 
     ul {
       li {
-        display: flex;
         padding: 10px 0;
         border-bottom: 1px solid $c4th;
         line-height: 1.2;
         cursor: pointer;
+
+        a {
+          display: flex;
+          align-items: center;
+
+          p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+          }
+        }
       }
 
       li:first-child {

@@ -735,11 +735,21 @@ main .contentWrap {
   }
 }
 .aside__popularPost ul li {
-  display: flex;
   padding: 10px 0;
   border-bottom: 1px solid #eeeeee;
   line-height: 1.2;
   cursor: pointer;
+}
+.aside__popularPost ul li a {
+  display: flex;
+  align-items: center;
+}
+.aside__popularPost ul li a p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .aside__popularPost ul li:first-child {
   padding-top: 0;
@@ -1057,14 +1067,21 @@ main .contentWrap {
 .article__middle section img {
   border-radius: 4px;
 }
+.article__middle section .imgText {
+  position: relative;
+}
+.article__middle section .imgText > p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 4px 12px;
+  color: #fff;
+  border-radius: 4px 4px 0 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
 .article__middle section .fancyBoxImg {
   width: 300px;
-}
-.article__middle section #mb10 {
-  margin-bottom: 10px;
-}
-.article__middle section #mb0 {
-  margin-bottom: 0;
 }
 .article__middle section a {
   color: #000;
