@@ -146,12 +146,12 @@ function renderLeaflet(data) {
 }
 
 function createArtBottom() {
-  console.log(_data.articles);
-  console.log(`我在第${_week}週`);
+  // console.log(_data.articles);
+  // console.log(`我在第${_week}週`);
   let prev = parseInt(_week) - 1;
   let next = parseInt(_week) + 1;
-  console.log(`上一篇是${prev}週，陣列是${prev - 1}`);
-  console.log(`下一篇是${next}週，陣列是${next - 1}`);
+  // console.log(`上一篇是${prev}週，陣列是${prev - 1}`);
+  // console.log(`下一篇是${next}週，陣列是${next - 1}`);
 
   let prevStr = '';
   let nextStr = '';

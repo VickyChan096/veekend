@@ -564,7 +564,7 @@ header {
 .menu__district.active {
   display: block;
 }
-.menu .lastDistrict li {
+.menu .lastDistrict li a {
   display: flex;
 }
 .menu .lastDistrict li i {

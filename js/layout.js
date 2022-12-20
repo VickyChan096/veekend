@@ -1,8 +1,50 @@
 const _hamburger = document.getElementById('hamburger');
 const _nav = document.getElementById('nav');
+const _newTaipeiCity = document.getElementById('newTaipeiCity');
+const _taipeiCity = document.getElementById('taipeiCity');
+const _otherCity = document.getElementById('otherCity');
+let _articlesData = [];
 
-// 點擊 小網效果
-document.body.addEventListener('touchstart', function () {});
+function init() {
+  // 點擊 小網效果
+  document.body.addEventListener('touchstart', function () {});
+}
+init();
+
+axios
+  .get('https://vickychan096.github.io/veekend/dataBase/db.json')
+  .then(function (response) {
+    _articlesData = response.data.articles;
+    console.log(_articlesData);
+
+    let newTaipeiCityStr = '';
+    let taipeiCityStr = '';
+    let otherCityStr = '';
+    _articlesData.forEach(function (item) {
+      if (item.city === '新北市') {
+        let content = `<li>
+          <a href="article.html?week=${item.week}">${item.district}</a>
+        </li>`;
+        newTaipeiCityStr += content;
+      } else if (item.city === '台北市') {
+        let content = `<li>
+          <a href="article.html?week=${item.week}">${item.district}</a>
+        </li>`;
+        taipeiCityStr += content;
+      } else {
+        let content = `<li>
+          <a href="article.html?week=${item.week}"><i>${item.city}</i>${item.district}</a>
+        </li>`;
+        otherCityStr += content;
+      }
+      _newTaipeiCity.innerHTML = newTaipeiCityStr + '<li>全地區</li>';
+      _taipeiCity.innerHTML = taipeiCityStr + '<li>全地區</li>';
+      _otherCity.innerHTML = otherCityStr + '<li>全地區</li>';
+    });
+  })
+  .catch(function (err) {
+    alert(err);
+  });
 
 // 漢堡選單toggle TODO:加過場動畫
 _hamburger.addEventListener('click', function () {

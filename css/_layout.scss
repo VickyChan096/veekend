@@ -378,7 +378,9 @@ header {
   // 其他地區樣式
   .lastDistrict {
     li {
-      display: flex;
+      a{
+        display: flex;
+      }
 
       i {
         display: block;
