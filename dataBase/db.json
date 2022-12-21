@@ -153,27 +153,25 @@
       "district": "八里區",
       "visitedDate": "2019.11.10",
       "writtenDate": "2022.12.??",
-      "title": "未完待續",
-      "briefing": "未完待續",
+      "title": "標題",
+      "briefing": "簡介",
       "largeCoverUrl": "images/week3/cover.jpg",
       "smallCoverUrl": "images/week3/cover-s.jpg",
       "destinations": [
         {
-          "name": "未完待續",
-          "rate": 3.8,
-          "mapUrl": "https://goo.gl/maps/Qu4iY3ps5WLS9vXR9",
+          "name": "總統府",
+          "rate": 5.0,
+          "mapUrl": "https://goo.gl/maps/R6y5cL3seTKbnNW29",
           "local": [
-            25.064475015694565,
-            121.64118732275318
+            25.04089312387356,
+            121.51177900576297
           ]
         }
       ],
       "hashTags": [
-        "新北市",
-        "汐止區",
-        "早午餐"
+        "新北市"
       ],
-      "content": "未完待續"
+      "content": "努力趕稿中｡ﾟ(ﾟ´ω`ﾟ)ﾟ｡"
     },
     {
       "id": 5,
@@ -183,8 +181,8 @@
       "district": "金山區",
       "visitedDate": "2019.11.17",
       "writtenDate": "2022.12.??",
-      "title": "標題",
-      "briefing": "引言",
+      "title": "未完待續",
+      "briefing": "未完待續",
       "largeCoverUrl": "images/week3/cover.jpg",
       "smallCoverUrl": "images/week3/cover-s.jpg",
       "destinations": [
