@@ -3,9 +3,9 @@ const _artTop = document.querySelector('.article__top');
 const _artMid = document.querySelector('.article__middle');
 const _artMap = document.querySelector('.article__mapAndTags');
 const _artBottom = document.querySelector('.article__bottom');
-let _data = [];
+let _data = []; // 全部資料
 let _week = '';
-let _article = '';
+let _article = ''; // 此篇資料
 
 function init() {
   getData();
@@ -54,24 +54,27 @@ function changeHeadContent(data) {
   document.title = `Week ${data.week} - ${data.city + data.district} | Veekend`;
 
   // 修改 meta 的 content，但貌似 Line/fb 抓不到資訊
-  $("meta[property='og:url']").attr(
-    'content',
-    `https://vickychan096.github.io/veekend/?week=${data.week}`
-  );
-  $("meta[property='og:title']").attr(
-    'content',
-    `Week ${data.week} - ${data.city + data.district} | Veekend`
-  );
-  $("meta[property='og:description']").attr('content', data.briefing);
-  $("meta[property='og:image']").attr('content', data.largeCoverUrl);
+  $(function () {
+    $("meta[property='og:url']").attr(
+      'content',
+      `https://vickychan096.github.io/veekend/?week=${data.week}`
+    );
+    $("meta[property='og:title']").attr(
+      'content',
+      `Week ${data.week} - ${data.city + data.district} | Veekend`
+    );
+    $("meta[property='og:description']").attr('content', data.briefing);
+    $("meta[property='og:image']").attr('content', data.largeCoverUrl);
+  });
 }
 
 function createHeroSection(data) {
-  let content = `<div class="heroSection__content">
-          <p>Week ${data.week} | ${data.visitedDate}</p>
-          <h3>${data.city} ${data.district}</h3>
-        </div>
-        <img src="${data.largeCoverUrl}" alt="week ${data.week}" />`;
+  let content = `
+          <div class="heroSection__content">
+            <p>Week ${data.week} | ${data.visitedDate}</p>
+            <h3>${data.city} ${data.district}</h3>
+          </div>
+          <img src="${data.largeCoverUrl}" alt="week ${data.week}" />`;
   return content;
 }
 
@@ -96,11 +99,11 @@ function createArtMap() {
   let data = _article.hashTags;
   let hashTags = '';
   data.forEach(function (item) {
-    let content = `<li>#${item}</li>`;
-    hashTags += content;
+    hashTags = hashTags + `<li>#${item}</li>`;
   });
 
-  _artMap.innerHTML = `<h5>本週景點地圖</h5>
+  _artMap.innerHTML = `
+            <h5>本週景點地圖</h5>
             <div id="map"></div>
             <ul>${hashTags}</ul>`;
   renderLeaflet(_article);
@@ -146,51 +149,51 @@ function renderLeaflet(data) {
 }
 
 function createArtBottom() {
-  // console.log(_data.articles);
-  // console.log(`我在第${_week}週`);
   let prev = parseInt(_week) - 1;
   let next = parseInt(_week) + 1;
-  // console.log(`上一篇是${prev}週，陣列是${prev - 1}`);
-  // console.log(`下一篇是${next}週，陣列是${next - 1}`);
-
   let prevStr = '';
   let nextStr = '';
-  // console.log(_data.articles[prev].title);
-  // console.log(_data.articles[next].title);
+
   if (prev === 0) {
-    prevStr = `<div id="articleNone" class="article__bottom__prev">
-              <img src="images/arrow.svg" />
-              <div>
-                <strong>Prev Post</strong>
-                <p>沒有上一篇囉(◞‸◟)</p>
-              </div>
-            </div>`;
+    // 已經在第一篇了
+    prevStr = ` 
+      <div id="articleNone" class="article__bottom__prev">
+        <img src="images/arrow.svg" />
+        <div>
+          <strong>Prev Post</strong>
+          <p>沒有上一篇囉(◞‸◟)</p>
+        </div>
+      </div>`;
   } else {
-    prevStr = `<a href="article.html?week=${prev}" class="article__bottom__prev">
-              <img src="images/arrow.svg" />
-              <div>
-                <strong>Prev Post</strong>
-                <p>${_data.articles[prev - 1].title}</p>
-              </div>
-            </a>`;
+    prevStr = `
+      <a href="article.html?week=${prev}" class="article__bottom__prev">
+        <img src="images/arrow.svg" />
+        <div>
+          <strong>Prev Post</strong>
+          <p>${_data.articles[prev - 1].title}</p>
+        </div>
+      </a>`;
   }
 
   if (next > _data.articles.length) {
-    nextStr = `<div id="articleNone" class="article__bottom__next">
-              <div>
-                <strong>Next Post</strong>
-                <p>沒有下一篇囉(◞‸◟)</p>
-              </div>
-              <img src="images/arrow.svg" />
-            </div>`;
+    // 已經在最後一篇了
+    nextStr = `
+      <div id="articleNone" class="article__bottom__next">
+        <div>
+          <strong>Next Post</strong>
+          <p>沒有下一篇囉(◞‸◟)</p>
+        </div>
+        <img src="images/arrow.svg" />
+      </div>`;
   } else {
-    nextStr = `<a href="article.html?week=${next}" class="article__bottom__next">
-              <div>
-                <strong>Next Post</strong>
-                <p>${_data.articles[next - 1].title}</p>
-              </div>
-              <img src="images/arrow.svg" />
-            </a>`;
+    nextStr = `
+      <a href="article.html?week=${next}" class="article__bottom__next">
+        <div>
+          <strong>Next Post</strong>
+          <p>${_data.articles[next - 1].title}</p>
+        </div>
+        <img src="images/arrow.svg" />
+      </a>`;
   }
   _artBottom.innerHTML = prevStr + nextStr;
 }

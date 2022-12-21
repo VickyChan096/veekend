@@ -449,14 +449,28 @@
 			img {
 				filter: brightness(350%);
 			}
+
+			@include mobile {
+				img {
+					filter: none;
+				}
+			}
 		}
 
 		&__prev:hover::before {
 			right: -1px;
+
+			@include mobile {
+				display: none;
+			}
 		}
 
 		&__next:hover::before {
 			left: -1px;
+
+			@include pad {
+				display: none;
+			}
 		}
 	}
 }

@@ -153,22 +153,13 @@
       "district": "八里區",
       "visitedDate": "2019.11.10",
       "writtenDate": "2022.12.??",
-      "title": "標題",
-      "briefing": "引言",
+      "title": "未完待續",
+      "briefing": "未完待續",
       "largeCoverUrl": "images/week3/cover.jpg",
       "smallCoverUrl": "images/week3/cover-s.jpg",
       "destinations": [
         {
-          "name": "Ho & lin's store",
-          "rate": 4.5,
-          "mapUrl": "https://goo.gl/maps/C6W5VPYyWN9wrfff9",
-          "local": [
-            25.066911624078582,
-            121.63031921143342
-          ]
-        },
-        {
-          "name": "聯合報系",
+          "name": "未完待續",
           "rate": 3.8,
           "mapUrl": "https://goo.gl/maps/Qu4iY3ps5WLS9vXR9",
           "local": [
@@ -182,7 +173,7 @@
         "汐止區",
         "早午餐"
       ],
-      "content": "<div class=\"article__middle__catalog\"><p>本週景點</p><div class=\"catalogBtn\"><i class=\"fa-solid fa-circle-xmark\"></i></div><div class=\"catalogDest\"><a href=\"#dest1\">Ho & lin's store</a> <a href=\"#dest2\">聯合報系</a></div></div><section class=\"articleStyle1\" id=\"dest1\"><img src=\"images/week3/photo-01.jpg\"><div><h4>Ho & lin's store</h4><h6>個人評分：4.5</h6><ul><li>地址：<a href=\"https://goo.gl/maps/C6W5VPYyWN9wrfff9\" target=\"_blank\">新北市汐止區中興路181之4號</a></li><li>營業時間：依店家公佈時間</li><li>隱藏在巷濃的早午餐店，沒有大招牌，很容易忽略。餐點美味，麵包跟果醬都是自製的。</li><li>朋友說，她很不希望這家店太紅，她想偷偷藏在口袋名單裡。</li></ul></div></section><section class=\"articleStyle4\"><div><h5>誠實優良店家</h5><ul><li>一進去，看到桌上的訂位牌就知道這是一間誠實優良的好店家了。不僅食物份量足夠，餐點好吃，重點是理解女性顧客的心。</li></ul></div><img src=\"images/week3/photo-02.jpg\"><div class=\"imgText\"><p>沒約好的 dress code</p><img src=\"images/week3/photo-03.jpg\"></div></section><section class=\"articleStyle2\" id=\"dest2\"><div><h4>聯合報系</h4><h6>個人評分：3.8</h6><ul><li><a href=\"https://goo.gl/maps/Qu4iY3ps5WLS9vXR9\" target=\"_blank\">新北市汐止區大同路一段369號</a></li><li>想當年也是在這上班了幾年，就像返校一樣回來看看前東家。(巧妙的與聯合報合照)</li></ul></div><a href=\"images/week3/cover.jpg\" data-fancybox=\"gallery\" data-caption=\"聯合報系\"><img src=\"images/week3/photo-04-s.jpg\" alt=\"聯合報系\"></a></section><section class=\"articleStyle3\"><img src=\"images/week3/photo-05.jpg\" alt=\"老同事們\"><div><h5>拜訪朋友，喝杯茶</h5><ul><li>離開聯合報後走去附近的前同事家，聊了聊天，臨走前獲得一杯飲料。今天的行程很輕鬆，就是吃吃飯、聊聊天、見見老朋友，看到大家都很順利，very happy!</li><li>遙想當年，每天都要騎車40-50分鐘去上班，根本沒有時間去好好了解汐止，今天來這一趟，真是充滿回憶又愜意。</li></ul></div></section>"
+      "content": "未完待續"
     },
     {
       "id": 5,

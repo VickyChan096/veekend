@@ -341,7 +341,6 @@ header {
         color: lighten($c3rd, 40%);
         border-left: 1px solid $c4th;
         transition: $trsFast;
-        cursor: not-allowed;
 
         @include mobile {
           padding: 4px 8px;
@@ -353,6 +352,10 @@ header {
 
         &:hover {
           background-color: $c1st;
+
+          @include mobile {
+            background-color: #fff;
+          }
         }
       }
 
@@ -378,7 +381,7 @@ header {
   // 其他地區樣式
   .lastDistrict {
     li {
-      a{
+      a {
         display: flex;
       }
 
@@ -593,7 +596,7 @@ main {
       img {
         margin-right: 8px;
         width: 70px;
-        height: 70px;
+        min-height: 70px;
         object-fit: cover;
         border-radius: $br-s;
         transition: $trsSlow;

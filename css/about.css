@@ -535,7 +535,6 @@ header {
   color: #b9b9b9;
   border-left: 1px solid #eeeeee;
   transition: all 0.2s;
-  cursor: not-allowed;
 }
 @media only screen and (max-width: 768px) {
   .menu__district ul li {
@@ -548,6 +547,11 @@ header {
 }
 .menu__district ul li:hover {
   background-color: #ffe60f;
+}
+@media only screen and (max-width: 768px) {
+  .menu__district ul li:hover {
+    background-color: #fff;
+  }
 }
 .menu__district ul li:nth-child(5n+1) {
   border: none;
@@ -760,7 +764,7 @@ main .contentWrap {
 .aside__popularPost ul img {
   margin-right: 8px;
   width: 70px;
-  height: 70px;
+  min-height: 70px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 4px;
