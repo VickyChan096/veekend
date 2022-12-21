@@ -153,10 +153,10 @@
       "district": "八里區",
       "visitedDate": "2019.11.10",
       "writtenDate": "2022.12.??",
-      "title": "標題",
-      "briefing": "簡介",
-      "largeCoverUrl": "images/week3/cover.jpg",
-      "smallCoverUrl": "images/week3/cover-s.jpg",
+      "title": "未完成",
+      "briefing": "努力趕稿中｡ﾟ(ﾟ´ω`ﾟ)ﾟ｡",
+      "largeCoverUrl": "images/week0/cover.jpg",
+      "smallCoverUrl": "images/week0/cover-s.jpg",
       "destinations": [
         {
           "name": "總統府",
@@ -171,7 +171,7 @@
       "hashTags": [
         "新北市"
       ],
-      "content": "努力趕稿中｡ﾟ(ﾟ´ω`ﾟ)ﾟ｡"
+      "content": ""
     },
     {
       "id": 5,

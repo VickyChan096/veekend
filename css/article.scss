@@ -409,6 +409,9 @@
 			border: 1px solid $c1st;
 			border-radius: $br-s;
 			z-index: 1;
+			a{
+				cursor: pointer;
+			}
 		}
 
 		&__prev {
@@ -468,7 +471,7 @@
 		&__next:hover::before {
 			left: -1px;
 
-			@include pad {
+			@include mobile {
 				display: none;
 			}
 		}
