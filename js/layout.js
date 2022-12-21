@@ -23,7 +23,7 @@ function getData() {
     .catch(function (err) {
       swal({
         title: 'Σ(ﾟдﾟ) 哇糟糕了',
-        text: '找不到文章，帶你回首頁',
+        text: '資料有問題，請聯絡站長',
         icon: 'warning',
         button: '確定',
         className: 'swalBtn',

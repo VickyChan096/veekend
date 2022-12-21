@@ -1155,6 +1155,7 @@ main .contentWrap {
   margin-right: 10px;
   width: 40%;
   height: 200px;
+  border-radius: 4px;
   overflow: hidden;
 }
 @media only screen and (max-width: 428px) {
@@ -1246,7 +1247,4 @@ main .contentWrap {
 }
 .articleList__content a {
   width: 150px;
-}
-.articleList .moreBtn {
-  display: none;
 }/*# sourceMappingURL=index.css.map */

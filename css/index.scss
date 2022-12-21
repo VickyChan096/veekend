@@ -17,7 +17,8 @@
 	max-width: 1200px;
 	max-height: 450px;
 	border-radius: $br-m;
-	a{
+
+	a {
 		color: #000;
 	}
 
@@ -267,6 +268,7 @@
 		margin-right: 10px;
 		width: 40%;
 		height: 200px;
+		border-radius: $br-s;
 		overflow: hidden;
 
 		@include min-mobile {
@@ -363,6 +365,6 @@
 	}
 
 	.moreBtn {
-		display: none;
+		// display: none;
 	}
 }

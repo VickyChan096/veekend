@@ -54,18 +54,16 @@ function changeHeadContent(data) {
   document.title = `Week ${data.week} - ${data.city + data.district} | Veekend`;
 
   // 修改 meta 的 content，但貌似 Line/fb 抓不到資訊
-  $(function () {
-    $("meta[property='og:url']").attr(
-      'content',
-      `https://vickychan096.github.io/veekend/?week=${data.week}`
-    );
-    $("meta[property='og:title']").attr(
-      'content',
-      `Week ${data.week} - ${data.city + data.district} | Veekend`
-    );
-    $("meta[property='og:description']").attr('content', data.briefing);
-    $("meta[property='og:image']").attr('content', data.largeCoverUrl);
-  });
+  $("meta[property='og:url']").attr(
+    'content',
+    `https://vickychan096.github.io/veekend/?week=${data.week}`
+  );
+  $("meta[property='og:title']").attr(
+    'content',
+    `Week ${data.week} - ${data.city + data.district} | Veekend`
+  );
+  $("meta[property='og:description']").attr('content', data.briefing);
+  $("meta[property='og:image']").attr('content', data.largeCoverUrl);
 }
 
 function createHeroSection(data) {

@@ -1269,9 +1269,6 @@ main .contentWrap {
   border-radius: 4px;
   z-index: 1;
 }
-.article__bottom__prev a, .article__bottom__next a {
-  cursor: pointer;
-}
 .article__bottom__prev {
   text-align: right;
 }
