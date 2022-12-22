@@ -820,7 +820,7 @@ main .contentWrap {
     width: 100%;
   }
 }
-.aside__hashtag a {
+.aside__hashtag li {
   display: inline-block;
   margin-bottom: 4px;
   padding: 2px 6px;
@@ -830,7 +830,7 @@ main .contentWrap {
   background-color: #eeeeee;
   transition: all 0.2s;
 }
-.aside__hashtag a:hover {
+.aside__hashtag li:hover {
   color: #000;
   background-color: #ffe60f;
 }

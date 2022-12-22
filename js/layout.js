@@ -5,8 +5,8 @@ const _taipeiCity = document.getElementById('taipeiCity');
 const _otherCity = document.getElementById('otherCity');
 const _popularPost = document.getElementById('popularPost');
 let _articleList = [];
-let _array = [];
-let _randomArticle = [];
+let _articleIndex = [];
+let _randomNum = [];
 
 function init() {
   // 在按鈕元素或body/html上綁定一個touchstart事件激發:active狀態。
@@ -22,84 +22,63 @@ function getData() {
     .then(function (response) {
       _articleList = response.data.articles;
       createMenuDist();
-
-      _articleList.forEach((item, index) => {
-        _array.push(index);
-      });
-
       createRandomNum();
+      createPopularPost(_randomNum);
 
-      createPopularPost(_randomArticle);
-      function createPopularPost(array) {
-        let str = '';
-        console.log(array[0], array[1], array[2]);
-        _articleList.forEach((item, index) => {
-          if (index === array[0]) {
-            let content = `<li>
-                <a href="article.html?week=${item.week}">
-                  <img src="images/week${item.week}/cover-s.jpg" />
-                  <p>${item.title}</p>
-                </a>
-              </li>`;
-            str += content;
-          } else if (index === array[1]) {
-            let content = `<li>
-                <a href="article.html?week=${item.week}">
-                  <img src="images/week${item.week}/cover-s.jpg" />
-                  <p>${item.title}</p>
-                </a>
-              </li>`;
-            str += content;
-          } else if (index === array[2]) {
-            let content = `<li>
-                <a href="article.html?week=${item.week}">
-                  <img src="images/week${item.week}/cover-s.jpg" />
-                  <p>${item.title}</p>
-                </a>
-              </li>`;
-            str += content;
-          }
-        });
-        // for (let i = 0; i < 3; i++) {
+      let tags = '';
+      _articleList.forEach((item) => {
+        let t = item.hashTags.join();
+        tags += `${t},`;
+      });
+      let allTags = tags.split(',');
+      allTags.pop(allTags[allTags.length - 1]);
+      console.log(allTags);
+      const countAllTags = allTags.reduce((object, item) => {
+        if(item in object){
+          object[item]++
+        }else{
+          object[item]=1;
+        }
+        return object;
+      },{});
+      console.log(countAllTags);
+      let newTags = Object.fromEntries(
+        Object.entries(countAllTags).sort((a, b) => b[1] - a[1])
+      );
 
-        // }
-        _popularPost.innerHTML = str;
-      }
+      console.log(newTags);
+      let aa = Object.keys(newTags);
+      console.log(aa);
+      // console.log(JSON.stringify(newTags));
+      // console.log(countAllTags.Sorted());
+      // let sortCountAllTags = countAllTags.sort(function(a,b){
+      //   return a.InStock >b.InStock ? 1:-1;
+      // })
 
-      // console.log(randomArticle);
+      // let aa = Object.values(countAllTags);
+      // console.log(aa);
+
+
+
     })
     .catch(function (err) {
-      // swal({
-      //   title: 'Σ(ﾟдﾟ) 哇糟糕了',
-      //   text: '資料有問題，請聯絡站長',
-      //   icon: 'warning',
-      //   button: '確定',
-      //   className: 'swalBtn',
-      // }).then(function () {
-      //   window.location.href = 'index.html';
-      // });
+      swal({
+        title: 'Σ(ﾟдﾟ) 哇糟糕了',
+        text: '資料有問題，請聯絡站長',
+        icon: 'warning',
+        button: '確定',
+        className: 'swalBtn',
+      }).then(function () {
+        window.location.href = 'index.html';
+      });
     });
 }
-
-function createRandomNum() {
-  let ranNum = 3;
-  for (let i = 0; i < ranNum; i++) {
-    let ran = Math.floor(Math.random() * (_array.length - i));
-    if (_randomArticle.includes(_array[ran])) {
-      continue;
-    }
-    _randomArticle.push(_array[ran]);
-    _array[ran] = _array[_array.length - i - 1];
-  }
-}
-
-
-
 
 function createMenuDist() {
   let newTaipeiCityStr = '';
   let taipeiCityStr = '';
   let otherCityStr = '';
+
   _articleList.forEach((item) => {
     if (item.city === '新北市') {
       newTaipeiCityStr =
@@ -127,6 +106,49 @@ function createMenuDist() {
   });
 }
 
+function createRandomNum() {
+  _articleList.forEach((item, index) => {
+    _articleIndex.push(index);
+  });
+
+  const ranNum = 3;
+  for (let i = 0; i < ranNum; i++) {
+    let ran = Math.floor(Math.random() * (_articleIndex.length - i));
+    if (_randomNum.includes(_articleIndex[ran])) {
+      continue;
+    }
+    _randomNum.push(_articleIndex[ran]);
+    _articleIndex[ran] = _articleIndex[_articleIndex.length - i - 1];
+  }
+  console.log(_randomNum);
+}
+
+function createPopularPost(random) {
+  let str = '';
+
+  _articleList.forEach((item, index) => {
+    if (index === random[0]) {
+      str += createStr(item);
+    } else if (index === random[1]) {
+      str += createStr(item);
+    } else if (index === random[2]) {
+      str += createStr(item);
+    }
+  });
+  _popularPost.innerHTML = str;
+}
+
+function createStr(item) {
+  let content = `
+        <li>
+          <a href="article.html?week=${item.week}">
+            <img src="images/week${item.week}/cover-s.jpg" />
+            <p>${item.title}</p>
+          </a>
+        </li>`;
+  return content;
+}
+
 // 漢堡選單toggle
 _hamburger.addEventListener('click', function () {
   if (_nav.style.display === 'block') {
@@ -148,6 +170,7 @@ window.onresize = function () {
   }
 };
 
+// ToTop與menu點擊事件
 $(function () {
   $(window).scroll(function () {
     if ($(this).scrollTop() > 200) {
@@ -157,7 +180,6 @@ $(function () {
     }
   });
 
-  // menu點擊事件
   $('.menu').click(function (event) {
     // 小網箭頭轉向 與 同級元素關閉
     $(this).find('span').toggleClass('active');
