@@ -6,6 +6,7 @@ const _otherCity = document.getElementById('otherCity');
 const _popularPost = document.getElementById('popularPost');
 let _articleList = [];
 let _array = [];
+let _randomArticle = [];
 
 function init() {
   // 在按鈕元素或body/html上綁定一個touchstart事件激發:active狀態。
@@ -26,18 +27,9 @@ function getData() {
         _array.push(index);
       });
 
-      let randomArticle = [];
-      var ranNum = 3;
-      for (let i = 0; i < ranNum; i++) {
-        let ran = Math.floor(Math.random() * (_array.length - i));
-        if (randomArticle.includes(_array[ran])) {
-          continue;
-        }
-        randomArticle.push(_array[ran]);
-        _array[ran] = _array[_array.length - i - 1];
-      }
+      createRandomNum();
 
-      createPopularPost(randomArticle);
+      createPopularPost(_randomArticle);
       function createPopularPost(array) {
         let str = '';
         console.log(array[0], array[1], array[2]);
@@ -88,6 +80,21 @@ function getData() {
       // });
     });
 }
+
+function createRandomNum() {
+  let ranNum = 3;
+  for (let i = 0; i < ranNum; i++) {
+    let ran = Math.floor(Math.random() * (_array.length - i));
+    if (_randomArticle.includes(_array[ran])) {
+      continue;
+    }
+    _randomArticle.push(_array[ran]);
+    _array[ran] = _array[_array.length - i - 1];
+  }
+}
+
+
+
 
 function createMenuDist() {
   let newTaipeiCityStr = '';
