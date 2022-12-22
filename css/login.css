@@ -222,6 +222,26 @@ u {
   }
 }
 
+.swalBtn .swal-icon--warning__body,
+.swalBtn .swal-icon--warning__dot {
+  background-color: #ffe60f;
+}
+.swalBtn .swal-icon--warning {
+  border-color: #ffe60f !important;
+}
+.swalBtn button {
+  color: #000;
+  background-color: #ffe60f;
+  transition: all 0.2s;
+}
+.swalBtn button:not([disabled]):hover {
+  color: #fff;
+  background-color: #000;
+}
+.swalBtn button:not([disabled]):focus {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
 .btn {
   padding: 12px;
   font-size: 16px;
@@ -249,6 +269,12 @@ u {
 .btnPrimary:hover {
   color: #fff;
   background-color: #000;
+}
+@media only screen and (max-width: 768px) {
+  .btnPrimary:hover {
+    color: #000;
+    background-color: #ffe60f;
+  }
 }
 
 .btnSecondary {

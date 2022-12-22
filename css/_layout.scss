@@ -17,6 +17,33 @@
   }
 }
 
+.swalBtn {
+
+  .swal-icon--warning__body,
+  .swal-icon--warning__dot {
+    background-color: $c1st;
+  }
+
+  .swal-icon--warning {
+    border-color: $c1st !important;
+  }
+
+  button {
+    color: $c2nd;
+    background-color: $c1st;
+    transition: $trsFast;
+
+    &:not([disabled]):hover {
+      color: #fff;
+      background-color: $c2nd;
+    }
+
+    &:not([disabled]):focus {
+      box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgb(0 0 0 / 5%);
+    }
+  }
+}
+
 // Button樣式
 .btn {
   padding: 12px;
@@ -42,6 +69,11 @@
   &:hover {
     color: #fff;
     background-color: $c2nd;
+
+    @include mobile {
+      color: $c2nd;
+      background-color: $c1st;
+    }
   }
 }
 

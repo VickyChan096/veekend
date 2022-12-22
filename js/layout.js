@@ -3,7 +3,9 @@ const _nav = document.getElementById('nav');
 const _newTaipeiCity = document.getElementById('newTaipeiCity');
 const _taipeiCity = document.getElementById('taipeiCity');
 const _otherCity = document.getElementById('otherCity');
+const _popularPost = document.getElementById('popularPost');
 let _articleList = [];
+let _array = [];
 
 function init() {
   // 在按鈕元素或body/html上綁定一個touchstart事件激發:active狀態。
@@ -19,17 +21,71 @@ function getData() {
     .then(function (response) {
       _articleList = response.data.articles;
       createMenuDist();
+
+      _articleList.forEach((item, index) => {
+        _array.push(index);
+      });
+
+      let randomArticle = [];
+      var ranNum = 3;
+      for (let i = 0; i < ranNum; i++) {
+        let ran = Math.floor(Math.random() * (_array.length - i));
+        if (randomArticle.includes(_array[ran])) {
+          continue;
+        }
+        randomArticle.push(_array[ran]);
+        _array[ran] = _array[_array.length - i - 1];
+      }
+
+      createPopularPost(randomArticle);
+      function createPopularPost(array) {
+        let str = '';
+        console.log(array[0], array[1], array[2]);
+        _articleList.forEach((item, index) => {
+          if (index === array[0]) {
+            let content = `<li>
+                <a href="article.html?week=${item.week}">
+                  <img src="images/week${item.week}/cover-s.jpg" />
+                  <p>${item.title}</p>
+                </a>
+              </li>`;
+            str += content;
+          } else if (index === array[1]) {
+            let content = `<li>
+                <a href="article.html?week=${item.week}">
+                  <img src="images/week${item.week}/cover-s.jpg" />
+                  <p>${item.title}</p>
+                </a>
+              </li>`;
+            str += content;
+          } else if (index === array[2]) {
+            let content = `<li>
+                <a href="article.html?week=${item.week}">
+                  <img src="images/week${item.week}/cover-s.jpg" />
+                  <p>${item.title}</p>
+                </a>
+              </li>`;
+            str += content;
+          }
+        });
+        // for (let i = 0; i < 3; i++) {
+
+        // }
+        _popularPost.innerHTML = str;
+      }
+
+      // console.log(randomArticle);
     })
     .catch(function (err) {
-      swal({
-        title: 'Σ(ﾟдﾟ) 哇糟糕了',
-        text: '資料有問題，請聯絡站長',
-        icon: 'warning',
-        button: '確定',
-        className: 'swalBtn',
-      }).then(function () {
-        window.location.href = 'index.html';
-      });
+      // swal({
+      //   title: 'Σ(ﾟдﾟ) 哇糟糕了',
+      //   text: '資料有問題，請聯絡站長',
+      //   icon: 'warning',
+      //   button: '確定',
+      //   className: 'swalBtn',
+      // }).then(function () {
+      //   window.location.href = 'index.html';
+      // });
     });
 }
 

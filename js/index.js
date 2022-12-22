@@ -1,43 +1,22 @@
 const _idxArticleList = document.getElementById('idxArticleList');
-let _listData = [];
 
 function init() {
   fireSwiper();
+  $(function () {
+    let counter = 0;
+    let listStart = 0;
+    let listQuantity = 4;
+    getData(listStart, listQuantity);
+
+    // 監聽load more
+    $(document).on('click', '.moreBtn', function () {
+      counter++;
+      listStart = counter * listQuantity;
+      getData(listStart, listQuantity);
+    });
+  });
 }
 init();
-
-// axios
-//   .get('https://vickychan096.github.io/veekend/dataBase/db.json')
-//   .then(function (response) {
-//     _listData = response.data.articles;
-//     createArticleList();
-//   })
-//   .catch(function (err) {
-//     alert(err);
-//   });
-
-function createArticleList() {
-  let listStr = '';
-  _listData.forEach((item) => {
-    listStr =
-      listStr +
-      ` <li>
-          <div class="articleList__photo">
-            <span>WEEK ${item.week}</span>
-            <img src="${item.largeCoverUrl}" />
-          </div>
-          <div class="articleList__content">
-            <div class="articleList__content__text">
-              <p>${item.city} ${item.district}</p>
-              <h6>${item.title}</h6>
-              <i>by ${item.userName} - ${item.writtenDate}</i>
-            </div>
-            <a class="btn btnPrimary" href="article.html?week=${item.week}">READ MORE</a>
-          </div>
-        </li>`;
-  });
-  _idxArticleList.innerHTML = listStr;
-}
 
 function fireSwiper() {
   const swiper = new Swiper('.swiper', {
@@ -67,38 +46,17 @@ function fireSwiper() {
   });
 }
 
-$(function () {
-  /*初始化*/
-  var counter = 0; /*计数器*/
-  var pageStart = 0; /*offset*/
-  var pageSize = 4; /*size*/
-
-  /*首次加载*/
-  getData(pageStart, pageSize);
-
-  /*监听加载更多*/
-  $(document).on('click', '.moreBtn', function () {
-    counter++;
-    pageStart = counter * pageSize;
-
-    getData(pageStart, pageSize);
-  });
-});
-
-function getData(offset, size) {
+function getData(start, quantity) {
   $.ajax({
     type: 'GET',
     url: 'https://vickychan096.github.io/veekend/dataBase/db.json',
     dataType: 'json',
     success: function (res) {
-      var data = res.articles;
-      var sum = res.articles.length;
-      var listStr = '';
-      if (sum - offset < size) {
-        size = sum - offset;
-      }
+      let data = res.articles;
+      let total = res.articles.length;
+      let listStr = '';
 
-      for (var i = offset; i < offset + size; i++) {
+      for (var i = start; i < start + quantity; i++) {
         listStr += ` <li>
           <div class="articleList__photo">
             <span>WEEK ${data[i].week}</span>
@@ -114,20 +72,29 @@ function getData(offset, size) {
           </div>
         </li>`;
       }
-
       $('#idxArticleList').append(listStr);
 
-      /*******************************************/
+      if (total - start < quantity) {
+        quantity = total - start;
+      }
 
-      /*隐藏more按钮*/
-      if (offset + size >= sum) {
+      // 隱藏more按鈕
+      if (start + quantity >= total) {
         $('.moreBtn').hide();
       } else {
         $('.moreBtn').show();
       }
     },
     error: function (xhr, type) {
-      alert('Ajax error!');
+      swal({
+        title: 'Σ(ﾟдﾟ) 哇糟糕了',
+        text: '資料有誤，請聯繫站長',
+        icon: 'warning',
+        button: '確定',
+        className: 'swalBtn',
+      }).then(function () {
+        window.location.href = 'index.html';
+      });
     },
   });
 }
