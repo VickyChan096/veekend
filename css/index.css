@@ -1239,6 +1239,11 @@ main .contentWrap {
   transform: scale(1.2);
   filter: grayscale(0%);
 }
+@media only screen and (max-width: 992px) {
+  .articleList__photo img:hover {
+    transform: none;
+  }
+}
 .articleList__content {
   display: flex;
   flex-direction: column;

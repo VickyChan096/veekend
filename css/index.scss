@@ -282,6 +282,10 @@
 			&:hover {
 				transform: scale(1.2);
 				filter: grayscale(0%);
+
+				@include pad {
+					transform: none;
+				}
 			}
 		}
 	}
