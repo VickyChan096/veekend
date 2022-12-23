@@ -30,7 +30,7 @@
 	}
 
 	img {
-		margin-top: -350px; // 圖片往上推
+		// margin-top: -350px; // 圖片往上推
 		min-height: 450px;
 		object-fit: cover;
 		object-position: 50% 0%;
@@ -291,33 +291,6 @@
 			text-align: center;
 			border-radius: 4px;
 			z-index: 1;
-
-			.popupContent {
-				margin-bottom: 20px;
-				text-align: center;
-
-				h4 {
-					margin-bottom: 3px;
-					font-weight: $fw-l;
-				}
-
-				p {
-					margin-top: 0;
-					margin-bottom: 8px;
-				}
-
-				a {
-					padding: 4px 12px;
-					color: $c2nd;
-					font-size: $fz-s * 0.8;
-					font-weight: $fw-m;
-					text-decoration: none;
-
-					&:hover {
-						color: #fff;
-					}
-				}
-			}
 		}
 
 		ul {

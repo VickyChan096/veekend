@@ -221,33 +221,6 @@
 		width: 100%;
 	}
 
-	>button {
-		width: calc(40% - 4px);
-
-		@include pad {
-			margin-bottom: 30px;
-			width: 100%;
-		}
-
-		span {
-			display: inline-block;
-			padding-top: 4px;
-			width: 12px;
-			height: 12px;
-			background-image: url(../images/refresh-y.png);
-			background-size: cover;
-			transition: $trsSlow;
-			will-change: transform;
-		}
-
-		&:hover {
-			span {
-				rotate: 180deg;
-				background-image: url(../images/refresh.png);
-			}
-		}
-	}
-
 	li {
 		display: flex;
 		padding-top: 20px;
@@ -361,6 +334,49 @@
 
 		a {
 			width: 150px;
+		}
+	}
+
+	>button {
+		margin-bottom: 20px;
+		width: calc(40% - 4px);
+
+		@include pad {
+			// margin-bottom: 30px;
+			width: 100%;
+		}
+
+		span {
+			display: inline-block;
+			padding-top: 4px;
+			width: 12px;
+			height: 12px;
+			background-image: url(../images/refresh-y.png);
+			background-size: cover;
+			transition: $trsSlow;
+			will-change: transform;
+		}
+
+		&:hover {
+			span {
+				rotate: 180deg;
+				background-image: url(../images/refresh.png);
+			}
+		}
+	}
+
+	// 初始為隱藏狀態，接到ajax用js顯示
+	.moreBtn {
+		display: none;
+	}
+
+	#map {
+		width: 100%;
+		height: 450px;
+		border-radius: 4px;
+
+		@include min-mobile {
+			margin-bottom: 20px;
 		}
 	}
 }

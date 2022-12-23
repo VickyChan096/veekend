@@ -648,6 +648,30 @@ main .contentWrap {
   }
 }
 
+#map .popupContent {
+  margin-bottom: 20px;
+  text-align: center;
+}
+#map .popupContent h4 {
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+#map .popupContent p {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+#map .popupContent a {
+  padding: 4px 12px;
+  color: #000;
+  font-size: 12.8px;
+  font-weight: 400;
+  text-decoration: none;
+}
+#map .popupContent a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
 .aside {
   position: -webkit-sticky;
   position: sticky;
@@ -822,6 +846,7 @@ main .contentWrap {
 .aside__hashtag li {
   display: inline-block;
   margin-bottom: 4px;
+  margin-right: 4px;
   padding: 2px 6px;
   color: #000;
   font-weight: 400;
@@ -837,13 +862,21 @@ main .contentWrap {
   transition: all 0.2s;
   filter: grayscale(100%);
 }
+.aside__ad:hover {
+  filter: grayscale(0%);
+}
 @media only screen and (max-width: 768px) {
-  .aside__ad {
+  .aside__ad .adDesktop {
     display: none;
   }
 }
-.aside__ad:hover {
-  filter: grayscale(0%);
+.aside__ad .adMobile {
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  .aside__ad .adMobile {
+    display: block;
+  }
 }
 .aside__ad img {
   border-radius: 4px;
@@ -1141,29 +1174,6 @@ main .contentWrap {
     width: 100%;
   }
 }
-.articleList > button {
-  width: calc(40% - 4px);
-}
-@media only screen and (max-width: 992px) {
-  .articleList > button {
-    margin-bottom: 30px;
-    width: 100%;
-  }
-}
-.articleList > button span {
-  display: inline-block;
-  padding-top: 4px;
-  width: 12px;
-  height: 12px;
-  background-image: url(../images/refresh-y.png);
-  background-size: cover;
-  transition: all 0.5s;
-  will-change: transform;
-}
-.articleList > button:hover span {
-  rotate: 180deg;
-  background-image: url(../images/refresh.png);
-}
 .articleList li {
   display: flex;
   padding-top: 20px;
@@ -1273,4 +1283,40 @@ main .contentWrap {
 }
 .articleList__content a {
   width: 150px;
+}
+.articleList > button {
+  margin-bottom: 20px;
+  width: calc(40% - 4px);
+}
+@media only screen and (max-width: 992px) {
+  .articleList > button {
+    width: 100%;
+  }
+}
+.articleList > button span {
+  display: inline-block;
+  padding-top: 4px;
+  width: 12px;
+  height: 12px;
+  background-image: url(../images/refresh-y.png);
+  background-size: cover;
+  transition: all 0.5s;
+  will-change: transform;
+}
+.articleList > button:hover span {
+  rotate: 180deg;
+  background-image: url(../images/refresh.png);
+}
+.articleList .moreBtn {
+  display: none;
+}
+.articleList #map {
+  width: 100%;
+  height: 450px;
+  border-radius: 4px;
+}
+@media only screen and (max-width: 428px) {
+  .articleList #map {
+    margin-bottom: 20px;
+  }
 }/*# sourceMappingURL=index.css.map */

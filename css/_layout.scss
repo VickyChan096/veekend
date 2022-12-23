@@ -44,7 +44,6 @@
   }
 }
 
-// Button樣式
 .btn {
   padding: 12px;
   font-size: $fz-s;
@@ -61,8 +60,8 @@
   }
 }
 
-// 實心btn
 .btnPrimary {
+  // 實心btn
   color: $c2nd;
   background-color: $c1st;
 
@@ -77,8 +76,8 @@
   }
 }
 
-// 空心btn
 .btnSecondary {
+  // 空心btn
   color: $c2nd;
   border: 1px solid $c1st;
   background-color: #fff;
@@ -107,7 +106,6 @@ body {
   max-width: 1200px;
 }
 
-// header開始 ------->
 header {
   position: fixed;
   top: 0;
@@ -460,8 +458,6 @@ header {
   }
 }
 
-// header結束 <-------
-
 main {
   padding-top: 56px;
   width: 100%;
@@ -479,7 +475,36 @@ main {
   }
 }
 
-// aside開始 ------->
+#map {
+  .popupContent {
+    margin-bottom: 20px;
+    text-align: center;
+
+    h4 {
+      margin-bottom: 3px;
+      font-weight: $fw-l;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    a {
+      padding: 4px 12px;
+      color: $c2nd;
+      font-size: $fz-s * 0.8;
+      font-weight: $fw-m;
+      text-decoration: none;
+
+      &:hover {
+        color: #fff;
+        background-color: $c2nd;
+      }
+    }
+  }
+}
+
 .aside {
   position: sticky;
   top: 76px;
@@ -660,6 +685,7 @@ main {
     li {
       display: inline-block;
       margin-bottom: 4px;
+      margin-right: 4px;
       padding: 2px 6px;
       color: $c2nd;
       font-weight: $fw-m;
@@ -678,12 +704,26 @@ main {
     transition: $trsFast;
     filter: grayscale(100%);
 
-    @include mobile {
-      display: none;
-    }
+    // @include mobile {
+    //   display: none;
+    // }
 
     &:hover {
       filter: grayscale(0%);
+    }
+
+    .adDesktop {
+      @include mobile {
+        display: none;
+      }
+    }
+
+    .adMobile {
+      display: none;
+
+      @include mobile {
+        display: block;
+      }
     }
 
     img {
@@ -692,9 +732,6 @@ main {
   }
 }
 
-// aside結束 ------->
-
-// footer開始 ------->
 .footer {
   color: #fff;
 
@@ -775,5 +812,3 @@ main {
     text-align: center;
   }
 }
-
-// footer結束 <-------

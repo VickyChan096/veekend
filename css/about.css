@@ -648,6 +648,30 @@ main .contentWrap {
   }
 }
 
+#map .popupContent {
+  margin-bottom: 20px;
+  text-align: center;
+}
+#map .popupContent h4 {
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+#map .popupContent p {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+#map .popupContent a {
+  padding: 4px 12px;
+  color: #000;
+  font-size: 12.8px;
+  font-weight: 400;
+  text-decoration: none;
+}
+#map .popupContent a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
 .aside {
   position: -webkit-sticky;
   position: sticky;
@@ -822,6 +846,7 @@ main .contentWrap {
 .aside__hashtag li {
   display: inline-block;
   margin-bottom: 4px;
+  margin-right: 4px;
   padding: 2px 6px;
   color: #000;
   font-weight: 400;
@@ -837,13 +862,21 @@ main .contentWrap {
   transition: all 0.2s;
   filter: grayscale(100%);
 }
+.aside__ad:hover {
+  filter: grayscale(0%);
+}
 @media only screen and (max-width: 768px) {
-  .aside__ad {
+  .aside__ad .adDesktop {
     display: none;
   }
 }
-.aside__ad:hover {
-  filter: grayscale(0%);
+.aside__ad .adMobile {
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  .aside__ad .adMobile {
+    display: block;
+  }
 }
 .aside__ad img {
   border-radius: 4px;

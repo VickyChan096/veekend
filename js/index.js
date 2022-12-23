@@ -1,11 +1,31 @@
 const _idxArticleList = document.getElementById('idxArticleList');
+let _data = [];
+
+const _blackIcon = new L.Icon({
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+  shadowUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
+let map = L.map('map', {
+  center: [23.97565, 120.9738819],
+  zoom: 7,
+  zoomControl: false,
+});
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>｜已探索景點`,
+}).addTo(map);
 
 function init() {
   fireSwiper();
   $(function () {
     let counter = 0;
     let listStart = 0;
-    let listQuantity = 4;
+    let listQuantity = 5;
     getData(listStart, listQuantity);
 
     // 監聽load more
@@ -52,31 +72,17 @@ function getData(start, quantity) {
     url: 'https://vickychan096.github.io/veekend/dataBase/db.json',
     dataType: 'json',
     success: function (res) {
-      let data = res.articles;
+      _data = res.articles;
       let total = res.articles.length;
-      let listStr = '';
 
-      for (var i = start; i < start + quantity; i++) {
-        listStr += ` <li>
-          <div class="articleList__photo">
-            <span>WEEK ${data[i].week}</span>
-            <img src="${data[i].largeCoverUrl}" />
-          </div>
-          <div class="articleList__content">
-            <div class="articleList__content__text">
-              <p>${data[i].city} ${data[i].district}</p>
-              <h6>${data[i].title}</h6>
-              <i>by ${data[i].userName} - ${data[i].writtenDate}</i>
-            </div>
-            <a class="btn btnPrimary" href="article.html?week=${data[i].week}">READ MORE</a>
-          </div>
-        </li>`;
-      }
-      $('#idxArticleList').append(listStr);
-
+      // 如果剩下的紀錄數不夠分頁，就讓分頁數取剩下的紀錄數
+      // 例如分頁數是5，只剩2條，則只取2條
       if (total - start < quantity) {
         quantity = total - start;
       }
+
+      createArticleList(_data, start, quantity);
+      createAllDestinations();
 
       // 隱藏more按鈕
       if (start + quantity >= total) {
@@ -96,5 +102,54 @@ function getData(start, quantity) {
         window.location.href = 'index.html';
       });
     },
+  });
+}
+
+function createAllDestinations() {
+  let allDest = [];
+  _data.forEach((item) => {
+    allDest = allDest.concat(item.destinations);
+  });
+  const set = new Set();
+  const results = allDest.filter((item) =>
+    !set.has(item.mapUrl) ? set.add(item.mapUrl) : false
+  );
+  renderLeaflet(results);
+}
+
+function createArticleList(data, start, quantity) {
+  let listStr = '';
+
+  for (var i = start; i < start + quantity; i++) {
+    listStr += ` <li>
+          <div class="articleList__photo">
+            <span>WEEK ${data[i].week}</span>
+            <img src="${data[i].largeCoverUrl}" />
+          </div>
+          <div class="articleList__content">
+            <div class="articleList__content__text">
+              <p>${data[i].city} ${data[i].district}</p>
+              <h6>${data[i].title}</h6>
+              <i>by ${data[i].userName} - ${data[i].writtenDate}</i>
+            </div>
+            <a class="btn btnPrimary" href="article.html?week=${data[i].week}">READ MORE</a>
+          </div>
+        </li>`;
+  }
+  $('#idxArticleList').append(listStr);
+}
+
+function renderLeaflet(data) {
+  data.forEach((item) => {
+    // 添加標記點
+    L.marker(item.local, { icon: _blackIcon })
+      .addTo(map)
+      .bindPopup(
+        `<div class="popupContent">
+          <h4>${item.name}</h4>
+          <p>不專業評價 ${item.rate}</p>
+          <a href="${item.mapUrl}" target="_blank" class="btn btnPrimary">前往 <i class="fa-solid fa-angle-right"></i></a>
+        </div>`
+      );
   });
 }

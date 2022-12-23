@@ -27,6 +27,19 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
       crossorigin="anonymous"/>
+
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""/>
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin="">
+    </script>
+
   </head>
 
   <body>
@@ -224,28 +237,17 @@
           </section> -->
 
           <!-- 首頁文章清單 -->
-          <ul id="idxArticleList">
-            <!-- <li>
-              <div class="articleList__photo">
-                <span>WEEK 1</span>
-                <img src="images/week1/cover.jpg" />
-              </div>
-              <div class="articleList__content">
-                <div class="articleList__content__text">
-                  <p>台北市 中山區</p>
-                  <h6>ORION BEER FEST in TAIPEI 一起狂喝一整夜吧!</h6>
-                  <i>by VC - 2022.10.26</i>
-                </div>
-                <a class="btn btnPrimary" href="article.html?week=1">READ MORE</a>
-              </div>
-            </li> -->
-          </ul>
+          <ul id="idxArticleList"></ul>
 
           <!-- 看更多文章 -->
           <button class="btn btnSecondary moreBtn">
             LOAD MORE POSTS
             <span></span>
           </button>
+          
+          <!-- 景點地圖 -->
+          <div id="map"></div>
+
         </article>
 
         <!-- 資訊欄 -->
@@ -287,19 +289,11 @@
           </div>
           <div class="aside__hashtag">
             <h5>HASHTAGS</h5>
-            <ul>
-              <li><a href="#">#淡水老街</a></li>
-            </ul>
-            <!-- <a href="#">#新北市</a>
-            <a href="#">#中和</a>
-            <a href="#">#早午餐</a>
-            <a href="#">#永和</a>
-            <a href="#">#中山區</a>
-            <a href="#">#台北市</a>
-            <a href="#">#馬祖</a> -->
+            <ul id="hashTags"></ul>
           </div>
           <div class="aside__ad">
-            <a href="#"><img src="images/ad.jpg" alt="廣告" /></a>
+            <a class="adDesktop" href="https://www.pinterest.com/meichenchan/vickys/" target="_blank"><img src="images/ad_300x450.jpg" alt="設計服務" /></a>
+            <a class="adMobile" href="https://www.pinterest.com/meichenchan/vickys/" target="_blank"><img src="images/ad_768x250.jpg" alt="設計服務" /></a>
           </div>
         </aside>
       </div>

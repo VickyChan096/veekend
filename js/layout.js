@@ -4,9 +4,10 @@ const _newTaipeiCity = document.getElementById('newTaipeiCity');
 const _taipeiCity = document.getElementById('taipeiCity');
 const _otherCity = document.getElementById('otherCity');
 const _popularPost = document.getElementById('popularPost');
+const _hashTags = document.getElementById('hashTags');
 let _articleList = [];
-let _articleIndex = [];
 let _randomNum = [];
+let _sortTags = [];
 
 function init() {
   // 在按鈕元素或body/html上綁定一個touchstart事件激發:active狀態。
@@ -24,42 +25,8 @@ function getData() {
       createMenuDist();
       createRandomNum();
       createPopularPost(_randomNum);
-
-      let tags = '';
-      _articleList.forEach((item) => {
-        let t = item.hashTags.join();
-        tags += `${t},`;
-      });
-      let allTags = tags.split(',');
-      allTags.pop(allTags[allTags.length - 1]);
-      console.log(allTags);
-      const countAllTags = allTags.reduce((object, item) => {
-        if(item in object){
-          object[item]++
-        }else{
-          object[item]=1;
-        }
-        return object;
-      },{});
-      console.log(countAllTags);
-      let newTags = Object.fromEntries(
-        Object.entries(countAllTags).sort((a, b) => b[1] - a[1])
-      );
-
-      console.log(newTags);
-      let aa = Object.keys(newTags);
-      console.log(aa);
-      // console.log(JSON.stringify(newTags));
-      // console.log(countAllTags.Sorted());
-      // let sortCountAllTags = countAllTags.sort(function(a,b){
-      //   return a.InStock >b.InStock ? 1:-1;
-      // })
-
-      // let aa = Object.values(countAllTags);
-      // console.log(aa);
-
-
-
+      sortAllTags();
+      createHashTags(_sortTags);
     })
     .catch(function (err) {
       swal({
@@ -107,20 +74,22 @@ function createMenuDist() {
 }
 
 function createRandomNum() {
+  let articleIndex = [];
+
   _articleList.forEach((item, index) => {
-    _articleIndex.push(index);
+    articleIndex.push(index);
   });
 
   const ranNum = 3;
   for (let i = 0; i < ranNum; i++) {
-    let ran = Math.floor(Math.random() * (_articleIndex.length - i));
-    if (_randomNum.includes(_articleIndex[ran])) {
+    let ran = Math.floor(Math.random() * (articleIndex.length - i));
+    if (_randomNum.includes(articleIndex[ran])) {
       continue;
     }
-    _randomNum.push(_articleIndex[ran]);
-    _articleIndex[ran] = _articleIndex[_articleIndex.length - i - 1];
+    _randomNum.push(articleIndex[ran]);
+    articleIndex[ran] = articleIndex[articleIndex.length - i - 1];
   }
-  console.log(_randomNum);
+  console.log(`隨機熱門文章：${_randomNum} 數字+1為週數`);
 }
 
 function createPopularPost(random) {
@@ -128,17 +97,17 @@ function createPopularPost(random) {
 
   _articleList.forEach((item, index) => {
     if (index === random[0]) {
-      str += createStr(item);
+      str += createListStr(item);
     } else if (index === random[1]) {
-      str += createStr(item);
+      str += createListStr(item);
     } else if (index === random[2]) {
-      str += createStr(item);
+      str += createListStr(item);
     }
   });
   _popularPost.innerHTML = str;
 }
 
-function createStr(item) {
+function createListStr(item) {
   let content = `
         <li>
           <a href="article.html?week=${item.week}">
@@ -147,6 +116,43 @@ function createStr(item) {
           </a>
         </li>`;
   return content;
+}
+
+function sortAllTags() {
+  let allTags = [];
+  let countAllTags = '';
+  let newTags = [];
+
+  // 1.將所有tag加總
+  _articleList.forEach((item) => {
+    allTags = allTags.concat(item.hashTags);
+  });
+
+  // 2.統計各tag的出現次數(產生object)
+  countAllTags = allTags.reduce((object, item) => {
+    if (item in object) {
+      object[item]++;
+    } else {
+      object[item] = 1;
+    }
+    return object;
+  }, {});
+
+  // 3.依物件的value大>小排序，留下key值並轉成array
+  newTags = Object.fromEntries(
+    Object.entries(countAllTags).sort((a, b) => b[1] - a[1])
+  );
+  console.log(`標籤統計結果：${JSON.stringify(newTags)}`);
+  _sortTags = Object.keys(newTags);
+}
+
+function createHashTags(array) {
+  let str = '';
+  for (let i = 0; i < 10; i++) {
+    let content = `<li><a href="#">${array[i]}</a></li>`;
+    str += content;
+  }
+  _hashTags.innerHTML = str;
 }
 
 // 漢堡選單toggle
