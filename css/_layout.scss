@@ -476,6 +476,8 @@ main {
 }
 
 #map {
+  z-index: 1;
+
   .popupContent {
     margin-bottom: 20px;
     text-align: center;

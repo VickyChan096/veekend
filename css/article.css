@@ -649,6 +649,9 @@ main .contentWrap {
   }
 }
 
+#map {
+  z-index: 1;
+}
 #map .popupContent {
   margin-bottom: 20px;
   text-align: center;
