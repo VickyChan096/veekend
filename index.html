@@ -4,30 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
-
     <title>週遊記 | Veekend</title>
     <meta name="description" content="與你分享我的每週小探險" />
-
     <meta property="og:url" content="https://vickychan096.github.io/veekend/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="週遊記 | Veekend" />
     <meta property="og:description" content="與你分享我的每週小探險" />
     <meta property="og:image" content="images/1200x630.jpg" />
-
     <script
       src="https://kit.fontawesome.com/41b7cdd317.js"
       crossorigin="">
     </script>
-
     <link rel="stylesheet" href="css/index.css" />
-
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
       crossorigin="anonymous"/>
-
     <!-- Leaflet -->
     <link
       rel="stylesheet"
@@ -39,7 +32,6 @@
       integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
       crossorigin="">
     </script>
-
   </head>
 
   <body>
@@ -66,8 +58,8 @@
         </div>
         <nav class="header__nav" id="nav">
           <div class="header__nav__search">
-            <input type="text" placeholder="搜尋" />
-            <button></button>
+            <input id="inputBox" type="text" placeholder="搜尋" />
+            <button id="inputButton"></button>
           </div>
           <div class="header__nav__menu">
             <div class="menu">
@@ -230,14 +222,9 @@
 
       <div class="wrap contentWrap">
         <article class="articleList">
-          <!-- 搜尋結果 -->
-          <!-- <section class="wrap result">
-            <h2>台北市</h2>
-            <p>Search Results 共<span> 24 </span>篇符合</p>
-          </section> -->
 
-          <!-- 首頁文章清單 -->
-          <ul id="idxArticleList"></ul>
+          <!-- 文章清單 -->
+          <ul id="articleList"></ul>
 
           <!-- 看更多文章 -->
           <button class="btn btnSecondary moreBtn">
@@ -342,6 +329,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="js/layout.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/aside.js"></script>
+    <script type="module" src="js/index.js"></script>
   </body>
 </html>

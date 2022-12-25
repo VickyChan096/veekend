@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
-    <title>登入 | Veekend</title>
+    <title>週遊記 | Veekend</title>
     <meta name="description" content="與你分享我的每週小探險" />
     <meta property="og:url" content="https://vickychan096.github.io/veekend/" />
     <meta property="og:type" content="website" />
@@ -14,10 +14,24 @@
     <meta property="og:image" content="images/1200x630.jpg" />
     <script
       src="https://kit.fontawesome.com/41b7cdd317.js"
-      crossorigin="">
-    </script>
-    <link rel="stylesheet" href="css/login.css" />
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" href="css/result.css" />
+
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
   </head>
+
   <body>
     <!-- toTop -->
     <a href="#" id="toTop"><i class="fa-solid fa-angles-up"></i></a>
@@ -81,19 +95,72 @@
     </header>
 
     <main>
-      <div class="wrap login">
-        <div class="login__content clearfix">
-          <h2>登入</h2>
-          <div class="login__content__label">
-            <p>帳號</p>
-            <input type="text" />
+      <div class="wrap contentWrap">
+        <article class="articleList">
+          <!-- 搜尋結果 -->
+          <section id="searchResult" class="wrap result"></section>
+
+          <!-- 文章清單 -->
+          <ul id="articleList"></ul>
+
+        </article>
+
+        <!-- 資訊欄 -->
+        <aside class="aside">
+          <div class="aside__photo">
+            <span></span>
+            <img src="images/profile.jpg" alt="Vicky" />
           </div>
-          <div class="login__content__label">
-            <p>密碼</p>
-            <input type="text" />
+          <div class="aside__info">
+            <ul>
+              <li>
+                <a href="mailto:s6102161021@yhaoo.com.tw">
+                  <img src="images/info-mail.png" alt="mail" />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.pinterest.com/meichenchan/vickys/">
+                  <img src="images/info-pin.png" alt="pinterest" />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/s6102161021/">
+                  <img src="images/info-ins.png" alt="instagram" />
+                </a>
+              </li>
+              <li>
+                <a href="index.html">
+                  <img src="images/info-website.png" alt="website" />
+                </a>
+              </li>
+            </ul>
+            <p>
+              Hi，我是VC<br />我在2019年末<br />給自己一個生活目標<br />花了一年總共54週<br />每週探索一個地區<br />想與你分享我的小探險
+            </p>
           </div>
-          <button onclick="alert('帳號密碼錯誤')" class="btn btnPrimary">Login</button>
-        </div>
+          <div class="aside__popularPost">
+            <h5>POPULAR POSTS</h5>
+            <ul id="popularPost"></ul>
+          </div>
+          <div class="aside__hashtag">
+            <h5>HASHTAGS</h5>
+            <ul id="hashTags"></ul>
+          </div>
+          <div class="aside__ad">
+            <a
+              class="adDesktop"
+              href="https://www.pinterest.com/meichenchan/vickys/"
+              target="_blank"
+              ><img src="images/ad_300x450.jpg" alt="設計服務"
+            /></a>
+            <a
+              class="adMobile"
+              href="https://www.pinterest.com/meichenchan/vickys/"
+              target="_blank"
+              ><img src="images/ad_768x250.jpg" alt="設計服務"
+            /></a>
+          </div>
+        </aside>
       </div>
     </main>
 
@@ -133,11 +200,14 @@
       </ul>
       <p>Copyright 2022 © Vicky Chan</p>
     </footer>
+
     <!-- JS -->
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="js/layout.js"></script>
-    
+    <script type="text/javascript" src="js/aside.js"></script>
+    <script type="module" src="js/result.js"></script>
   </body>
 </html>

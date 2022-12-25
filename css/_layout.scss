@@ -85,6 +85,11 @@
   &:hover {
     color: $c2nd;
     background-color: $c1st;
+
+    @include pad {
+      color: $c2nd;
+      background-color: #fff;
+    }
   }
 }
 

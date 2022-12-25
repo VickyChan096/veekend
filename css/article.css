@@ -287,6 +287,12 @@ u {
   color: #000;
   background-color: #ffe60f;
 }
+@media only screen and (max-width: 992px) {
+  .btnSecondary:hover {
+    color: #000;
+    background-color: #fff;
+  }
+}
 
 html {
   scroll-behavior: smooth;

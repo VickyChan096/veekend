@@ -1,18 +1,20 @@
+import { _blackIcon, errAlert } from './commonFunction.js';
+
 const _heroSection = document.querySelector('.heroSection');
 const _artTop = document.querySelector('.article__top');
 const _artMid = document.querySelector('.article__middle');
 const _artMap = document.querySelector('.article__mapAndTags');
 const _artBottom = document.querySelector('.article__bottom');
-let _data = []; // 全部資料
+let _data = [];
 let _week = '';
-let _article = ''; // 此篇資料
+let _article = '';
 
 function init() {
-  getData();
+  getAllData();
 }
 init();
 
-function getData() {
+function getAllData() {
   axios
     .get('https://vickychan096.github.io/veekend/dataBase/db.json')
     // .get('../dataBase/db.json')
@@ -23,15 +25,7 @@ function getData() {
       renderHtml();
     })
     .catch(function (err) {
-      swal({
-        title: 'Σ(ﾟдﾟ) 哇糟糕了',
-        text: '找不到文章，帶你回首頁',
-        icon: 'warning',
-        button: '確定',
-        className: 'swalBtn',
-      }).then(function () {
-        window.location.href = 'index.html';
-      });
+      errAlert('資料有誤，帶你回首頁')
     });
 }
 
@@ -104,21 +98,11 @@ function createArtMap() {
             <h5>本週景點地圖</h5>
             <div id="map"></div>
             <ul>${hashTags}</ul>`;
-  renderLeaflet(_article);
+  renderMapDestination(_article);
 }
 
-function renderLeaflet(data) {
+function renderMapDestination(data) {
   const destinations = data.destinations;
-  const _blackIcon = new L.Icon({
-    iconUrl:
-      'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
-    shadowUrl:
-      'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41],
-  });
 
   let map = L.map('map', {
     center: [destinations[0].local[0], destinations[0].local[1]],
@@ -133,7 +117,6 @@ function renderLeaflet(data) {
   }).addTo(map);
 
   destinations.forEach((item) => {
-    // 添加標記點
     L.marker(item.local, { icon: _blackIcon })
       .addTo(map)
       .bindPopup(

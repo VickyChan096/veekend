@@ -1,43 +1,18 @@
-const _idxArticleList = document.getElementById('idxArticleList');
-let _data = [];
+import { _blackIcon, errAlert } from './commonFunction.js';
 
-const _blackIcon = new L.Icon({
-  iconUrl:
-    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
-  shadowUrl:
-    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
-});
-let map = L.map('map', {
-  center: [23.97565, 120.9738819],
-  zoom: 7,
-  zoomControl: false,
-});
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>｜已探索景點`,
-}).addTo(map);
+let _map;
+let _data = [];
+let _mapData = [];
 
 function init() {
   fireSwiper();
-  $(function () {
-    let counter = 0;
-    let listStart = 0;
-    let listQuantity = 5;
-    getData(listStart, listQuantity);
-
-    // 監聽load more
-    $(document).on('click', '.moreBtn', function () {
-      counter++;
-      listStart = counter * listQuantity;
-      getData(listStart, listQuantity);
-    });
-  });
+  mapInit();
+  getMapData();
+  articleListInit();
 }
 init();
 
+// 啟動 輪播
 function fireSwiper() {
   const swiper = new Swiper('.swiper', {
     speed: 1000,
@@ -66,62 +41,78 @@ function fireSwiper() {
   });
 }
 
-function getData(start, quantity) {
+// 初始化 map
+function mapInit() {
+  _map = L.map('map', {
+    center: [23.97565, 120.9738819],
+    zoom: 7,
+    zoomControl: false,
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>｜已探索景點`,
+  }).addTo(_map);
+}
+
+// 初始化 文章清單
+function articleListInit() {
+  let counter = 0; // 計數器
+  let startNum = 0; // 起始文章
+  let quantity = 5; // 每次產生的文章數量
+  getData(startNum, quantity);
+
+  // 監聽load more
+  $(document).on('click', '.moreBtn', function () {
+    counter++;
+    startNum = counter * quantity;
+    getData(startNum, quantity);
+  });
+}
+
+function getData(startNum, size) {
   $.ajax({
     type: 'GET',
     url: 'https://vickychan096.github.io/veekend/dataBase/db.json',
     dataType: 'json',
     success: function (res) {
       _data = res.articles;
-      let total = res.articles.length;
+      let articlesLength = res.articles.length;
 
       // 如果剩下的紀錄數不夠分頁，就讓分頁數取剩下的紀錄數
       // 例如分頁數是5，只剩2條，則只取2條
-      if (total - start < quantity) {
-        quantity = total - start;
+      if (articlesLength - startNum < size) {
+        size = articlesLength - startNum;
       }
 
-      createArticleList(_data, start, quantity);
-      createAllDestinations();
+      createArticleList(_data, startNum, size);
 
-      // 隱藏more按鈕
-      if (start + quantity >= total) {
+      // 隱藏/顯示 more按鈕
+      if (startNum + size >= articlesLength) {
         $('.moreBtn').hide();
       } else {
         $('.moreBtn').show();
       }
     },
     error: function (xhr, type) {
-      swal({
-        title: 'Σ(ﾟдﾟ) 哇糟糕了',
-        text: '資料有誤，請聯繫站長',
-        icon: 'warning',
-        button: '確定',
-        className: 'swalBtn',
-      }).then(function () {
-        window.location.href = 'index.html';
-      });
+      errAlert('資料有誤，請通知管理員');
     },
   });
 }
 
-function createAllDestinations() {
-  let allDest = [];
-  _data.forEach((item) => {
-    allDest = allDest.concat(item.destinations);
-  });
-  const set = new Set();
-  const results = allDest.filter((item) =>
-    !set.has(item.mapUrl) ? set.add(item.mapUrl) : false
-  );
-  renderLeaflet(results);
+function getMapData() {
+  axios
+    .get('https://vickychan096.github.io/veekend/dataBase/db.json')
+    .then(function (response) {
+      _mapData = response.data.articles;
+      createMapDestination();
+    });
 }
 
-function createArticleList(data, start, quantity) {
-  let listStr = '';
-
-  for (var i = start; i < start + quantity; i++) {
-    listStr += ` <li>
+// 建立 文章清單
+function createArticleList(data, startNum, size) {
+  let str = '';
+  for (var i = startNum; i < startNum + size; i++) {
+    str += ` <li>
           <div class="articleList__photo">
             <span>WEEK ${data[i].week}</span>
             <img src="${data[i].largeCoverUrl}" />
@@ -136,14 +127,29 @@ function createArticleList(data, start, quantity) {
           </div>
         </li>`;
   }
-  $('#idxArticleList').append(listStr);
+
+  // 往後新增清單
+  $('#articleList').append(str);
 }
 
-function renderLeaflet(data) {
+// 篩選 map景點
+function createMapDestination() {
+  let allDestinations = [];
+  _mapData.forEach((item) => {
+    allDestinations = allDestinations.concat(item.destinations);
+  });
+  const set = new Set();
+  const setDestinations = allDestinations.filter((item) =>
+    !set.has(item.mapUrl) ? set.add(item.mapUrl) : false
+  );
+  renderMapDestination(setDestinations);
+}
+
+// 建立 map景點
+function renderMapDestination(data) {
   data.forEach((item) => {
-    // 添加標記點
     L.marker(item.local, { icon: _blackIcon })
-      .addTo(map)
+      .addTo(_map)
       .bindPopup(
         `<div class="popupContent">
           <h4>${item.name}</h4>
