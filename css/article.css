@@ -861,12 +861,19 @@ main .contentWrap {
   color: #000;
   font-weight: 400;
   border-radius: 4px;
+  color: #000;
   background-color: #eeeeee;
   transition: all 0.2s;
 }
 .aside__hashtag li:hover {
   color: #000;
   background-color: #ffe60f;
+}
+@media only screen and (max-width: 992px) {
+  .aside__hashtag li:hover {
+    color: #000;
+    background-color: #eeeeee;
+  }
 }
 .aside__ad {
   transition: all 0.2s;

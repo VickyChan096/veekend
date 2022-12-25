@@ -697,12 +697,19 @@ main {
       color: $c2nd;
       font-weight: $fw-m;
       border-radius: $br-s;
+      color: $c2nd;
+      // color: red;
       background-color: $c4th;
       transition: $trsFast;
 
       &:hover {
         color: #000;
         background-color: $c1st;
+
+        @include pad {
+          color: $c2nd;
+          background-color: $c4th;
+        }
       }
     }
   }
@@ -710,10 +717,6 @@ main {
   &__ad {
     transition: $trsFast;
     filter: grayscale(100%);
-
-    // @include mobile {
-    //   display: none;
-    // }
 
     &:hover {
       filter: grayscale(0%);

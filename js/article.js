@@ -91,7 +91,8 @@ function createArtMap() {
   let data = _article.hashTags;
   let hashTags = '';
   data.forEach(function (item) {
-    hashTags = hashTags + `<li>#${item}</li>`;
+    hashTags =
+      hashTags + `<li><a href="result.html?tags=${item}">#${item}</a></li>`;
   });
 
   _artMap.innerHTML = `
