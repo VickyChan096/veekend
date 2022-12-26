@@ -1,0 +1,158 @@
+.articleList {
+  width: 78%;
+
+  @include pad {
+    width: 71%;
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+
+  li {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $c4th;
+  }
+
+  li:first-child {
+    padding-top: 0;
+  }
+
+  li:last-child {
+    border-bottom: 0;
+  }
+
+  &__photo {
+    position: relative;
+    margin-right: 10px;
+    width: 40%;
+    height: 200px;
+    border-radius: $br-s;
+    overflow: hidden;
+
+    @include min-mobile {
+      height: 150px;
+    }
+
+    span {
+      position: absolute;
+      top: 12px;
+      padding: 4px;
+      width: 80px;
+      font-size: $fz-s * 0.8;
+      font-weight: bold;
+      text-align: center;
+      background-color: $c1st;
+      z-index: 1;
+
+      @include min-mobile {
+        top: 0px;
+        width: 100%;
+        color: #fff;
+        font-size: $fz-s * 0.8;
+        background-color: $c2nd;
+      }
+    }
+
+    img {
+      min-height: 200px;
+      border-radius: $br-s;
+      transition: $trsSlow;
+      object-fit: cover;
+      filter: grayscale(100%);
+
+      @include min-mobile {
+        min-height: 150px;
+      }
+
+      &:hover {
+        transform: scale(1.2);
+        filter: grayscale(0%);
+
+        @include pad {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+
+    &__text {
+      p {
+        margin-bottom: 4px;
+        color: lighten($c3rd, 20%);
+        font-weight: $fw-s;
+
+        @include min-mobile {
+          font-size: $fz-s * 0.8;
+        }
+      }
+
+      h6 {
+        margin-bottom: 4px;
+        max-height: 56px;
+        font-size: $fz-l;
+        font-weight: $fw-l;
+        line-height: 1.2;
+        overflow: hidden;
+
+        @include pad {
+          max-height: 48px;
+          font-size: $fz-m;
+        }
+
+        @include min-mobile {
+          max-height: 55px;
+          font-size: $fz-s;
+        }
+      }
+
+      i {
+        color: lighten($c3rd, 20%);
+        font-size: $fz-s * 0.8;
+
+        @include min-mobile {
+          font-size: $fz-s * 0.6;
+        }
+      }
+    }
+
+    a {
+      width: 150px;
+    }
+  }
+
+  >button {
+    margin-bottom: 20px;
+    width: calc(40% - 4px);
+
+    @include pad {
+      width: 100%;
+    }
+
+    span {
+      display: inline-block;
+      padding-top: 4px;
+      width: 12px;
+      height: 12px;
+      background-image: url(../images/refresh-y.png);
+      background-size: cover;
+      transition: $trsSlow;
+      will-change: transform;
+    }
+
+    &:hover {
+      span {
+        rotate: 180deg;
+        background-image: url(../images/refresh.png);
+      }
+    }
+  }
+}

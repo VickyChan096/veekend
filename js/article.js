@@ -1,47 +1,52 @@
-import { _blackIcon, errAlert } from './commonFunction.js';
-
-const _heroSection = document.querySelector('.heroSection');
-const _artTop = document.querySelector('.article__top');
-const _artMid = document.querySelector('.article__middle');
-const _artMap = document.querySelector('.article__mapAndTags');
-const _artBottom = document.querySelector('.article__bottom');
+import { errAlert } from './common.js';
+const _article = document.querySelector('.article');
 let _data = [];
 let _week = '';
-let _article = '';
+let _thisArticle = '';
 
 function init() {
-  getAllData();
+  createArticleDom();
+  getData();
 }
 init();
 
-function getAllData() {
+function createArticleDom() {
+  _article.innerHTML = `
+    <div class="article__top"></div>
+    <div class="article__middle"></div>
+    <section class="article__mapAndTags"></section>
+    <div class="article__bottom"></div>`;
+}
+
+function getData() {
   axios
     .get('https://vickychan096.github.io/veekend/dataBase/db.json')
-    // .get('../dataBase/db.json')
     .then(function (response) {
       _data = response.data;
       _week = getUrlParameter('week');
-      _article = _data.articles[_week - 1];
+      _thisArticle = _data.articles[_week - 1];
       renderHtml();
     })
     .catch(function (err) {
-      errAlert('資料有誤，帶你回首頁')
+      errAlert('資料有誤，帶你回首頁');
     });
-}
-
-function renderHtml() {
-  changeHeadContent(_article);
-  _heroSection.innerHTML = createHeroSection(_article);
-  _artTop.innerHTML = createArtTop(_article);
-  createArtMid();
-  createArtMap();
-  createArtBottom();
 }
 
 function getUrlParameter(parameter) {
   const getUrlString = location.href;
   const url = new URL(getUrlString);
   return url.searchParams.get(parameter);
+}
+
+function renderHtml() {
+  const heroSection = document.querySelector('.heroSection');
+  const artTop = document.querySelector('.article__top');
+  changeHeadContent(_thisArticle);
+  heroSection.innerHTML = createHeroSection(_thisArticle);
+  artTop.innerHTML = createArtTop(_thisArticle);
+  createArtMid();
+  createArtMap();
+  createArtBottom();
 }
 
 function changeHeadContent(data) {
@@ -79,7 +84,8 @@ function createArtTop(data) {
 }
 
 function createArtMid() {
-  _artMid.innerHTML = _article.content;
+  const artMid = document.querySelector('.article__middle');
+  artMid.innerHTML = _thisArticle.content;
 
   $('.catalogBtn').click(function (event) {
     $(this).find('i').toggleClass('active');
@@ -87,19 +93,30 @@ function createArtMid() {
   });
 }
 
+const _blackIcon = new L.Icon({
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+  shadowUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
+
 function createArtMap() {
-  let data = _article.hashTags;
+  const artMap = document.querySelector('.article__mapAndTags');
+  let data = _thisArticle.hashTags;
   let hashTags = '';
   data.forEach(function (item) {
-    hashTags =
-      hashTags + `<li><a href="result.html?tags=${item}">#${item}</a></li>`;
+    hashTags += `<li><a href="result.html?tags=${item}">#${item}</a></li>`;
   });
 
-  _artMap.innerHTML = `
+  artMap.innerHTML = `
             <h5>本週景點地圖</h5>
             <div id="map"></div>
             <ul>${hashTags}</ul>`;
-  renderMapDestination(_article);
+  renderMapDestination(_thisArticle);
 }
 
 function renderMapDestination(data) {
@@ -131,6 +148,8 @@ function renderMapDestination(data) {
 }
 
 function createArtBottom() {
+  const artBottom = document.querySelector('.article__bottom');
+
   let prev = parseInt(_week) - 1;
   let next = parseInt(_week) + 1;
   let prevStr = '';
@@ -177,5 +196,5 @@ function createArtBottom() {
         <img src="images/arrow.svg" />
       </a>`;
   }
-  _artBottom.innerHTML = prevStr + nextStr;
+  artBottom.innerHTML = prevStr + nextStr;
 }

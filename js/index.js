@@ -1,18 +1,15 @@
-import { _blackIcon, errAlert } from './commonFunction.js';
-
-let _map;
-let _data = [];
+import { errAlert } from './common.js';
+let _articleListData = [];
 let _mapData = [];
+let _map;
 
 function init() {
   fireSwiper();
-  mapInit();
+  initArticleList();
   getMapData();
-  articleListInit();
 }
 init();
 
-// 啟動 輪播
 function fireSwiper() {
   const swiper = new Swiper('.swiper', {
     speed: 1000,
@@ -41,53 +38,39 @@ function fireSwiper() {
   });
 }
 
-// 初始化 map
-function mapInit() {
-  _map = L.map('map', {
-    center: [23.97565, 120.9738819],
-    zoom: 7,
-    zoomControl: false,
-  });
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>｜已探索景點`,
-  }).addTo(_map);
-}
-
-// 初始化 文章清單
-function articleListInit() {
+function initArticleList() {
   let counter = 0; // 計數器
   let startNum = 0; // 起始文章
   let quantity = 5; // 每次產生的文章數量
-  getData(startNum, quantity);
+  getArticleListData(startNum, quantity);
 
   // 監聽load more
   $(document).on('click', '.moreBtn', function () {
     counter++;
     startNum = counter * quantity;
-    getData(startNum, quantity);
+    getArticleListData(startNum, quantity);
   });
 }
 
-function getData(startNum, size) {
+function getArticleListData(startNum, quantity) {
   $.ajax({
     type: 'GET',
     url: 'https://vickychan096.github.io/veekend/dataBase/db.json',
     dataType: 'json',
     success: function (res) {
-      _data = res.articles;
+      _articleListData = res.articles;
       let articlesLength = res.articles.length;
 
       // 如果剩下的紀錄數不夠分頁，就讓分頁數取剩下的紀錄數
       // 例如分頁數是5，只剩2條，則只取2條
-      if (articlesLength - startNum < size) {
-        size = articlesLength - startNum;
+      if (articlesLength - startNum < quantity) {
+        quantity = articlesLength - startNum;
       }
 
-      createArticleList(_data, startNum, size);
+      createArticleList(_articleListData, startNum, quantity);
 
       // 隱藏/顯示 more按鈕
-      if (startNum + size >= articlesLength) {
+      if (startNum + quantity >= articlesLength) {
         $('.moreBtn').hide();
       } else {
         $('.moreBtn').show();
@@ -99,19 +82,9 @@ function getData(startNum, size) {
   });
 }
 
-function getMapData() {
-  axios
-    .get('https://vickychan096.github.io/veekend/dataBase/db.json')
-    .then(function (response) {
-      _mapData = response.data.articles;
-      createMapDestination();
-    });
-}
-
-// 建立 文章清單
-function createArticleList(data, startNum, size) {
+function createArticleList(data, startNum, quantity) {
   let str = '';
-  for (var i = startNum; i < startNum + size; i++) {
+  for (var i = startNum; i < startNum + quantity; i++) {
     str += ` <li>
           <div class="articleList__photo">
             <span>WEEK ${data[i].week}</span>
@@ -132,7 +105,39 @@ function createArticleList(data, startNum, size) {
   $('#articleList').append(str);
 }
 
-// 篩選 map景點
+function getMapData() {
+  axios
+    .get('https://vickychan096.github.io/veekend/dataBase/db.json')
+    .then(function (response) {
+      _mapData = response.data.articles;
+      initMap();
+      createMapDestination();
+    });
+}
+
+const _blackIcon = new L.Icon({
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+  shadowUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
+
+function initMap() {
+  _map = L.map('map', {
+    center: [23.97565, 120.9738819],
+    zoom: 7,
+    zoomControl: false,
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>｜已探索景點`,
+  }).addTo(_map);
+}
+
 function createMapDestination() {
   let allDestinations = [];
   _mapData.forEach((item) => {
@@ -145,7 +150,6 @@ function createMapDestination() {
   renderMapDestination(setDestinations);
 }
 
-// 建立 map景點
 function renderMapDestination(data) {
   data.forEach((item) => {
     L.marker(item.local, { icon: _blackIcon })

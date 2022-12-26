@@ -19,67 +19,8 @@
     <link rel="stylesheet" href="css/about.css" />
   </head>
   <body>
-    <!-- toTop -->
     <a href="#" id="toTop"><i class="fa-solid fa-angles-up"></i></a>
-
-    <header>
-      <div class="wrap header">
-        <div class="header__content">
-          <a class="header__content__logo" href="index.html">
-            <h1>Veekend</h1>
-            <img src="images/logo-veekend.svg" alt="Veekend" />
-          </a>
-          <div class="header__content__hamburger">
-            <input type="checkbox" id="hamburger" />
-            <label for="hamburger">
-              <div>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </label>
-          </div>
-        </div>
-        <nav class="header__nav" id="nav">
-          <div class="header__nav__search">
-            <input id="inputBox" type="text" placeholder="搜尋" />
-            <button id="inputButton"></button>
-          </div>
-          <div class="header__nav__menu">
-            <div class="menu">
-              <h3 class="menuUnderline"><span></span>新北市</h3>
-              <div class="menu__district">
-                <ul id="newTaipeiCity"></ul>
-              </div>
-              <i class="fa-solid fa-circle-chevron-down"></i>
-            </div>
-            <div class="menu">
-              <h3 class="menuUnderline"><span></span>台北市</h3>
-              <div class="menu__district">
-                <ul id="taipeiCity"></ul>
-              </div>
-              <i class="fa-solid fa-circle-chevron-down"></i>
-            </div>
-            <div class="menu">
-              <h3 class="menuUnderline"><span></span>其他</h3>
-              <div class="menu__district lastDistrict">
-                <ul id="otherCity"></ul>
-              </div>
-              <i class="fa-solid fa-circle-chevron-down"></i>
-            </div>
-            <div class="menu">
-              <h3><a href="about.html">關於</a></h3>
-              <i class="fa-solid fa-circle-info"></i>
-            </div>
-            <div class="menu">
-              <h3><a href="login.html">登入</a></h3>
-              <i class="fa-solid fa-circle-right"></i>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-
+    <header id="header"></header>
     <main>
       <div class="wrap about">
         <div class="about__content">
@@ -95,48 +36,11 @@
         </div>
       </div>
     </main>
+    <footer class="footer"></footer>
 
-    <footer class="footer">
-      <div class="footer__photo"></div>
-      <ul class="wrap footer__info">
-        <li>
-          <a href="mailto:s6102161021@yhaoo.com.tw">
-            <img src="images/info-mail-y.png" alt="EMAIL" />
-          </a>
-          <a href="mailto:s6102161021@yhaoo.com.tw">
-            <span>EMAIL</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.pinterest.com/meichenchan/vickys/">
-            <img src="images/info-pin-y.png" alt="PINTEREST" />
-          </a>
-          <a href="https://www.pinterest.com/meichenchan/vickys/">
-            <span>PINTEREST</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/s6102161021/">
-            <img src="images/info-ins-y.png" alt="INSTAGRAM" />
-          </a>
-          <a href="https://www.instagram.com/s6102161021/">
-            <span>INSTAGRAM</span>
-          </a>
-        </li>
-        <li>
-          <a href="index.html">
-            <img src="images/info-website-y.png" alt="WEBSITE" />
-          </a>
-          <a href="index.html"><span>WEBSITE</span></a>
-        </li>
-      </ul>
-      <p>Copyright 2022 © Vicky Chan</p>
-    </footer>
-
-    <!-- JS -->
-    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="text/javascript" src="js/layout.js"></script>
+    <script type="module" src="js/layout.js"></script>
   </body>
 </html>

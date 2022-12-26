@@ -1,7 +1,8 @@
-@import "variable"; // 字級、顏色、速度
-@import "reset"; // Reset、初始設定
-@import "mixin"; // Flex、@media
+@import "variable"; // font,color,transition
+@import "reset"; // reset,initial
+@import "mixin"; // flex、@media
 @import "layout"; // header、footer、toTop、button
+@import "aside"; // aside
 
 // <strong>: 文字粗體
 // <mark>: 文字紅色底線
@@ -30,7 +31,6 @@
 	}
 
 	img {
-		// margin-top: -350px; // 圖片往上推
 		min-height: 450px;
 		object-fit: cover;
 		object-position: 50% 0%;
@@ -156,14 +156,6 @@
 			margin-bottom: 20px;
 			padding-bottom: 20px;
 			border-bottom: 1px solid $c4th;
-
-			// .mb10 {
-			// 	margin-bottom: 10px !important;
-			// }
-
-			// .mb0 {
-			// 	margin-bottom: 0 !important;
-			// }
 
 			img {
 				border-radius: 4px;
