@@ -1148,6 +1148,24 @@ main .contentWrap {
 .article__middle section a:hover {
   text-decoration: none;
 }
+.article__middle section a[data-fancybox=gallery] {
+  position: relative;
+}
+.article__middle section a[data-fancybox=gallery] img {
+  width: 100%;
+}
+.article__middle section a[data-fancybox=gallery]::after {
+  content: "點擊看大圖";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 4px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  border-radius: 0 0 4px 4px;
+  background-color: #000;
+}
 .article__middle section h4 {
   position: relative;
   margin-bottom: 10px;
@@ -1382,9 +1400,7 @@ main .contentWrap {
   }
 }
 .articleStyle1 img,
-.articleStyle1 a[data-fancybox=gallery],
-.articleStyle2 img,
-.articleStyle2 a[data-fancybox=gallery] {
+.articleStyle2 img {
   width: 50%;
   max-height: 300px;
   -o-object-fit: cover;
@@ -1392,34 +1408,11 @@ main .contentWrap {
 }
 @media only screen and (max-width: 768px) {
   .articleStyle1 img,
-.articleStyle1 a[data-fancybox=gallery],
-.articleStyle2 img,
-.articleStyle2 a[data-fancybox=gallery] {
+.articleStyle2 img {
     margin-bottom: 10px;
     width: 100%;
     max-height: 100%;
   }
-}
-.articleStyle1 a[data-fancybox=gallery],
-.articleStyle2 a[data-fancybox=gallery] {
-  position: relative;
-}
-.articleStyle1 a[data-fancybox=gallery] img,
-.articleStyle2 a[data-fancybox=gallery] img {
-  width: 100%;
-}
-.articleStyle1 a[data-fancybox=gallery]::after,
-.articleStyle2 a[data-fancybox=gallery]::after {
-  content: "點擊看大圖";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 4px;
-  width: 100%;
-  color: #fff;
-  text-align: center;
-  border-radius: 0 0 4px 4px;
-  background-color: #000;
 }
 .articleStyle1 div,
 .articleStyle2 div {

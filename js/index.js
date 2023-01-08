@@ -130,7 +130,7 @@ function initMap() {
   _map = L.map('map', {
     center: [23.97565, 120.9738819],
     zoom: 7,
-    zoomControl: false,
+    zoomControl: true,
   });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
