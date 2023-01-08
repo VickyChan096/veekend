@@ -125,7 +125,7 @@ function renderMapDestination(data) {
   let map = L.map('map', {
     center: [destinations[0].local[0], destinations[0].local[1]],
     zoom: 14,
-    zoomControl: false,
+    zoomControl: true,
   });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
