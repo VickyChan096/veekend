@@ -18,7 +18,7 @@ function fireSwiper() {
     autoplay: {
       // 解決小網手動操作後停止自動輪播
       disableOnInteraction: false,
-      delay: 3000,
+      delay: 2000,
     },
     loop: true,
     pagination: {
@@ -36,6 +36,13 @@ function fireSwiper() {
   $('.swiper-slide').mouseleave(function () {
     swiper.autoplay.start();
   });
+
+  let screenWidth = window.innerWidth;
+  if (screenWidth <= 768) {
+    const pagination = document.querySelector('.swiper-pagination');
+    pagination.style= 'display:none';
+    $('h4').removeAttr('data-swiper-parallax-duration');
+  }
 }
 
 function initArticleList() {
