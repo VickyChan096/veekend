@@ -189,27 +189,6 @@
 				text-decoration: none;
 			}
 
-			a[data-fancybox="gallery"] {
-				position: relative;
-
-				img {
-					width: 100%;
-				}
-			}
-
-			a[data-fancybox="gallery"]::after {
-				content: "點擊看大圖";
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				padding: 4px;
-				width: 100%;
-				color: #fff;
-				text-align: center;
-				border-radius: 0 0 $br-s $br-s;
-				background-color: $c2nd;
-			}
-
 			h4 {
 				position: relative;
 				margin-bottom: 10px;
@@ -564,6 +543,27 @@
 		height: 350px;
 		border-radius: 4px;
 	}
+}
+
+a[data-fancybox="gallery"] {
+	position: relative;
+
+	img {
+		width: 100%;
+	}
+}
+
+a[data-fancybox="gallery"]::after {
+	content: "點擊看大圖";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 4px;
+	width: 100%;
+	color: #fff;
+	text-align: center;
+	border-radius: 0 0 $br-s $br-s;
+	background-color: $c2nd;
 }
 
 @keyframes heroBannerMove {
