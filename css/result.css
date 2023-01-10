@@ -494,6 +494,10 @@ header {
   position: relative;
   font-weight: 400;
   z-index: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
 }
 @media only screen and (max-width: 768px) {

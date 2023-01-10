@@ -297,6 +297,7 @@ header {
     position: relative;
     font-weight: $fw-m;
     z-index: 1;
+    user-select: none;
     cursor: pointer;
 
     @include mobile {
