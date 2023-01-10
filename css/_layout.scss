@@ -164,6 +164,7 @@ header {
       display: none;
       border-radius: $br-s;
       background-color: $c2nd;
+      user-select: none;
 
       @include mobile {
         display: block;
