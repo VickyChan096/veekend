@@ -1031,10 +1031,8 @@ main .contentWrap {
   font-weight: bold;
   line-height: 1.4;
   text-decoration: underline;
-  -webkit-text-decoration-color: #ffe60f;
-          text-decoration-color: #ffe60f;
-  text-decoration-thickness: 20px;
-  text-underline-offset: -12px;
+  -webkit-text-decoration-color: #eeeeee;
+          text-decoration-color: #eeeeee;
   -webkit-text-decoration-skip-ink: none;
           text-decoration-skip-ink: none;
 }
@@ -1045,15 +1043,6 @@ main .contentWrap {
     text-decoration-thickness: 16px;
     text-underline-offset: -8px;
   }
-}
-.article__top h2::-moz-selection {
-  text-decoration: underline #e60012;
-  background: #fff;
-}
-.article__top h2::selection {
-  -webkit-text-decoration: underline #e60012;
-          text-decoration: underline #e60012;
-  background: #fff;
 }
 .article__top__date {
   margin-bottom: 10px;

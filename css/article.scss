@@ -61,11 +61,13 @@
 			margin: 0 24px 10px;
 			font-size: 36px;
 			font-weight: bold;
+			// background: linear-gradient(180deg, transparent 50%, $c1st 0);
 			line-height: 1.4;
 			text-decoration: underline;
-			text-decoration-color: $c1st;
-			text-decoration-thickness: 20px;
-			text-underline-offset: -12px;
+			// text-decoration-color: $c1st;
+			text-decoration-color: $c4th;
+			// text-decoration-thickness: 20px;
+			// text-underline-offset: -12px;
 			text-decoration-skip-ink: none;
 
 			@include pad {
@@ -76,10 +78,10 @@
 			}
 		}
 
-		h2::selection {
-			text-decoration: underline $c5th;
-			background: #fff;
-		}
+		// h2::selection {
+		// 	text-decoration: underline $c5th;
+		// 	background: #fff;
+		// }
 
 		&__date {
 			margin-bottom: 10px;
