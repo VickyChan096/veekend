@@ -303,7 +303,7 @@ body {
   position: relative;
   color: #000;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: lighter;
   background-color: #000;
 }
 
@@ -679,7 +679,7 @@ main .contentWrap {
   padding: 4px 12px;
   color: #000;
   font-size: 12.8px;
-  font-weight: 400;
+  font-weight: normal;
   text-decoration: none;
 }
 #map .popupContent a:hover {
@@ -937,7 +937,7 @@ main .contentWrap {
   margin-right: 4px;
   padding: 2px 6px;
   color: #000;
-  font-weight: 400;
+  font-weight: normal;
   border-radius: 4px;
   color: #000;
   background-color: #eeeeee;
@@ -1252,7 +1252,7 @@ main .contentWrap {
   margin-right: 4px;
   padding: 2px 6px;
   color: #000;
-  font-weight: 400;
+  font-weight: normal;
   border-radius: 4px;
   background-color: #eeeeee;
   transition: all 0.2s;
