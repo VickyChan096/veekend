@@ -1031,8 +1031,10 @@ main .contentWrap {
   font-weight: bold;
   line-height: 1.4;
   text-decoration: underline;
-  -webkit-text-decoration-color: #eeeeee;
-          text-decoration-color: #eeeeee;
+  -webkit-text-decoration-color: #ffe60f;
+          text-decoration-color: #ffe60f;
+  text-decoration-thickness: 20px;
+  text-underline-offset: -12px;
   -webkit-text-decoration-skip-ink: none;
           text-decoration-skip-ink: none;
 }
