@@ -2,10 +2,15 @@ $fz-s: 16px; //*1.5=24 *2=32 *3=48
 $fz-m: 20px;
 $fz-l: 24px;
 
-$fw-s: lighter;
-$fw-m: normal;
-$fw-l: bold;
-$fw-xl: bolder;
+$fw-s: 300;
+$fw-m: 400;
+$fw-l: 500;
+$fw-xl: 700;
+
+// $fw-s: lighter;
+// $fw-m: normal;
+// $fw-l: bold;
+// $fw-xl: bolder;
 
 $c1st: #ffe60f;
 $c2nd: #000;

@@ -1,6 +1,4 @@
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
 html,
 body,
 div,
@@ -141,7 +139,8 @@ table {
 body {
   width: 100%;
   height: 100%;
-  font-family: Helvetica, Arial, "Noto Sans TC", "微軟正黑體", sans-serif;
+  font-family: "Archivo Black", sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   line-height: 1.5;
 }
 
@@ -303,7 +302,7 @@ body {
   position: relative;
   color: #000;
   font-size: 16px;
-  font-weight: lighter;
+  font-weight: 300;
   background-color: #000;
 }
 
@@ -493,7 +492,7 @@ header {
 }
 .menu h3 {
   position: relative;
-  font-weight: bold;
+  font-weight: 500;
   z-index: 1;
   cursor: pointer;
 }
@@ -600,7 +599,7 @@ header {
   }
 }
 .menu__district ul li:last-child {
-  font-weight: bold;
+  font-weight: 500;
 }
 .menu__district.active {
   display: block;
@@ -669,7 +668,7 @@ main .contentWrap {
 }
 #map .popupContent h4 {
   margin-bottom: 3px;
-  font-weight: bold;
+  font-weight: 500;
 }
 #map .popupContent p {
   margin-top: 0;
@@ -679,7 +678,7 @@ main .contentWrap {
   padding: 4px 12px;
   color: #000;
   font-size: 12.8px;
-  font-weight: normal;
+  font-weight: 400;
   text-decoration: none;
 }
 #map .popupContent a:hover {
@@ -937,7 +936,7 @@ main .contentWrap {
   margin-right: 4px;
   padding: 2px 6px;
   color: #000;
-  font-weight: normal;
+  font-weight: 400;
   border-radius: 4px;
   color: #000;
   background-color: #eeeeee;
@@ -1066,7 +1065,7 @@ main .contentWrap {
 .articleList__content__text p {
   margin-bottom: 4px;
   color: #868686;
-  font-weight: lighter;
+  font-weight: 300;
 }
 @media only screen and (max-width: 428px) {
   .articleList__content__text p {
@@ -1077,7 +1076,7 @@ main .contentWrap {
   margin-bottom: 4px;
   max-height: 56px;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 500;
   line-height: 1.2;
   overflow: hidden;
 }
@@ -1195,7 +1194,7 @@ main .contentWrap {
 .swiper .swiperContent__content__left h5 {
   margin-top: -20px;
   font-size: 60px;
-  font-weight: bold;
+  font-weight: 500;
   font-family: "Archivo Black", sans-serif;
 }
 @media only screen and (max-width: 428px) {
@@ -1234,7 +1233,7 @@ main .contentWrap {
 .swiper .swiperContent__content__right p {
   position: relative;
   font-size: 20px;
-  font-weight: normal;
+  font-weight: 400;
 }
 @media only screen and (max-width: 428px) {
   .swiper .swiperContent__content__right p {
@@ -1262,7 +1261,7 @@ main .contentWrap {
 .swiper .swiperContent__content__right h4 {
   width: 100%;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 500;
   line-height: 1.2;
 }
 @media only screen and (max-width: 428px) {

@@ -131,9 +131,9 @@ table {
 
 //思源黑體
 //font-family: 'Noto Sans TC',sans-serif;
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 *,
 *::before,
@@ -145,7 +145,9 @@ table {
 body {
   width: 100%;
   height: 100%;
-  font-family: Helvetica, Arial, 'Noto Sans TC', '微軟正黑體', sans-serif;
+  // font-family: Helvetica, Arial, 'Noto Sans TC', sans-serif;
+  font-family: 'Archivo Black', sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
   line-height: 1.5;
 }
 

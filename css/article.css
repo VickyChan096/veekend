@@ -1,6 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
 html,
 body,
 div,
@@ -141,7 +140,8 @@ table {
 body {
   width: 100%;
   height: 100%;
-  font-family: Helvetica, Arial, "Noto Sans TC", "微軟正黑體", sans-serif;
+  font-family: "Archivo Black", sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   line-height: 1.5;
 }
 
@@ -303,7 +303,7 @@ body {
   position: relative;
   color: #000;
   font-size: 16px;
-  font-weight: lighter;
+  font-weight: 300;
   background-color: #000;
 }
 
@@ -493,7 +493,7 @@ header {
 }
 .menu h3 {
   position: relative;
-  font-weight: bold;
+  font-weight: 500;
   z-index: 1;
   cursor: pointer;
 }
@@ -600,7 +600,7 @@ header {
   }
 }
 .menu__district ul li:last-child {
-  font-weight: bold;
+  font-weight: 500;
 }
 .menu__district.active {
   display: block;
@@ -669,7 +669,7 @@ main .contentWrap {
 }
 #map .popupContent h4 {
   margin-bottom: 3px;
-  font-weight: bold;
+  font-weight: 500;
 }
 #map .popupContent p {
   margin-top: 0;
@@ -679,7 +679,7 @@ main .contentWrap {
   padding: 4px 12px;
   color: #000;
   font-size: 12.8px;
-  font-weight: normal;
+  font-weight: 400;
   text-decoration: none;
 }
 #map .popupContent a:hover {
@@ -937,7 +937,7 @@ main .contentWrap {
   margin-right: 4px;
   padding: 2px 6px;
   color: #000;
-  font-weight: normal;
+  font-weight: 400;
   border-radius: 4px;
   color: #000;
   background-color: #eeeeee;
@@ -995,7 +995,7 @@ main .contentWrap {
 }
 .heroSection__content h3 {
   font-size: 42px;
-  font-weight: bold;
+  font-weight: 500;
 }
 .heroSection img {
   min-height: 450px;
@@ -1252,7 +1252,7 @@ main .contentWrap {
   margin-right: 4px;
   padding: 2px 6px;
   color: #000;
-  font-weight: normal;
+  font-weight: 400;
   border-radius: 4px;
   background-color: #eeeeee;
   transition: all 0.2s;
