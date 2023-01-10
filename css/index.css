@@ -492,7 +492,7 @@ header {
 }
 .menu h3 {
   position: relative;
-  font-weight: 700;
+  font-weight: 400;
   z-index: 1;
   cursor: pointer;
 }
@@ -599,7 +599,7 @@ header {
   }
 }
 .menu__district ul li:last-child {
-  font-weight: 700;
+  font-weight: 500;
 }
 .menu__district.active {
   display: block;
@@ -668,7 +668,7 @@ main .contentWrap {
 }
 #map .popupContent h4 {
   margin-bottom: 3px;
-  font-weight: 700;
+  font-weight: 500;
 }
 #map .popupContent p {
   margin-top: 0;
@@ -1076,7 +1076,7 @@ main .contentWrap {
   margin-bottom: 4px;
   max-height: 56px;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2;
   overflow: hidden;
 }
@@ -1194,7 +1194,7 @@ main .contentWrap {
 .swiper .swiperContent__content__left h5 {
   margin-top: -20px;
   font-size: 60px;
-  font-weight: 700;
+  font-weight: 500;
   font-family: "Archivo Black", sans-serif;
 }
 @media only screen and (max-width: 428px) {
@@ -1261,7 +1261,7 @@ main .contentWrap {
 .swiper .swiperContent__content__right h4 {
   width: 100%;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2;
 }
 @media only screen and (max-width: 428px) {
