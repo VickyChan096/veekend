@@ -64,10 +64,11 @@
 			line-height: 1.4;
 			text-decoration: underline;
 			text-decoration-color: $c1st;
-			// text-decoration-color: $c4th;
 			text-decoration-thickness: 20px;
 			text-underline-offset: -12px;
+			-webkit-text-underline-offset: -12px;
 			text-decoration-skip-ink: none;
+			user-select: none;
 
 			@include pad {
 				font-size: 30px;
@@ -120,6 +121,7 @@
 				color: $c4th;
 				font-size: $fz-l;
 				transition: $trsSlow;
+				user-select: none;
 				cursor: pointer;
 			}
 

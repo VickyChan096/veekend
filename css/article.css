@@ -1035,8 +1035,13 @@ main .contentWrap {
           text-decoration-color: #ffe60f;
   text-decoration-thickness: 20px;
   text-underline-offset: -12px;
+  -webkit-text-underline-offset: -12px;
   -webkit-text-decoration-skip-ink: none;
           text-decoration-skip-ink: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 @media only screen and (max-width: 992px) {
   .article__top h2 {
@@ -1083,6 +1088,10 @@ main .contentWrap {
   color: #eeeeee;
   font-size: 24px;
   transition: all 0.5s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
 }
 .article__middle__catalog i.active {
