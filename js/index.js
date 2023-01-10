@@ -12,13 +12,13 @@ init();
 
 function fireSwiper() {
   const swiper = new Swiper('.swiper', {
-    speed: 1000,
+    // speed: 1000,
     effect: 'slide',
-    grabCursor: true,
+    // grabCursor: true,
     autoplay: {
       // 解決小網手動操作後停止自動輪播
       disableOnInteraction: false,
-      delay: 2000,
+      delay: 3500,
     },
     loop: true,
     pagination: {
@@ -39,9 +39,11 @@ function fireSwiper() {
 
   let screenWidth = window.innerWidth;
   if (screenWidth <= 768) {
-    const pagination = document.querySelector('.swiper-pagination');
-    pagination.style= 'display:none';
+    // const pagination = document.querySelector('.swiper-pagination');
+    // pagination.style= 'display:none';
     $('h4').removeAttr('data-swiper-parallax-duration');
+    $('h5').removeAttr('data-swiper-parallax-duration');
+    $('p').removeAttr('data-swiper-parallax-duration');
   }
 }
 

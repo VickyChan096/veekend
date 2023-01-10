@@ -233,6 +233,7 @@ header {
         padding: 8px;
         height: 30px;
         width: 25vw;
+        font-size: $fz-s; // 避免瀏覽器放大畫面
         border-radius: $br-s 0 0 $br-s;
 
         @include mobile {
