@@ -493,7 +493,7 @@ header {
 }
 .menu h3 {
   position: relative;
-  font-weight: 500;
+  font-weight: bold;
   z-index: 1;
   cursor: pointer;
 }
@@ -600,7 +600,7 @@ header {
   }
 }
 .menu__district ul li:last-child {
-  font-weight: 500;
+  font-weight: bold;
 }
 .menu__district.active {
   display: block;
@@ -669,7 +669,7 @@ main .contentWrap {
 }
 #map .popupContent h4 {
   margin-bottom: 3px;
-  font-weight: 500;
+  font-weight: bold;
 }
 #map .popupContent p {
   margin-top: 0;
